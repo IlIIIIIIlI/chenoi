@@ -1,0 +1,17 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+parts:
+  - caption: AI
+    chapters:
+    - file: markdown
+      sections:
+      - file: mymarkdownfile
+  - caption: AI2
+    chapters:
+    - file: notebooks
+      sections:
+      - file: markdown-notebooks
+
