@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Java1 &#8212; Chenoi AI Lab</title>
+    <title>Java &#8212; Chenoi AI Lab</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -51,10 +51,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1.1. JAVA LEARNING BOOK" href="JAVA/90041_1.html" />
-    <link rel="prev" title="1. COMP90054 AI Planning for Autonomy" href="../AI/RF/test.html" />
+    <link rel="next" title="Basic JAVA" href="JAVA/90041_1.html" />
+    <link rel="prev" title="COMP90054 AI Planning for Autonomy" href="../AI/RF/test.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -94,15 +96,10 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../intro.html">
-   Andy’s Coding Book
+   My Coding Book
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Default Use
- </span>
-</p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../example/intro.html">
@@ -116,22 +113,22 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../example/mymarkdownfile.html">
-     1.1. subsection example
+     subsection example
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../example/notebooks.html">
-     1.2. notebook example
+     notebook example
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../example/markdown-notebooks.html">
-     1.3. markdown example
+     markdown example
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../example/markdown.html">
-     1.4. markdown example2
+     Markdown Files
     </a>
    </li>
   </ul>
@@ -139,13 +136,13 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  AI
+  Artificial Intelligence
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../AI/AI_competition/intro.html">
-   AI Competition
+  <a class="reference internal" href="../AI/RF/intro.html">
+   RF
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
@@ -154,35 +151,8 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../AI/AI_competition/%E4%B8%AA%E8%B4%B7%E8%BF%9D%E7%BA%A6%E9%A2%84%E6%B5%8B.html">
-     1.1. 个贷违约
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../AI/AI_competition/Fraud%20Detection%20in%20Insurance.html">
-     1.5. Fraud Detection
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../AI/AI_competition/4/%E4%BA%A7%E5%93%81%E8%AF%84%E8%AE%BA%E8%A7%82%E7%82%B9%E6%8F%90%E5%8F%96.html">
-     1.6. 产品观点提取
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../AI/RF/intro.html">
-   RF
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
     <a class="reference internal" href="../AI/RF/test.html">
-     1. COMP90054 AI Planning for Autonomy
+     COMP90054 AI Planning for Autonomy
     </a>
    </li>
   </ul>
@@ -196,17 +166,51 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active has-children">
   <a class="current reference internal" href="#">
-   Java1
+   Java
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="JAVA/90041_1.html">
-     1.1. JAVA LEARNING BOOK
+     Basic JAVA
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Interesting staffs
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../AI/AI_competition/intro.html">
+   AI Competition
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../AI/AI_competition/%E4%B8%AA%E8%B4%B7%E8%BF%9D%E7%BA%A6%E9%A2%84%E6%B5%8B.html">
+     个贷违约
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../AI/AI_competition/Fraud%20Detection%20in%20Insurance.html">
+     银行欺诈检测比赛
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../AI/AI_competition/4/%E4%BA%A7%E5%93%81%E8%AF%84%E8%AE%BA%E8%A7%82%E7%82%B9%E6%8F%90%E5%8F%96.html">
+     产品观点提取
     </a>
    </li>
   </ul>
@@ -284,7 +288,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Java1</h1>
+                <h1>Java</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -295,9 +299,8 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="java1">
-<h1>Java1<a class="headerlink" href="#java1" title="Permalink to this headline">¶</a></h1>
-<p>This book is for AI lover, not for exploitation!</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="java">
+<h1>Java<a class="headerlink" href="#java" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
 </div>
@@ -331,13 +334,13 @@ const thebe_selector_output = ".output, .cell_output"
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">1. </span>COMP90054 AI Planning for Autonomy</p>
+            <p class="prev-next-title">COMP90054 AI Planning for Autonomy</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="JAVA/90041_1.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">1.1. </span>JAVA LEARNING BOOK</p>
+        <p class="prev-next-title">Basic JAVA</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

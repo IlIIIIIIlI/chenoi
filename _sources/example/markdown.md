@@ -7,14 +7,79 @@ This is a simple file to help you get started and show off some syntax.
 
 ## What is MyST?
 
+
+````{sidebar} Sample Roles and Directives
 MyST stands for "Markedly Structured Text". It
 is a slight variation on a flavor of markdown called "CommonMark" markdown,
 with small syntax extensions to allow you to write **roles** and **directives**
 in the Sphinx ecosystem.
+```{note}
+Roles and directives are two of the most powerful tools in Jupyter Book. They
+are kind of like functions, but written in a markup language. They both
+serve a similar purpose, but **roles are written in one line**, whereas
+**directives span many lines**. They both accept different kinds of inputs,
+and what they do with those inputs depends on the specific role or directive
+that is being called.
+```
+````
+
+Roles and directives are two of the most powerful tools in Jupyter Book. They
+are kind of like functions, but written in a markup language. They both
+serve a similar purpose, but **roles are written in one line**, whereas
+**directives span many lines**. They both accept different kinds of inputs,
+and what they do with those inputs depends on the specific role or directive
+that is being called.Roles and directives are two of the most powerful tools in Jupyter Book. They
+are kind of like functions, but written in a markup language. They both
+serve a similar purpose, but **roles are written in one line**, whereas
+**directives span many lines**. They both accept different kinds of inputs,
+and what they do with those inputs depends on the specific role or directive
+that is being called.Roles and directives are two of the most powerful tools in Jupyter Book. They
+are kind of like functions, but written in a markup language. They both
+serve a similar purpose, but **roles are written in one line**, whereas
+**directives span many lines**. They both accept different kinds of inputs,
+and what they do with those inputs depends on the specific role or directive
+that is being called.Roles and directives are two of the most powerful tools in Jupyter Book. They
+are kind of like functions, but written in a markup language. They both
+serve a similar purpose, but **roles are written in one line**, whereas
+**directives span many lines**. They both accept different kinds of inputs,
+and what they do with those inputs depends on the specific role or directive
+that is being called.
+
+
+
 
 For more about MyST, see [the MyST Markdown Overview](https://jupyterbook.org/content/myst.html).
 
-## Sample Roles and Directives
+(myst_cheatsheet)=
+# MyST Cheat Sheet
+
+
+````{div} full-width
+```{note}
+Roles and directives are two of the most powerful tools in Jupyter Book. They
+are kind of like functions, but written in a markup language. They both
+serve a similar purpose, but **roles are written in one line**, whereas
+**directives span many lines**. They both accept different kinds of inputs,
+and what they do with those inputs depends on the specific role or directive
+that is being called.
+```
+````
+
+```{note}
+:class: full-width
+Roles and directives are two of the most powerful tools in Jupyter Book. They
+are kind of like functions, but written in a markup language. They both
+serve a similar purpose, but **roles are written in one line**, whereas
+**directives span many lines**. They both accept different kinds of inputs,
+and what they do with those inputs depends on the specific role or directive
+that is being called.
+```
+
+
+{ref}`myst_cheatsheet`
+this is line comment
+% text line comment
+++++++++++++++++
 
 Roles and directives are two of the most powerful tools in Jupyter Book. They
 are kind of like functions, but written in a markup language. They both

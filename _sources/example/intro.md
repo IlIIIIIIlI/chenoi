@@ -1,5 +1,5 @@
 # Example Files
 
-This book is for AI lover, not for exploitation!
+网站文件的简单测试版本，后期删除。
 
 
