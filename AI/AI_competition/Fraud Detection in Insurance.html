@@ -1,0 +1,2787 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1.5. Fraud Detection &#8212; Chenoi AI Lab</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="1.6. 产品观点提取" href="4/%E4%BA%A7%E5%93%81%E8%AF%84%E8%AE%BA%E8%A7%82%E7%82%B9%E6%8F%90%E5%8F%96.html" />
+    <link rel="prev" title="1.1. 个贷违约" href="%E4%B8%AA%E8%B4%B7%E8%BF%9D%E7%BA%A6%E9%A2%84%E6%B5%8B.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Chenoi AI Lab</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="搜索这本书..." aria-label="搜索这本书..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Andy’s Coding Book
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Default Use
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../example/intro.html">
+   1. Example Files
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../example/mymarkdownfile.html">
+     1.1. subsection example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../example/notebooks.html">
+     1.2. notebook example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../example/markdown-notebooks.html">
+     1.3. markdown example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../example/markdown.html">
+     1.4. markdown example2
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  AI
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="intro.html">
+   1. AI Competition
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="%E4%B8%AA%E8%B4%B7%E8%BF%9D%E7%BA%A6%E9%A2%84%E6%B5%8B.html">
+     1.1. 个贷违约
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     1.5. Fraud Detection
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="4/%E4%BA%A7%E5%93%81%E8%AF%84%E8%AE%BA%E8%A7%82%E7%82%B9%E6%8F%90%E5%8F%96.html">
+     1.6. 产品观点提取
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../RF/intro.html">
+   RF
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../RF/test.html">
+     1. COMP90054 AI Planning for Autonomy
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Programming Language
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../Programming/intro.html">
+   1. Java1
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Programming/JAVA/90041_1.html">
+     1.1. JAVA LEARNING BOOK
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="切换导航" aria-controls="site-navigation"
+                title="切换导航" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="下载此页面"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/AI/AI_competition/Fraud Detection in Insurance.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="下载源文件" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="列印成PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="全屏模式"
+        title="全屏模式"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/AI/AI_competition/Fraud Detection in Insurance.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="发射 Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Fraud Detection</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="fraud-detection">
+<h1><span class="section-number">1.5. </span>Fraud Detection<a class="headerlink" href="#fraud-detection" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;train_internet.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/test_public.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/test.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="nn">Input In [4],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/test.csv&#39;</span><span class="p">)</span>
+
+<span class="nn">File ~\anaconda3\lib\site-packages\pandas\util\_decorators.py:311,</span> in <span class="ni">deprecate_nonkeyword_arguments.&lt;locals&gt;.decorate.&lt;locals&gt;.wrapper</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">305</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">num_allow_args</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">306</span>     <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">307</span>         <span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">arguments</span><span class="o">=</span><span class="n">arguments</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">308</span>         <span class="ne">FutureWarning</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">309</span>         <span class="n">stacklevel</span><span class="o">=</span><span class="n">stacklevel</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">310</span>     <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">311</span> <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File ~\anaconda3\lib\site-packages\pandas\io\parsers\readers.py:586,</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, error_bad_lines, warn_bad_lines, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">571</span> <span class="n">kwds_defaults</span> <span class="o">=</span> <span class="n">_refine_defaults_read</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">572</span>     <span class="n">dialect</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">573</span>     <span class="n">delimiter</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">582</span>     <span class="n">defaults</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;delimiter&quot;</span><span class="p">:</span> <span class="s2">&quot;,&quot;</span><span class="p">},</span>
+<span class="g g-Whitespace">    </span><span class="mi">583</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">584</span> <span class="n">kwds</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwds_defaults</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">586</span> <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+
+<span class="nn">File ~\anaconda3\lib\site-packages\pandas\io\parsers\readers.py:482,</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">479</span> <span class="n">_validate_names</span><span class="p">(</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;names&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">481</span> <span class="c1"># Create the parser.</span>
+<span class="ne">--&gt; </span><span class="mi">482</span> <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">484</span> <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">485</span>     <span class="k">return</span> <span class="n">parser</span>
+
+<span class="nn">File ~\anaconda3\lib\site-packages\pandas\io\parsers\readers.py:811,</span> in <span class="ni">TextFileReader.__init__</span><span class="nt">(self, f, engine, **kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">808</span> <span class="k">if</span> <span class="s2">&quot;has_index_names&quot;</span> <span class="ow">in</span> <span class="n">kwds</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">809</span>     <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span>
+<span class="ne">--&gt; </span><span class="mi">811</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
+
+<span class="nn">File ~\anaconda3\lib\site-packages\pandas\io\parsers\readers.py:1040,</span> in <span class="ni">TextFileReader._make_engine</span><span class="nt">(self, engine)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1036</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1037</span>         <span class="sa">f</span><span class="s2">&quot;Unknown engine: </span><span class="si">{</span><span class="n">engine</span><span class="si">}</span><span class="s2"> (valid options are </span><span class="si">{</span><span class="n">mapping</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span><span class="si">}</span><span class="s2">)&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1038</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1039</span> <span class="c1"># error: Too many arguments for &quot;ParserBase&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1040</span> <span class="k">return</span> <span class="n">mapping</span><span class="p">[</span><span class="n">engine</span><span class="p">](</span><span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">)</span>
+
+<span class="nn">File ~\anaconda3\lib\site-packages\pandas\io\parsers\c_parser_wrapper.py:51,</span> in <span class="ni">CParserWrapper.__init__</span><span class="nt">(self, src, **kwds)</span>
+<span class="g g-Whitespace">     </span><span class="mi">48</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;usecols&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">usecols</span>
+<span class="g g-Whitespace">     </span><span class="mi">50</span> <span class="c1"># open handles</span>
+<span class="ne">---&gt; </span><span class="mi">51</span> <span class="bp">self</span><span class="o">.</span><span class="n">_open_handles</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">52</span> <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+<span class="g g-Whitespace">     </span><span class="mi">54</span> <span class="c1"># Have to pass int, would break tests using TextReader directly otherwise :(</span>
+
+<span class="nn">File ~\anaconda3\lib\site-packages\pandas\io\parsers\base_parser.py:222,</span> in <span class="ni">ParserBase._open_handles</span><span class="nt">(self, src, kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">218</span> <span class="k">def</span> <span class="nf">_open_handles</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">src</span><span class="p">:</span> <span class="n">FilePathOrBuffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">219</span>     <span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">220</span><span class="sd">     Let the readers open IOHandles after they are done with their potential raises.</span>
+<span class="g g-Whitespace">    </span><span class="mi">221</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">222</span>     <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="o">=</span> <span class="n">get_handle</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">223</span>         <span class="n">src</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">224</span>         <span class="s2">&quot;r&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">225</span>         <span class="n">encoding</span><span class="o">=</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">226</span>         <span class="n">compression</span><span class="o">=</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;compression&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">227</span>         <span class="n">memory_map</span><span class="o">=</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;memory_map&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">228</span>         <span class="n">storage_options</span><span class="o">=</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;storage_options&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">229</span>         <span class="n">errors</span><span class="o">=</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding_errors&quot;</span><span class="p">,</span> <span class="s2">&quot;strict&quot;</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">230</span>     <span class="p">)</span>
+
+<span class="nn">File ~\anaconda3\lib\site-packages\pandas\io\common.py:702,</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">697</span> <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">698</span>     <span class="c1"># Check whether the filename is to be opened in binary mode.</span>
+<span class="g g-Whitespace">    </span><span class="mi">699</span>     <span class="c1"># Binary mode does not support &#39;encoding&#39; and &#39;newline&#39;.</span>
+<span class="g g-Whitespace">    </span><span class="mi">700</span>     <span class="k">if</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span> <span class="ow">and</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">701</span>         <span class="c1"># Encoding</span>
+<span class="ne">--&gt; </span><span class="mi">702</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">703</span>             <span class="n">handle</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">704</span>             <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">705</span>             <span class="n">encoding</span><span class="o">=</span><span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">706</span>             <span class="n">errors</span><span class="o">=</span><span class="n">errors</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">707</span>             <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">708</span>         <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">709</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">710</span>         <span class="c1"># Binary mode</span>
+<span class="g g-Whitespace">    </span><span class="mi">711</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">)</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;data/test.csv&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./data/test.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="nn">c:\Users\19723\Dropbox\chenoi\AndyAI\AI\AI_competition\Fraud Detection in Insurance.ipynb Cell 6&#39;</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="o">----&gt;</span> <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;vscode-notebook-cell:/c%3A/Users/19723/Dropbox/chenoi/AndyAI/AI/AI_competition/Fraud%20Detection</span><span class="si">%20i</span><span class="s1">n%20Insurance.ipynb#ch0000058?line=0&#39;</span><span class="o">&gt;</span><span class="mi">1</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span> <span class="n">test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./data/test.csv&#39;</span><span class="p">)</span>
+
+<span class="nn">File c:\Users\19723\anaconda3\lib\site-packages\pandas\util\_decorators.py:311,</span> in <span class="ni">deprecate_nonkeyword_arguments.&lt;locals&gt;.decorate.&lt;locals&gt;.wrapper</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">305</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">num_allow_args</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">306</span>     <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">307</span>         <span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">arguments</span><span class="o">=</span><span class="n">arguments</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">308</span>         <span class="ne">FutureWarning</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">309</span>         <span class="n">stacklevel</span><span class="o">=</span><span class="n">stacklevel</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">310</span>     <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">311</span> <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File c:\Users\19723\anaconda3\lib\site-packages\pandas\io\parsers\readers.py:586,</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, error_bad_lines, warn_bad_lines, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">571</span> <span class="n">kwds_defaults</span> <span class="o">=</span> <span class="n">_refine_defaults_read</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">572</span>     <span class="n">dialect</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">573</span>     <span class="n">delimiter</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">582</span>     <span class="n">defaults</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;delimiter&quot;</span><span class="p">:</span> <span class="s2">&quot;,&quot;</span><span class="p">},</span>
+<span class="g g-Whitespace">    </span><span class="mi">583</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">584</span> <span class="n">kwds</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwds_defaults</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">586</span> <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+
+<span class="nn">File c:\Users\19723\anaconda3\lib\site-packages\pandas\io\parsers\readers.py:482,</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">479</span> <span class="n">_validate_names</span><span class="p">(</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;names&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">481</span> <span class="c1"># Create the parser.</span>
+<span class="ne">--&gt; </span><span class="mi">482</span> <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">484</span> <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">485</span>     <span class="k">return</span> <span class="n">parser</span>
+
+<span class="nn">File c:\Users\19723\anaconda3\lib\site-packages\pandas\io\parsers\readers.py:811,</span> in <span class="ni">TextFileReader.__init__</span><span class="nt">(self, f, engine, **kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">808</span> <span class="k">if</span> <span class="s2">&quot;has_index_names&quot;</span> <span class="ow">in</span> <span class="n">kwds</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">809</span>     <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span>
+<span class="ne">--&gt; </span><span class="mi">811</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
+
+<span class="nn">File c:\Users\19723\anaconda3\lib\site-packages\pandas\io\parsers\readers.py:1040,</span> in <span class="ni">TextFileReader._make_engine</span><span class="nt">(self, engine)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1036</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1037</span>         <span class="sa">f</span><span class="s2">&quot;Unknown engine: </span><span class="si">{</span><span class="n">engine</span><span class="si">}</span><span class="s2"> (valid options are </span><span class="si">{</span><span class="n">mapping</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span><span class="si">}</span><span class="s2">)&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1038</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1039</span> <span class="c1"># error: Too many arguments for &quot;ParserBase&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1040</span> <span class="k">return</span> <span class="n">mapping</span><span class="p">[</span><span class="n">engine</span><span class="p">](</span><span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">)</span>
+
+<span class="nn">File c:\Users\19723\anaconda3\lib\site-packages\pandas\io\parsers\c_parser_wrapper.py:51,</span> in <span class="ni">CParserWrapper.__init__</span><span class="nt">(self, src, **kwds)</span>
+<span class="g g-Whitespace">     </span><span class="mi">48</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;usecols&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">usecols</span>
+<span class="g g-Whitespace">     </span><span class="mi">50</span> <span class="c1"># open handles</span>
+<span class="ne">---&gt; </span><span class="mi">51</span> <span class="bp">self</span><span class="o">.</span><span class="n">_open_handles</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">52</span> <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+<span class="g g-Whitespace">     </span><span class="mi">54</span> <span class="c1"># Have to pass int, would break tests using TextReader directly otherwise :(</span>
+
+<span class="nn">File c:\Users\19723\anaconda3\lib\site-packages\pandas\io\parsers\base_parser.py:222,</span> in <span class="ni">ParserBase._open_handles</span><span class="nt">(self, src, kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">218</span> <span class="k">def</span> <span class="nf">_open_handles</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">src</span><span class="p">:</span> <span class="n">FilePathOrBuffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">219</span>     <span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">220</span><span class="sd">     Let the readers open IOHandles after they are done with their potential raises.</span>
+<span class="g g-Whitespace">    </span><span class="mi">221</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">222</span>     <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="o">=</span> <span class="n">get_handle</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">223</span>         <span class="n">src</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">224</span>         <span class="s2">&quot;r&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">225</span>         <span class="n">encoding</span><span class="o">=</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">226</span>         <span class="n">compression</span><span class="o">=</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;compression&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">227</span>         <span class="n">memory_map</span><span class="o">=</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;memory_map&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">228</span>         <span class="n">storage_options</span><span class="o">=</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;storage_options&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">229</span>         <span class="n">errors</span><span class="o">=</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding_errors&quot;</span><span class="p">,</span> <span class="s2">&quot;strict&quot;</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">230</span>     <span class="p">)</span>
+
+<span class="nn">File c:\Users\19723\anaconda3\lib\site-packages\pandas\io\common.py:702,</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">697</span> <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">698</span>     <span class="c1"># Check whether the filename is to be opened in binary mode.</span>
+<span class="g g-Whitespace">    </span><span class="mi">699</span>     <span class="c1"># Binary mode does not support &#39;encoding&#39; and &#39;newline&#39;.</span>
+<span class="g g-Whitespace">    </span><span class="mi">700</span>     <span class="k">if</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span> <span class="ow">and</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">701</span>         <span class="c1"># Encoding</span>
+<span class="ne">--&gt; </span><span class="mi">702</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">703</span>             <span class="n">handle</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">704</span>             <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">705</span>             <span class="n">encoding</span><span class="o">=</span><span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">706</span>             <span class="n">errors</span><span class="o">=</span><span class="n">errors</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">707</span>             <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">708</span>         <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">709</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">710</span>         <span class="c1"># Binary mode</span>
+<span class="g g-Whitespace">    </span><span class="mi">711</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">)</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;./data/test.csv&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;sampleSubmission.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="nn">c:\Users\19723\Dropbox\chenoi\AndyAI\AI\AI_competition\Fraud Detection in Insurance.ipynb Cell 7&#39;</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="o">----&gt;</span> <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;vscode-notebook-cell:/c%3A/Users/19723/Dropbox/chenoi/AndyAI/AI/AI_competition/Fraud%20Detection</span><span class="si">%20i</span><span class="s1">n%20Insurance.ipynb#ch0000003?line=0&#39;</span><span class="o">&gt;</span><span class="mi">1</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span> <span class="n">sample</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;sampleSubmission.csv&#39;</span><span class="p">)</span>
+
+<span class="nn">File c:\Users\19723\anaconda3\lib\site-packages\pandas\util\_decorators.py:311,</span> in <span class="ni">deprecate_nonkeyword_arguments.&lt;locals&gt;.decorate.&lt;locals&gt;.wrapper</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">305</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">num_allow_args</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">306</span>     <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">307</span>         <span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">arguments</span><span class="o">=</span><span class="n">arguments</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">308</span>         <span class="ne">FutureWarning</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">309</span>         <span class="n">stacklevel</span><span class="o">=</span><span class="n">stacklevel</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">310</span>     <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">311</span> <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File c:\Users\19723\anaconda3\lib\site-packages\pandas\io\parsers\readers.py:586,</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, error_bad_lines, warn_bad_lines, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">571</span> <span class="n">kwds_defaults</span> <span class="o">=</span> <span class="n">_refine_defaults_read</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">572</span>     <span class="n">dialect</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">573</span>     <span class="n">delimiter</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">582</span>     <span class="n">defaults</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;delimiter&quot;</span><span class="p">:</span> <span class="s2">&quot;,&quot;</span><span class="p">},</span>
+<span class="g g-Whitespace">    </span><span class="mi">583</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">584</span> <span class="n">kwds</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwds_defaults</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">586</span> <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+
+<span class="nn">File c:\Users\19723\anaconda3\lib\site-packages\pandas\io\parsers\readers.py:482,</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">479</span> <span class="n">_validate_names</span><span class="p">(</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;names&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">481</span> <span class="c1"># Create the parser.</span>
+<span class="ne">--&gt; </span><span class="mi">482</span> <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">484</span> <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">485</span>     <span class="k">return</span> <span class="n">parser</span>
+
+<span class="nn">File c:\Users\19723\anaconda3\lib\site-packages\pandas\io\parsers\readers.py:811,</span> in <span class="ni">TextFileReader.__init__</span><span class="nt">(self, f, engine, **kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">808</span> <span class="k">if</span> <span class="s2">&quot;has_index_names&quot;</span> <span class="ow">in</span> <span class="n">kwds</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">809</span>     <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span>
+<span class="ne">--&gt; </span><span class="mi">811</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
+
+<span class="nn">File c:\Users\19723\anaconda3\lib\site-packages\pandas\io\parsers\readers.py:1040,</span> in <span class="ni">TextFileReader._make_engine</span><span class="nt">(self, engine)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1036</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1037</span>         <span class="sa">f</span><span class="s2">&quot;Unknown engine: </span><span class="si">{</span><span class="n">engine</span><span class="si">}</span><span class="s2"> (valid options are </span><span class="si">{</span><span class="n">mapping</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span><span class="si">}</span><span class="s2">)&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1038</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1039</span> <span class="c1"># error: Too many arguments for &quot;ParserBase&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1040</span> <span class="k">return</span> <span class="n">mapping</span><span class="p">[</span><span class="n">engine</span><span class="p">](</span><span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">)</span>
+
+<span class="nn">File c:\Users\19723\anaconda3\lib\site-packages\pandas\io\parsers\c_parser_wrapper.py:51,</span> in <span class="ni">CParserWrapper.__init__</span><span class="nt">(self, src, **kwds)</span>
+<span class="g g-Whitespace">     </span><span class="mi">48</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;usecols&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">usecols</span>
+<span class="g g-Whitespace">     </span><span class="mi">50</span> <span class="c1"># open handles</span>
+<span class="ne">---&gt; </span><span class="mi">51</span> <span class="bp">self</span><span class="o">.</span><span class="n">_open_handles</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">52</span> <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+<span class="g g-Whitespace">     </span><span class="mi">54</span> <span class="c1"># Have to pass int, would break tests using TextReader directly otherwise :(</span>
+
+<span class="nn">File c:\Users\19723\anaconda3\lib\site-packages\pandas\io\parsers\base_parser.py:222,</span> in <span class="ni">ParserBase._open_handles</span><span class="nt">(self, src, kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">218</span> <span class="k">def</span> <span class="nf">_open_handles</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">src</span><span class="p">:</span> <span class="n">FilePathOrBuffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">219</span>     <span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">220</span><span class="sd">     Let the readers open IOHandles after they are done with their potential raises.</span>
+<span class="g g-Whitespace">    </span><span class="mi">221</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">222</span>     <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="o">=</span> <span class="n">get_handle</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">223</span>         <span class="n">src</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">224</span>         <span class="s2">&quot;r&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">225</span>         <span class="n">encoding</span><span class="o">=</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">226</span>         <span class="n">compression</span><span class="o">=</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;compression&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">227</span>         <span class="n">memory_map</span><span class="o">=</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;memory_map&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">228</span>         <span class="n">storage_options</span><span class="o">=</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;storage_options&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">229</span>         <span class="n">errors</span><span class="o">=</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding_errors&quot;</span><span class="p">,</span> <span class="s2">&quot;strict&quot;</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">230</span>     <span class="p">)</span>
+
+<span class="nn">File c:\Users\19723\anaconda3\lib\site-packages\pandas\io\common.py:702,</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">697</span> <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">698</span>     <span class="c1"># Check whether the filename is to be opened in binary mode.</span>
+<span class="g g-Whitespace">    </span><span class="mi">699</span>     <span class="c1"># Binary mode does not support &#39;encoding&#39; and &#39;newline&#39;.</span>
+<span class="g g-Whitespace">    </span><span class="mi">700</span>     <span class="k">if</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span> <span class="ow">and</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">701</span>         <span class="c1"># Encoding</span>
+<span class="ne">--&gt; </span><span class="mi">702</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">703</span>             <span class="n">handle</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">704</span>             <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">705</span>             <span class="n">encoding</span><span class="o">=</span><span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">706</span>             <span class="n">errors</span><span class="o">=</span><span class="n">errors</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">707</span>             <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">708</span>         <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">709</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">710</span>         <span class="c1"># Binary mode</span>
+<span class="g g-Whitespace">    </span><span class="mi">711</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">)</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;sampleSubmission.csv&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">top_cities</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;NewYork&quot;</span><span class="p">,</span><span class="s2">&quot;LosAngeles&quot;</span><span class="p">,</span><span class="s2">&quot;Chicago&quot;</span><span class="p">,</span><span class="s2">&quot;Houston&quot;</span><span class="p">,</span><span class="s2">&quot;Phoenix&quot;</span><span class="p">,</span><span class="s2">&quot;Philadelphia&quot;</span><span class="p">,</span><span class="s2">&quot;SanAntonio&quot;</span><span class="p">,</span><span class="s2">&quot;SanDiego&quot;</span><span class="p">,</span><span class="s2">&quot;Dallas&quot;</span><span class="p">,</span><span class="s2">&quot;SanJose&quot;</span><span class="p">,</span><span class="s2">&quot;Austin&quot;</span><span class="p">,</span><span class="s2">&quot;Jacksonville&quot;</span><span class="p">,</span><span class="s2">&quot;FortWorth&quot;</span><span class="p">,</span><span class="s2">&quot;Columbus&quot;</span><span class="p">,</span><span class="s2">&quot;Indianapolis&quot;</span><span class="p">,</span><span class="s2">&quot;Charlotte&quot;</span><span class="p">,</span><span class="s2">&quot;SanFrancisco&quot;</span><span class="p">,</span><span class="s2">&quot;Seattle&quot;</span><span class="p">,</span><span class="s2">&quot;Denver&quot;</span><span class="p">,</span><span class="s2">&quot;Washington&quot;</span><span class="p">,</span><span class="s2">&quot;Nashville&quot;</span><span class="p">,</span><span class="s2">&quot;OklahomaCity&quot;</span><span class="p">,</span><span class="s2">&quot;ElPaso&quot;</span><span class="p">,</span><span class="s2">&quot;Boston&quot;</span><span class="p">,</span><span class="s2">&quot;Portland&quot;</span><span class="p">,</span><span class="s2">&quot;LasVegas&quot;</span><span class="p">,</span><span class="s2">&quot;Detroit&quot;</span><span class="p">,</span><span class="s2">&quot;Memphis&quot;</span><span class="p">,</span><span class="s2">&quot;Louisville&quot;</span><span class="p">,</span><span class="s2">&quot;Baltimore&quot;</span><span class="p">,</span><span class="s2">&quot;Milwaukee&quot;</span><span class="p">,</span><span class="s2">&quot;Albuquerque&quot;</span><span class="p">,</span><span class="s2">&quot;Tucson&quot;</span><span class="p">,</span><span class="s2">&quot;Fresno&quot;</span><span class="p">,</span><span class="s2">&quot;Sacramento&quot;</span><span class="p">,</span><span class="s2">&quot;KansasCity&quot;</span><span class="p">,</span><span class="s2">&quot;Mesa&quot;</span><span class="p">,</span><span class="s2">&quot;Atlanta&quot;</span><span class="p">,</span><span class="s2">&quot;Omaha&quot;</span><span class="p">,</span><span class="s2">&quot;ColoradoSprings&quot;</span><span class="p">,</span><span class="s2">&quot;Raleigh&quot;</span><span class="p">,</span><span class="s2">&quot;LongBeach&quot;</span><span class="p">,</span><span class="s2">&quot;VirginiaBeach&quot;</span><span class="p">,</span><span class="s2">&quot;Miami&quot;</span><span class="p">,</span><span class="s2">&quot;Oakland&quot;</span><span class="p">,</span><span class="s2">&quot;Minneapolis&quot;</span><span class="p">,</span><span class="s2">&quot;Tulsa&quot;</span><span class="p">,</span><span class="s2">&quot;Bakersfield&quot;</span><span class="p">,</span><span class="s2">&quot;Wichita&quot;</span><span class="p">,</span><span class="s2">&quot;Arlington&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train</span><span class="p">[</span><span class="s1">&#39;incident_city&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Springfield    117
+Arlington      110
+Columbus       108
+Northbend       96
+Hillsdale       96
+Riverwood       90
+Northbrook      83
+Name: incident_city, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># for col in train[&#39;incident_state&#39;]:</span>
+<span class="c1">#     if col in top_state:</span>
+<span class="c1">#         train[&#39;big_state&#39;] = 2</span>
+<span class="c1">#     elif col in second_state:</span>
+<span class="c1">#         train[&#39;big_state&#39;] = 1</span>
+<span class="c1">#     else:</span>
+<span class="c1">#         train[&#39;big_state&#39;] = 0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;months_as_customer&#39;, &#39;age&#39;, &#39;policy_number&#39;, &#39;policy_bind_date&#39;,
+       &#39;policy_state&#39;, &#39;policy_csl&#39;, &#39;policy_deductable&#39;,
+       &#39;policy_annual_premium&#39;, &#39;umbrella_limit&#39;, &#39;insured_zip&#39;, &#39;insured_sex&#39;,
+       &#39;insured_education_level&#39;, &#39;insured_occupation&#39;, &#39;insured_hobbies&#39;,
+       &#39;insured_relationship&#39;, &#39;capital-gains&#39;, &#39;capital-loss&#39;,
+       &#39;incident_date&#39;, &#39;incident_type&#39;, &#39;collision_type&#39;, &#39;incident_severity&#39;,
+       &#39;authorities_contacted&#39;, &#39;incident_state&#39;, &#39;incident_city&#39;,
+       &#39;incident_location&#39;, &#39;incident_hour_of_the_day&#39;,
+       &#39;number_of_vehicles_involved&#39;, &#39;property_damage&#39;, &#39;bodily_injuries&#39;,
+       &#39;witnesses&#39;, &#39;police_report_available&#39;, &#39;total_claim_amount&#39;,
+       &#39;injury_claim&#39;, &#39;property_claim&#39;, &#39;vehicle_claim&#39;, &#39;auto_make&#39;,
+       &#39;auto_model&#39;, &#39;auto_year&#39;, &#39;_c39&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">train</span><span class="p">,</span> <span class="n">test</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;auto_model&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>39
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">car_price</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;res.xlsx&#39;</span><span class="p">)</span>
+<span class="n">car_price</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;auto_model&#39;</span><span class="p">,</span> <span class="s1">&#39;model_price&#39;</span><span class="p">]</span>
+<span class="n">car_price</span><span class="p">[</span><span class="s1">&#39;model_price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>22
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">car_price</span><span class="p">,</span><span class="n">on</span><span class="o">=</span><span class="s1">&#39;auto_model&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># data.drop([&#39;auto_model&#39;], axis=1, inplace=True)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>把日期转换成更有意义的特征，列入星期几</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;policy_bind_date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;policy_bind_date&#39;</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;incident_date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;incident_date&#39;</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;policy_bind_date_weekday&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;policy_bind_date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">weekday</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;incident_date_weekday&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;incident_date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">weekday</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">base_date</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;policy_bind_date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;p_diff&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;policy_bind_date&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">base_date</span><span class="p">)</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">days</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;i_diff&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;incident_date&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">base_date</span><span class="p">)</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">days</span>
+<span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;policy_bind_date&#39;</span><span class="p">,</span> <span class="s1">&#39;incident_date&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;pi_diff&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;p_diff&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;i_diff&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;top_state&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;NY&quot;</span><span class="p">,</span> <span class="s2">&quot;SC&quot;</span><span class="p">,</span> <span class="s2">&quot;WV&quot;</span><span class="p">],</span>
+    <span class="s1">&#39;second_state&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;NC&quot;</span><span class="p">,</span> <span class="s2">&quot;VA&quot;</span><span class="p">,</span> <span class="s2">&quot;chi&quot;</span><span class="p">],</span> 
+    <span class="s1">&#39;third_state&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;PA&quot;</span><span class="p">,</span> <span class="s2">&quot;OH&quot;</span><span class="p">,</span> <span class="s2">&quot;ttt&quot;</span><span class="p">]</span>
+<span class="p">})</span>
+
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;big_state&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;incident_state&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s1">&#39;3&#39;</span> <span class="k">if</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">v</span><span class="p">[</span><span class="s1">&#39;top_state&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="k">else</span> <span class="s1">&#39;2&#39;</span> <span class="k">if</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">v</span><span class="p">[</span><span class="s1">&#39;second_state&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> 
+                                             <span class="k">else</span> <span class="s1">&#39;1&#39;</span> <span class="k">if</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">v</span><span class="p">[</span><span class="s1">&#39;third_state&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="k">else</span> <span class="s1">&#39;0&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;incident_state&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;top_city&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Springfield&quot;</span><span class="p">,</span> <span class="s2">&quot;Arlington&quot;</span><span class="p">,</span> <span class="s2">&quot;Columbus&quot;</span><span class="p">],</span>
+    <span class="s1">&#39;second_city&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Northbend&quot;</span><span class="p">,</span> <span class="s2">&quot;Hillsdale&quot;</span><span class="p">,</span> <span class="s2">&quot;chi&quot;</span><span class="p">],</span> 
+    <span class="s1">&#39;third_city&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Riverwood&quot;</span><span class="p">,</span> <span class="s2">&quot;Northbrook&quot;</span><span class="p">,</span> <span class="s2">&quot;ttt&quot;</span><span class="p">]</span>
+<span class="p">})</span>
+
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;big_city&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;incident_city&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s1">&#39;3&#39;</span> <span class="k">if</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">v</span><span class="p">[</span><span class="s1">&#39;top_city&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="k">else</span> <span class="s1">&#39;2&#39;</span> <span class="k">if</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">v</span><span class="p">[</span><span class="s1">&#39;second_city&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> 
+                                             <span class="k">else</span> <span class="s1">&#39;1&#39;</span> <span class="k">if</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">v</span><span class="p">[</span><span class="s1">&#39;third_city&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="k">else</span> <span class="s1">&#39;0&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;incident_city&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="nb">object</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+    <span class="c1"># nqunique是一个方法，记得加括号</span>
+	<span class="nb">print</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>policy_state 3
+policy_csl 3
+insured_sex 2
+insured_education_level 7
+insured_occupation 14
+insured_hobbies 20
+insured_relationship 6
+incident_type 4
+collision_type 4
+incident_severity 4
+authorities_contacted 5
+incident_location 1000
+property_damage 3
+police_report_available 3
+auto_make 14
+auto_model 39
+big_state 3
+big_city 3
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">column_name</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">unique_value</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="nb">object</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+	<span class="n">column_name</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">col</span><span class="p">)</span>
+	<span class="n">unique_value</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;col_name&#39;</span><span class="p">]</span> <span class="o">=</span>  <span class="n">column_name</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">unique_value</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>col_name</th>
+      <th>value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>11</th>
+      <td>incident_location</td>
+      <td>1000</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>auto_model</td>
+      <td>39</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>insured_hobbies</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>insured_occupation</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>auto_make</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>insured_education_level</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>insured_relationship</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>authorities_contacted</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>incident_severity</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>incident_type</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>collision_type</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>police_report_available</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>big_state</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>policy_state</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>property_damage</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>policy_csl</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>big_city</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>insured_sex</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;authorities_contacted&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      Ambulance
+1         Police
+2         Police
+3          Other
+4      Ambulance
+         ...    
+995       Police
+996       Police
+997         Fire
+998       Police
+999       Police
+Name: authorities_contacted, Length: 1000, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cat_columns</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="s1">&#39;O&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span>
+<span class="n">float_d</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cat_l</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">cat_columns</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">cat_l</span><span class="p">:</span>
+    <span class="n">float_d</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">LabelEncoder</span>
+
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">cat_columns</span><span class="p">:</span>
+	<span class="n">le</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+	<span class="n">temp</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">le</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">col</span><span class="p">])</span>
+
+<span class="n">temp</span><span class="p">[</span><span class="s1">&#39;index&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">temp</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;index&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>policy_state</th>
+      <th>policy_csl</th>
+      <th>insured_sex</th>
+      <th>insured_education_level</th>
+      <th>insured_occupation</th>
+      <th>insured_hobbies</th>
+      <th>insured_relationship</th>
+      <th>incident_type</th>
+      <th>collision_type</th>
+      <th>incident_severity</th>
+      <th>authorities_contacted</th>
+      <th>incident_location</th>
+      <th>property_damage</th>
+      <th>police_report_available</th>
+      <th>auto_make</th>
+      <th>auto_model</th>
+      <th>big_state</th>
+      <th>big_city</th>
+    </tr>
+    <tr>
+      <th>index</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>2</td>
+      <td>0</td>
+      <td>5</td>
+      <td>10</td>
+      <td>15</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>2</td>
+      <td>0</td>
+      <td>680</td>
+      <td>0</td>
+      <td>0</td>
+      <td>9</td>
+      <td>26</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>5</td>
+      <td>7</td>
+      <td>3</td>
+      <td>2</td>
+      <td>3</td>
+      <td>0</td>
+      <td>1</td>
+      <td>4</td>
+      <td>462</td>
+      <td>2</td>
+      <td>1</td>
+      <td>9</td>
+      <td>26</td>
+      <td>2</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>6</td>
+      <td>6</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>4</td>
+      <td>629</td>
+      <td>2</td>
+      <td>0</td>
+      <td>9</td>
+      <td>26</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>3</td>
+      <td>2</td>
+      <td>12</td>
+      <td>4</td>
+      <td>2</td>
+      <td>3</td>
+      <td>2</td>
+      <td>3</td>
+      <td>431</td>
+      <td>2</td>
+      <td>1</td>
+      <td>9</td>
+      <td>26</td>
+      <td>2</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>2</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>10</td>
+      <td>10</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>32</td>
+      <td>0</td>
+      <td>0</td>
+      <td>9</td>
+      <td>26</td>
+      <td>2</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>996</th>
+      <td>2</td>
+      <td>1</td>
+      <td>0</td>
+      <td>2</td>
+      <td>6</td>
+      <td>18</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>3</td>
+      <td>4</td>
+      <td>294</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+      <td>0</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>997</th>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>4</td>
+      <td>10</td>
+      <td>16</td>
+      <td>2</td>
+      <td>3</td>
+      <td>0</td>
+      <td>1</td>
+      <td>4</td>
+      <td>334</td>
+      <td>1</td>
+      <td>2</td>
+      <td>2</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>998</th>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>5</td>
+      <td>1</td>
+      <td>9</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>2</td>
+      <td>1</td>
+      <td>158</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>0</td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>999</th>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>11</td>
+      <td>13</td>
+      <td>2</td>
+      <td>3</td>
+      <td>0</td>
+      <td>1</td>
+      <td>4</td>
+      <td>857</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>1000</th>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>3</td>
+      <td>1</td>
+      <td>4</td>
+      <td>4</td>
+      <td>2</td>
+      <td>2</td>
+      <td>1</td>
+      <td>4</td>
+      <td>313</td>
+      <td>1</td>
+      <td>2</td>
+      <td>2</td>
+      <td>0</td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>1000 rows × 18 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">normalize</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">feature_name</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">feature_name</span> <span class="o">==</span> <span class="s1">&#39;model_price&#39;</span> <span class="ow">or</span> <span class="n">feature_name</span> <span class="o">==</span> <span class="s1">&#39;policy_number&#39;</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">max_value</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">feature_name</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+            <span class="n">min_value</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">feature_name</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+            <span class="n">result</span><span class="p">[</span><span class="n">feature_name</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">feature_name</span><span class="p">]</span> <span class="o">-</span> <span class="n">min_value</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">max_value</span> <span class="o">-</span> <span class="n">min_value</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">float_d</span> <span class="o">=</span> <span class="n">normalize</span><span class="p">(</span><span class="n">float_d</span><span class="p">)</span>
+<span class="n">float_d</span><span class="p">[</span><span class="s1">&#39;index&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">float_d</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">float_d</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;index&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>months_as_customer</th>
+      <th>age</th>
+      <th>policy_number</th>
+      <th>policy_deductable</th>
+      <th>policy_annual_premium</th>
+      <th>umbrella_limit</th>
+      <th>insured_zip</th>
+      <th>capital-gains</th>
+      <th>capital-loss</th>
+      <th>incident_hour_of_the_day</th>
+      <th>...</th>
+      <th>vehicle_claim</th>
+      <th>auto_year</th>
+      <th>fraud_reported</th>
+      <th>_c39</th>
+      <th>model_price</th>
+      <th>policy_bind_date_weekday</th>
+      <th>incident_date_weekday</th>
+      <th>p_diff</th>
+      <th>i_diff</th>
+      <th>pi_diff</th>
+    </tr>
+    <tr>
+      <th>index</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>0.390397</td>
+      <td>0.400000</td>
+      <td>125591</td>
+      <td>0.333333</td>
+      <td>0.606303</td>
+      <td>0.545455</td>
+      <td>0.109207</td>
+      <td>0.598010</td>
+      <td>1.000000</td>
+      <td>0.913043</td>
+      <td>...</td>
+      <td>0.579821</td>
+      <td>0.25</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>-0.770666</td>
+      <td>0.500000</td>
+      <td>0.666667</td>
+      <td>0.938644</td>
+      <td>0.254237</td>
+      <td>0.940601</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.162839</td>
+      <td>0.222222</td>
+      <td>694662</td>
+      <td>0.333333</td>
+      <td>0.496122</td>
+      <td>0.636364</td>
+      <td>0.144940</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>0.130435</td>
+      <td>...</td>
+      <td>0.065165</td>
+      <td>0.35</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>-0.770666</td>
+      <td>0.166667</td>
+      <td>0.500000</td>
+      <td>0.840017</td>
+      <td>0.474576</td>
+      <td>0.840731</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.321503</td>
+      <td>0.333333</td>
+      <td>598554</td>
+      <td>0.000000</td>
+      <td>0.224189</td>
+      <td>0.090909</td>
+      <td>0.938457</td>
+      <td>0.367164</td>
+      <td>1.000000</td>
+      <td>0.652174</td>
+      <td>...</td>
+      <td>0.678953</td>
+      <td>0.95</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>-0.770666</td>
+      <td>0.333333</td>
+      <td>0.833333</td>
+      <td>0.004032</td>
+      <td>0.152542</td>
+      <td>0.008268</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.396660</td>
+      <td>0.422222</td>
+      <td>601042</td>
+      <td>0.000000</td>
+      <td>0.503450</td>
+      <td>0.090909</td>
+      <td>0.067144</td>
+      <td>0.615920</td>
+      <td>0.549955</td>
+      <td>0.608696</td>
+      <td>...</td>
+      <td>0.396276</td>
+      <td>0.90</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>-0.770666</td>
+      <td>0.333333</td>
+      <td>0.333333</td>
+      <td>0.704337</td>
+      <td>0.457627</td>
+      <td>0.705396</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0.323591</td>
+      <td>0.355556</td>
+      <td>327488</td>
+      <td>0.333333</td>
+      <td>0.301092</td>
+      <td>0.090909</td>
+      <td>0.154214</td>
+      <td>0.831841</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.404705</td>
+      <td>0.10</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>-0.770666</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>0.142655</td>
+      <td>0.288136</td>
+      <td>0.145779</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>996</th>
+      <td>0.175365</td>
+      <td>0.222222</td>
+      <td>630998</td>
+      <td>0.333333</td>
+      <td>0.423624</td>
+      <td>0.090909</td>
+      <td>0.228133</td>
+      <td>0.000000</td>
+      <td>0.730873</td>
+      <td>0.260870</td>
+      <td>...</td>
+      <td>0.061517</td>
+      <td>0.50</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.598918</td>
+      <td>0.333333</td>
+      <td>0.500000</td>
+      <td>0.527354</td>
+      <td>0.711864</td>
+      <td>0.527089</td>
+    </tr>
+    <tr>
+      <th>997</th>
+      <td>0.217119</td>
+      <td>0.244444</td>
+      <td>544225</td>
+      <td>0.000000</td>
+      <td>0.383780</td>
+      <td>0.090909</td>
+      <td>0.930498</td>
+      <td>0.000000</td>
+      <td>0.369037</td>
+      <td>0.347826</td>
+      <td>...</td>
+      <td>0.041389</td>
+      <td>0.55</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.598918</td>
+      <td>0.166667</td>
+      <td>0.000000</td>
+      <td>0.818657</td>
+      <td>0.661017</td>
+      <td>0.818211</td>
+    </tr>
+    <tr>
+      <th>998</th>
+      <td>0.344468</td>
+      <td>0.377778</td>
+      <td>427199</td>
+      <td>1.000000</td>
+      <td>0.504590</td>
+      <td>0.090909</td>
+      <td>0.179358</td>
+      <td>0.000000</td>
+      <td>0.642664</td>
+      <td>0.869565</td>
+      <td>...</td>
+      <td>0.459051</td>
+      <td>0.65</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.598918</td>
+      <td>0.666667</td>
+      <td>0.333333</td>
+      <td>0.825087</td>
+      <td>0.220339</td>
+      <td>0.827459</td>
+    </tr>
+    <tr>
+      <th>999</th>
+      <td>0.594990</td>
+      <td>0.533333</td>
+      <td>171254</td>
+      <td>1.000000</td>
+      <td>0.668573</td>
+      <td>0.090909</td>
+      <td>0.117323</td>
+      <td>0.473632</td>
+      <td>1.000000</td>
+      <td>0.304348</td>
+      <td>...</td>
+      <td>0.023777</td>
+      <td>0.10</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.598918</td>
+      <td>0.000000</td>
+      <td>0.166667</td>
+      <td>0.192241</td>
+      <td>0.203390</td>
+      <td>0.195822</td>
+    </tr>
+    <tr>
+      <th>1000</th>
+      <td>0.252610</td>
+      <td>0.266667</td>
+      <td>623032</td>
+      <td>0.333333</td>
+      <td>0.389435</td>
+      <td>0.636364</td>
+      <td>0.056236</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>0.695652</td>
+      <td>...</td>
+      <td>0.637564</td>
+      <td>0.35</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.598918</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>0.683413</td>
+      <td>0.525424</td>
+      <td>0.684073</td>
+    </tr>
+  </tbody>
+</table>
+<p>1000 rows × 26 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span><span class="n">float_d</span><span class="p">,</span><span class="n">on</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="s1">&#39;/Users/19723/Desktop/yyyyyy.xlsx&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="s1">&#39;_c39&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;fraud_reported&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notnull</span><span class="p">()]</span>
+<span class="n">test</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;fraud_reported&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>训练模型</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># mac安装失败的话就用conda install lightgbm</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># from sklearn.model_selection import RandomizedSearchCV</span>
+<span class="c1"># import lightgbm as lgb</span>
+
+<span class="c1"># rs_params = {</span>
+
+<span class="c1">#         &#39;colsample_bytree&#39;: (0.5, 0.6, 1),</span>
+<span class="c1">#         &#39;learning_rate&#39;: (0.005, 0.1, 0.2, 0.3),</span>
+<span class="c1">#         &#39;reg_lambda&#39;: (0.25, 0.3, 0.5, 3, 5),</span>
+<span class="c1">#         &#39;max_depth&#39;: (-1, 2, 3, 5, 10),</span>
+<span class="c1">#         &#39;min_child_samples&#39;: (1, 3, 5, 9, 10),</span>
+<span class="c1">#         &#39;num_leaves&#39;: (20, 2**5-1, 2**5-1, 300, 400),</span>
+<span class="c1">#         &#39;reg_alpha&#39; : (0.1, 0.25, 0.3, 0.5, 3, 5)</span>
+    
+<span class="c1"># }</span>
+
+<span class="c1"># # Initialize a RandomizedSearchCV object using 5-fold CV-</span>
+<span class="c1"># # 折15次，每次用100样本</span>
+<span class="c1"># rs_cv = RandomizedSearchCV(estimator=lgb.LGBMClassifier(), param_distributions=rs_params, cv = 7, n_iter=300,verbose=1)</span>
+
+<span class="c1"># # Train on training data-</span>
+<span class="c1"># rs_cv.fit(train.drop([&#39;fraud_reported&#39;], axis=1), train[&#39;fraud_reported&#39;],verbose=1)</span>
+<span class="c1"># print(rs_cv.best_params_)</span>
+<span class="c1"># print(rs_cv.best_score_)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fitting 7 folds for each of 300 candidates, totalling 2100 fits
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
+C:\Users\19723\anaconda3\lib\site-packages\lightgbm\sklearn.py:736: UserWarning: &#39;verbose&#39; argument is deprecated and will be removed in a future release of LightGBM. Pass &#39;log_evaluation()&#39; callback via &#39;callbacks&#39; argument instead.
+  _log_warning(&quot;&#39;verbose&#39; argument is deprecated and will be removed in a future release of LightGBM. &quot;
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">451</span><span class="o">-</span><span class="mi">0</span><span class="n">f4064105bc9</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span> 
+<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="c1"># Train on training data-</span>
+<span class="ne">---&gt; </span><span class="mi">21</span> <span class="n">rs_cv</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;fraud_reported&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">train</span><span class="p">[</span><span class="s1">&#39;fraud_reported&#39;</span><span class="p">],</span><span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="nb">print</span><span class="p">(</span><span class="n">rs_cv</span><span class="o">.</span><span class="n">best_params_</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">23</span> <span class="nb">print</span><span class="p">(</span><span class="n">rs_cv</span><span class="o">.</span><span class="n">best_score_</span><span class="p">)</span>
+
+<span class="nn">~\anaconda3\lib\site-packages\sklearn\utils\validation.py</span> in <span class="ni">inner_f</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">71</span>                           <span class="ne">FutureWarning</span><span class="p">)</span>
+<span class="nn">     72         kwargs.update({k: arg for k, arg</span> in <span class="ni">zip</span><span class="nt">(sig.parameters, args)})</span>
+<span class="ne">---&gt; </span><span class="mi">73</span>         <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">74</span>     <span class="k">return</span> <span class="n">inner_f</span>
+<span class="g g-Whitespace">     </span><span class="mi">75</span> 
+
+<span class="nn">~\anaconda3\lib\site-packages\sklearn\model_selection\_search.py</span> in <span class="ni">fit</span><span class="nt">(self, X, y, groups, **fit_params)</span>
+<span class="g g-Whitespace">    </span><span class="mi">734</span>                 <span class="k">return</span> <span class="n">results</span>
+<span class="g g-Whitespace">    </span><span class="mi">735</span> 
+<span class="ne">--&gt; </span><span class="mi">736</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_run_search</span><span class="p">(</span><span class="n">evaluate_candidates</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">737</span> 
+<span class="g g-Whitespace">    </span><span class="mi">738</span>         <span class="c1"># For multi-metric evaluation, store the best_index_, best_params_ and</span>
+
+<span class="nn">~\anaconda3\lib\site-packages\sklearn\model_selection\_search.py</span> in <span class="ni">_run_search</span><span class="nt">(self, evaluate_candidates)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1527</span>     <span class="k">def</span> <span class="nf">_run_search</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">evaluate_candidates</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1528</span>         <span class="sd">&quot;&quot;&quot;Search n_iter candidates from param_distributions&quot;&quot;&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1529</span>         <span class="n">evaluate_candidates</span><span class="p">(</span><span class="n">ParameterSampler</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1530</span>             <span class="bp">self</span><span class="o">.</span><span class="n">param_distributions</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_iter</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1531</span>             <span class="n">random_state</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">random_state</span><span class="p">))</span>
+
+<span class="nn">~\anaconda3\lib\site-packages\sklearn\model_selection\_search.py</span> in <span class="ni">evaluate_candidates</span><span class="nt">(candidate_params)</span>
+<span class="g g-Whitespace">    </span><span class="mi">706</span>                               <span class="n">n_splits</span><span class="p">,</span> <span class="n">n_candidates</span><span class="p">,</span> <span class="n">n_candidates</span> <span class="o">*</span> <span class="n">n_splits</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">707</span> 
+<span class="ne">--&gt; </span><span class="mi">708</span>                 <span class="n">out</span> <span class="o">=</span> <span class="n">parallel</span><span class="p">(</span><span class="n">delayed</span><span class="p">(</span><span class="n">_fit_and_score</span><span class="p">)(</span><span class="n">clone</span><span class="p">(</span><span class="n">base_estimator</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">709</span>                                                        <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">710</span>                                                        <span class="n">train</span><span class="o">=</span><span class="n">train</span><span class="p">,</span> <span class="n">test</span><span class="o">=</span><span class="n">test</span><span class="p">,</span>
+
+<span class="nn">~\anaconda3\lib\site-packages\joblib\parallel.py</span> in <span class="ni">__call__</span><span class="nt">(self, iterable)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1030</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">_iterating</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_original_iterator</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+<span class="g g-Whitespace">   </span><span class="mi">1031</span> 
+<span class="ne">-&gt; </span><span class="mi">1032</span>             <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">dispatch_one_batch</span><span class="p">(</span><span class="n">iterator</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1033</span>                 <span class="k">pass</span>
+<span class="g g-Whitespace">   </span><span class="mi">1034</span> 
+
+<span class="nn">~\anaconda3\lib\site-packages\joblib\parallel.py</span> in <span class="ni">dispatch_one_batch</span><span class="nt">(self, iterator)</span>
+<span class="g g-Whitespace">    </span><span class="mi">845</span>                 <span class="k">return</span> <span class="kc">False</span>
+<span class="g g-Whitespace">    </span><span class="mi">846</span>             <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">847</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">_dispatch</span><span class="p">(</span><span class="n">tasks</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">848</span>                 <span class="k">return</span> <span class="kc">True</span>
+<span class="g g-Whitespace">    </span><span class="mi">849</span> 
+
+<span class="nn">~\anaconda3\lib\site-packages\joblib\parallel.py</span> in <span class="ni">_dispatch</span><span class="nt">(self, batch)</span>
+<span class="g g-Whitespace">    </span><span class="mi">763</span>         <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_lock</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">764</span>             <span class="n">job_idx</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_jobs</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">765</span>             <span class="n">job</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_backend</span><span class="o">.</span><span class="n">apply_async</span><span class="p">(</span><span class="n">batch</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="n">cb</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">766</span>             <span class="c1"># A job can complete so quickly than its callback is</span>
+<span class="g g-Whitespace">    </span><span class="mi">767</span>             <span class="c1"># called before we get here, causing self._jobs to</span>
+
+<span class="nn">~\anaconda3\lib\site-packages\joblib\_parallel_backends.py</span> in <span class="ni">apply_async</span><span class="nt">(self, func, callback)</span>
+<span class="g g-Whitespace">    </span><span class="mi">206</span>     <span class="k">def</span> <span class="nf">apply_async</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">207</span>         <span class="sd">&quot;&quot;&quot;Schedule a func to be run&quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">208</span>         <span class="n">result</span> <span class="o">=</span> <span class="n">ImmediateResult</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">209</span>         <span class="k">if</span> <span class="n">callback</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">210</span>             <span class="n">callback</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+<span class="nn">~\anaconda3\lib\site-packages\joblib\_parallel_backends.py</span> in <span class="ni">__init__</span><span class="nt">(self, batch)</span>
+<span class="g g-Whitespace">    </span><span class="mi">570</span>         <span class="c1"># Don&#39;t delay the application, to avoid keeping the input</span>
+<span class="g g-Whitespace">    </span><span class="mi">571</span>         <span class="c1"># arguments in memory</span>
+<span class="ne">--&gt; </span><span class="mi">572</span>         <span class="bp">self</span><span class="o">.</span><span class="n">results</span> <span class="o">=</span> <span class="n">batch</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">573</span> 
+<span class="g g-Whitespace">    </span><span class="mi">574</span>     <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<span class="nn">~\anaconda3\lib\site-packages\joblib\parallel.py</span> in <span class="ni">__call__</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">250</span>         <span class="c1"># change the default number of processes to -1</span>
+<span class="g g-Whitespace">    </span><span class="mi">251</span>         <span class="k">with</span> <span class="n">parallel_backend</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_backend</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_n_jobs</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">252</span>             <span class="k">return</span> <span class="p">[</span><span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">253</span>                     <span class="k">for</span> <span class="n">func</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">254</span> 
+
+<span class="nn">~\anaconda3\lib\site-packages\joblib\parallel.py</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
+<span class="g g-Whitespace">    </span><span class="mi">250</span>         <span class="c1"># change the default number of processes to -1</span>
+<span class="g g-Whitespace">    </span><span class="mi">251</span>         <span class="k">with</span> <span class="n">parallel_backend</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_backend</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_n_jobs</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">252</span>             <span class="k">return</span> <span class="p">[</span><span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">253</span>                     <span class="k">for</span> <span class="n">func</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">254</span> 
+
+<span class="nn">~\anaconda3\lib\site-packages\sklearn\model_selection\_validation.py</span> in <span class="ni">_fit_and_score</span><span class="nt">(estimator, X, y, scorer, train, test, verbose, parameters, fit_params, return_train_score, return_parameters, return_n_test_samples, return_times, return_estimator, error_score)</span>
+<span class="g g-Whitespace">    </span><span class="mi">529</span>             <span class="n">estimator</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="o">**</span><span class="n">fit_params</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">530</span>         <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">531</span>             <span class="n">estimator</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="o">**</span><span class="n">fit_params</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">532</span> 
+<span class="g g-Whitespace">    </span><span class="mi">533</span>     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+
+<span class="nn">~\anaconda3\lib\site-packages\lightgbm\sklearn.py</span> in <span class="ni">fit</span><span class="nt">(self, X, y, sample_weight, init_score, eval_set, eval_names, eval_sample_weight, eval_class_weight, eval_init_score, eval_metric, early_stopping_rounds, verbose, feature_name, categorical_feature, callbacks, init_model)</span>
+<span class="g g-Whitespace">    </span><span class="mi">965</span>                     <span class="n">valid_sets</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">valid_x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_le</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">valid_y</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">966</span> 
+<span class="ne">--&gt; </span><span class="mi">967</span>         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">_y</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="n">sample_weight</span><span class="p">,</span> <span class="n">init_score</span><span class="o">=</span><span class="n">init_score</span><span class="p">,</span> <span class="n">eval_set</span><span class="o">=</span><span class="n">valid_sets</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">968</span>                     <span class="n">eval_names</span><span class="o">=</span><span class="n">eval_names</span><span class="p">,</span> <span class="n">eval_sample_weight</span><span class="o">=</span><span class="n">eval_sample_weight</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">969</span>                     <span class="n">eval_class_weight</span><span class="o">=</span><span class="n">eval_class_weight</span><span class="p">,</span> <span class="n">eval_init_score</span><span class="o">=</span><span class="n">eval_init_score</span><span class="p">,</span>
+
+<span class="nn">~\anaconda3\lib\site-packages\lightgbm\sklearn.py</span> in <span class="ni">fit</span><span class="nt">(self, X, y, sample_weight, init_score, group, eval_set, eval_names, eval_sample_weight, eval_class_weight, eval_init_score, eval_group, eval_metric, early_stopping_rounds, verbose, feature_name, categorical_feature, callbacks, init_model)</span>
+<span class="g g-Whitespace">    </span><span class="mi">746</span>         <span class="n">callbacks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">record_evaluation</span><span class="p">(</span><span class="n">evals_result</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">747</span> 
+<span class="ne">--&gt; </span><span class="mi">748</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_Booster</span> <span class="o">=</span> <span class="n">train</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">749</span>             <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">750</span>             <span class="n">train_set</span><span class="o">=</span><span class="n">train_set</span><span class="p">,</span>
+
+<span class="nn">~\anaconda3\lib\site-packages\lightgbm\engine.py</span> in <span class="ni">train</span><span class="nt">(params, train_set, num_boost_round, valid_sets, valid_names, fobj, feval, init_model, feature_name, categorical_feature, early_stopping_rounds, evals_result, verbose_eval, learning_rates, keep_training_booster, callbacks)</span>
+<span class="g g-Whitespace">    </span><span class="mi">290</span>                                     <span class="n">evaluation_result_list</span><span class="o">=</span><span class="kc">None</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">291</span> 
+<span class="ne">--&gt; </span><span class="mi">292</span>         <span class="n">booster</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">fobj</span><span class="o">=</span><span class="n">fobj</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">293</span> 
+<span class="g g-Whitespace">    </span><span class="mi">294</span>         <span class="n">evaluation_result_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="nn">~\anaconda3\lib\site-packages\lightgbm\basic.py</span> in <span class="ni">update</span><span class="nt">(self, train_set, fobj)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3019</span>             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__set_objective_to_none</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">3020</span>                 <span class="k">raise</span> <span class="n">LightGBMError</span><span class="p">(</span><span class="s1">&#39;Cannot update due to null objective function.&#39;</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">3021</span>             <span class="n">_safe_call</span><span class="p">(</span><span class="n">_LIB</span><span class="o">.</span><span class="n">LGBM_BoosterUpdateOneIter</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">3022</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">handle</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3023</span>                 <span class="n">ctypes</span><span class="o">.</span><span class="n">byref</span><span class="p">(</span><span class="n">is_finished</span><span class="p">)))</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># model_lgb = lgb.LGBMClassifier(num_leaves = 300, </span>
+<span class="c1">#                                reg_alpha=5, </span>
+<span class="c1">#                                reg_lambda=0.5, </span>
+<span class="c1">#                                objective=&#39;binary&#39;, </span>
+<span class="c1">#                                max_depth=3, </span>
+<span class="c1">#                                learning_rate=0.3, </span>
+<span class="c1">#                                min_child_samples=5, </span>
+<span class="c1">#                                random_state=7777,n_estimators=2000,subsample=1, colsample_bytree=1,)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># model_lgb.fit(train.drop([&#39;fraud_reported&#39;], axis=1), train[&#39;fraud_reported&#39;])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LGBMClassifier(colsample_bytree=1, learning_rate=0.3, max_depth=3,
+               min_child_samples=5, n_estimators=2000, num_leaves=300,
+               objective=&#39;binary&#39;, random_state=7777, reg_alpha=5,
+               reg_lambda=0.5, subsample=1)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># y_pred = model_lgb.predict_proba(test.drop([&#39;fraud_reported&#39;], axis=1))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># train[&#39;fraud_reported&#39;].mean()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.25857142857142856
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># sum(y_pred) / 300</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.77069713, 0.22930287])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># result = pd.read_csv(&#39;sampleSubmission.csv&#39;)</span>
+<span class="c1"># # 调整矩阵形状</span>
+<span class="c1"># result[&#39;fraud_reported&#39;] = y_pred[:, 1]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># result[&#39;fraud_reported&#39;].to_excel(&#39;/Users/19723/Desktop/yyyya.xlsx&#39;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># result</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>policy_number</th>
+      <th>fraud_reported</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>698589</td>
+      <td>0.587929</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>287489</td>
+      <td>0.507880</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>211578</td>
+      <td>0.040526</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>807369</td>
+      <td>0.045366</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>830878</td>
+      <td>0.053479</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>295</th>
+      <td>679370</td>
+      <td>0.059729</td>
+    </tr>
+    <tr>
+      <th>296</th>
+      <td>272330</td>
+      <td>0.101335</td>
+    </tr>
+    <tr>
+      <th>297</th>
+      <td>315631</td>
+      <td>0.069951</td>
+    </tr>
+    <tr>
+      <th>298</th>
+      <td>445195</td>
+      <td>0.036823</td>
+    </tr>
+    <tr>
+      <th>299</th>
+      <td>914815</td>
+      <td>0.080392</td>
+    </tr>
+  </tbody>
+</table>
+<p>300 rows × 2 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># result.to_csv(&#39;baseline_20220302.csv&#39;, index=False)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># t = pd.read_csv(&#39;train.csv&#39;)</span>
+<span class="c1"># t</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>months_as_customer</th>
+      <th>age</th>
+      <th>policy_number</th>
+      <th>policy_bind_date</th>
+      <th>policy_state</th>
+      <th>policy_csl</th>
+      <th>policy_deductable</th>
+      <th>policy_annual_premium</th>
+      <th>umbrella_limit</th>
+      <th>insured_zip</th>
+      <th>...</th>
+      <th>police_report_available</th>
+      <th>total_claim_amount</th>
+      <th>injury_claim</th>
+      <th>property_claim</th>
+      <th>vehicle_claim</th>
+      <th>auto_make</th>
+      <th>auto_model</th>
+      <th>auto_year</th>
+      <th>fraud_reported</th>
+      <th>_c39</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>187</td>
+      <td>37</td>
+      <td>125591</td>
+      <td>2013-08-08</td>
+      <td>IN</td>
+      <td>500/1000</td>
+      <td>1000</td>
+      <td>1412.06</td>
+      <td>5000000</td>
+      <td>450947</td>
+      <td>...</td>
+      <td>?</td>
+      <td>57700</td>
+      <td>5770</td>
+      <td>5770</td>
+      <td>46160</td>
+      <td>Nissan</td>
+      <td>Maxima</td>
+      <td>2000</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>243</td>
+      <td>44</td>
+      <td>967713</td>
+      <td>1997-12-25</td>
+      <td>IL</td>
+      <td>250/500</td>
+      <td>500</td>
+      <td>809.11</td>
+      <td>0</td>
+      <td>600208</td>
+      <td>...</td>
+      <td>YES</td>
+      <td>51400</td>
+      <td>5140</td>
+      <td>10280</td>
+      <td>35980</td>
+      <td>Honda</td>
+      <td>Civic</td>
+      <td>1996</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>24</td>
+      <td>33</td>
+      <td>649082</td>
+      <td>1996-01-19</td>
+      <td>IL</td>
+      <td>500/1000</td>
+      <td>1000</td>
+      <td>1922.84</td>
+      <td>0</td>
+      <td>431277</td>
+      <td>...</td>
+      <td>NO</td>
+      <td>46800</td>
+      <td>4680</td>
+      <td>9360</td>
+      <td>32760</td>
+      <td>Jeep</td>
+      <td>Wrangler</td>
+      <td>2002</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>215</td>
+      <td>42</td>
+      <td>519312</td>
+      <td>2008-10-28</td>
+      <td>OH</td>
+      <td>500/1000</td>
+      <td>500</td>
+      <td>1848.81</td>
+      <td>0</td>
+      <td>435489</td>
+      <td>...</td>
+      <td>YES</td>
+      <td>68520</td>
+      <td>11420</td>
+      <td>5710</td>
+      <td>51390</td>
+      <td>Suburu</td>
+      <td>Legacy</td>
+      <td>2003</td>
+      <td>1</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>85</td>
+      <td>30</td>
+      <td>190588</td>
+      <td>2001-12-09</td>
+      <td>OH</td>
+      <td>100/300</td>
+      <td>1000</td>
+      <td>796.35</td>
+      <td>0</td>
+      <td>614166</td>
+      <td>...</td>
+      <td>YES</td>
+      <td>58960</td>
+      <td>5360</td>
+      <td>10720</td>
+      <td>42880</td>
+      <td>Ford</td>
+      <td>F150</td>
+      <td>2004</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>695</th>
+      <td>199</td>
+      <td>37</td>
+      <td>982871</td>
+      <td>1997-07-27</td>
+      <td>IN</td>
+      <td>250/500</td>
+      <td>500</td>
+      <td>1262.08</td>
+      <td>0</td>
+      <td>474615</td>
+      <td>...</td>
+      <td>NO</td>
+      <td>60170</td>
+      <td>10940</td>
+      <td>10940</td>
+      <td>38290</td>
+      <td>Nissan</td>
+      <td>Pathfinder</td>
+      <td>2011</td>
+      <td>1</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>696</th>
+      <td>232</td>
+      <td>43</td>
+      <td>751905</td>
+      <td>2001-05-16</td>
+      <td>OH</td>
+      <td>250/500</td>
+      <td>500</td>
+      <td>1483.91</td>
+      <td>8000000</td>
+      <td>431531</td>
+      <td>...</td>
+      <td>?</td>
+      <td>70600</td>
+      <td>7060</td>
+      <td>14120</td>
+      <td>49420</td>
+      <td>Volkswagen</td>
+      <td>Passat</td>
+      <td>2013</td>
+      <td>1</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>697</th>
+      <td>215</td>
+      <td>37</td>
+      <td>761189</td>
+      <td>2002-12-28</td>
+      <td>IN</td>
+      <td>100/300</td>
+      <td>500</td>
+      <td>1632.93</td>
+      <td>0</td>
+      <td>614417</td>
+      <td>...</td>
+      <td>YES</td>
+      <td>57120</td>
+      <td>9520</td>
+      <td>4760</td>
+      <td>42840</td>
+      <td>Mercedes</td>
+      <td>C300</td>
+      <td>2002</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>698</th>
+      <td>270</td>
+      <td>44</td>
+      <td>701521</td>
+      <td>2003-07-05</td>
+      <td>IL</td>
+      <td>500/1000</td>
+      <td>2000</td>
+      <td>1030.95</td>
+      <td>0</td>
+      <td>435985</td>
+      <td>...</td>
+      <td>NO</td>
+      <td>35900</td>
+      <td>7180</td>
+      <td>3590</td>
+      <td>25130</td>
+      <td>Audi</td>
+      <td>A3</td>
+      <td>2007</td>
+      <td>1</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>699</th>
+      <td>269</td>
+      <td>45</td>
+      <td>596298</td>
+      <td>1996-08-23</td>
+      <td>IN</td>
+      <td>500/1000</td>
+      <td>500</td>
+      <td>1330.46</td>
+      <td>0</td>
+      <td>435552</td>
+      <td>...</td>
+      <td>NO</td>
+      <td>24200</td>
+      <td>2200</td>
+      <td>4400</td>
+      <td>17600</td>
+      <td>Suburu</td>
+      <td>Forrestor</td>
+      <td>2008</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>700 rows × 40 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># temp = pd.DataFrame(columns=[&quot;months_as_customer&quot;])</span>
+<span class="c1"># temp = t[&quot;months_as_customer&quot;] </span>
+<span class="c1"># t = temp</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># func1 = lambda x: 1 if x == True else 0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># t[&quot;months_as_customer&quot;] = t[&quot;months_as_customer&quot;]  &gt; 24</span>
+<span class="c1"># t[&quot;months_as_customer&quot;]  = t[&quot;months_as_customer&quot;] .apply(func1)</span>
+<span class="c1"># t</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>months_as_customer</th>
+      <th>age</th>
+      <th>policy_number</th>
+      <th>policy_bind_date</th>
+      <th>policy_state</th>
+      <th>policy_csl</th>
+      <th>policy_deductable</th>
+      <th>policy_annual_premium</th>
+      <th>umbrella_limit</th>
+      <th>insured_zip</th>
+      <th>...</th>
+      <th>police_report_available</th>
+      <th>total_claim_amount</th>
+      <th>injury_claim</th>
+      <th>property_claim</th>
+      <th>vehicle_claim</th>
+      <th>auto_make</th>
+      <th>auto_model</th>
+      <th>auto_year</th>
+      <th>fraud_reported</th>
+      <th>_c39</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>37</td>
+      <td>125591</td>
+      <td>2013-08-08</td>
+      <td>IN</td>
+      <td>500/1000</td>
+      <td>1000</td>
+      <td>1412.06</td>
+      <td>5000000</td>
+      <td>450947</td>
+      <td>...</td>
+      <td>?</td>
+      <td>57700</td>
+      <td>5770</td>
+      <td>5770</td>
+      <td>46160</td>
+      <td>Nissan</td>
+      <td>Maxima</td>
+      <td>2000</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>44</td>
+      <td>967713</td>
+      <td>1997-12-25</td>
+      <td>IL</td>
+      <td>250/500</td>
+      <td>500</td>
+      <td>809.11</td>
+      <td>0</td>
+      <td>600208</td>
+      <td>...</td>
+      <td>YES</td>
+      <td>51400</td>
+      <td>5140</td>
+      <td>10280</td>
+      <td>35980</td>
+      <td>Honda</td>
+      <td>Civic</td>
+      <td>1996</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0</td>
+      <td>33</td>
+      <td>649082</td>
+      <td>1996-01-19</td>
+      <td>IL</td>
+      <td>500/1000</td>
+      <td>1000</td>
+      <td>1922.84</td>
+      <td>0</td>
+      <td>431277</td>
+      <td>...</td>
+      <td>NO</td>
+      <td>46800</td>
+      <td>4680</td>
+      <td>9360</td>
+      <td>32760</td>
+      <td>Jeep</td>
+      <td>Wrangler</td>
+      <td>2002</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>42</td>
+      <td>519312</td>
+      <td>2008-10-28</td>
+      <td>OH</td>
+      <td>500/1000</td>
+      <td>500</td>
+      <td>1848.81</td>
+      <td>0</td>
+      <td>435489</td>
+      <td>...</td>
+      <td>YES</td>
+      <td>68520</td>
+      <td>11420</td>
+      <td>5710</td>
+      <td>51390</td>
+      <td>Suburu</td>
+      <td>Legacy</td>
+      <td>2003</td>
+      <td>1</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>30</td>
+      <td>190588</td>
+      <td>2001-12-09</td>
+      <td>OH</td>
+      <td>100/300</td>
+      <td>1000</td>
+      <td>796.35</td>
+      <td>0</td>
+      <td>614166</td>
+      <td>...</td>
+      <td>YES</td>
+      <td>58960</td>
+      <td>5360</td>
+      <td>10720</td>
+      <td>42880</td>
+      <td>Ford</td>
+      <td>F150</td>
+      <td>2004</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>695</th>
+      <td>1</td>
+      <td>37</td>
+      <td>982871</td>
+      <td>1997-07-27</td>
+      <td>IN</td>
+      <td>250/500</td>
+      <td>500</td>
+      <td>1262.08</td>
+      <td>0</td>
+      <td>474615</td>
+      <td>...</td>
+      <td>NO</td>
+      <td>60170</td>
+      <td>10940</td>
+      <td>10940</td>
+      <td>38290</td>
+      <td>Nissan</td>
+      <td>Pathfinder</td>
+      <td>2011</td>
+      <td>1</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>696</th>
+      <td>1</td>
+      <td>43</td>
+      <td>751905</td>
+      <td>2001-05-16</td>
+      <td>OH</td>
+      <td>250/500</td>
+      <td>500</td>
+      <td>1483.91</td>
+      <td>8000000</td>
+      <td>431531</td>
+      <td>...</td>
+      <td>?</td>
+      <td>70600</td>
+      <td>7060</td>
+      <td>14120</td>
+      <td>49420</td>
+      <td>Volkswagen</td>
+      <td>Passat</td>
+      <td>2013</td>
+      <td>1</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>697</th>
+      <td>1</td>
+      <td>37</td>
+      <td>761189</td>
+      <td>2002-12-28</td>
+      <td>IN</td>
+      <td>100/300</td>
+      <td>500</td>
+      <td>1632.93</td>
+      <td>0</td>
+      <td>614417</td>
+      <td>...</td>
+      <td>YES</td>
+      <td>57120</td>
+      <td>9520</td>
+      <td>4760</td>
+      <td>42840</td>
+      <td>Mercedes</td>
+      <td>C300</td>
+      <td>2002</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>698</th>
+      <td>1</td>
+      <td>44</td>
+      <td>701521</td>
+      <td>2003-07-05</td>
+      <td>IL</td>
+      <td>500/1000</td>
+      <td>2000</td>
+      <td>1030.95</td>
+      <td>0</td>
+      <td>435985</td>
+      <td>...</td>
+      <td>NO</td>
+      <td>35900</td>
+      <td>7180</td>
+      <td>3590</td>
+      <td>25130</td>
+      <td>Audi</td>
+      <td>A3</td>
+      <td>2007</td>
+      <td>1</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>699</th>
+      <td>1</td>
+      <td>45</td>
+      <td>596298</td>
+      <td>1996-08-23</td>
+      <td>IN</td>
+      <td>500/1000</td>
+      <td>500</td>
+      <td>1330.46</td>
+      <td>0</td>
+      <td>435552</td>
+      <td>...</td>
+      <td>NO</td>
+      <td>24200</td>
+      <td>2200</td>
+      <td>4400</td>
+      <td>17600</td>
+      <td>Suburu</td>
+      <td>Forrestor</td>
+      <td>2008</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>700 rows × 40 columns</p>
+</div></div></div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./AI\AI_competition"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="%E4%B8%AA%E8%B4%B7%E8%BF%9D%E7%BA%A6%E9%A2%84%E6%B5%8B.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">1.1. </span>个贷违约</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="4/%E4%BA%A7%E5%93%81%E8%AF%84%E8%AE%BA%E8%A7%82%E7%82%B9%E6%8F%90%E5%8F%96.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">1.6. </span>产品观点提取</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      通过 Quechen YANG, with thank to my GF Becky Yu<br/>
+    
+        &copy; 版权 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,134 @@
+Traceback (most recent call last):
+  File "C:\Users\19723\anaconda3\lib\site-packages\jupyter_cache\executors\utils.py", line 51, in single_nb_execution
+    executenb(
+  File "C:\Users\19723\anaconda3\lib\site-packages\nbclient\client.py", line 1204, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "C:\Users\19723\anaconda3\lib\site-packages\nbclient\util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "C:\Users\19723\anaconda3\lib\site-packages\nbclient\util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "C:\Users\19723\anaconda3\lib\asyncio\base_events.py", line 616, in run_until_complete
+    return future.result()
+  File "C:\Users\19723\anaconda3\lib\site-packages\nbclient\client.py", line 663, in async_execute
+    await self.async_execute_cell(
+  File "C:\Users\19723\anaconda3\lib\site-packages\nbclient\client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "C:\Users\19723\anaconda3\lib\site-packages\nbclient\client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import numpy as np
+import random
+import torch
+import matplotlib.pyplot as plt
+from torch.nn.utils import clip_grad_norm_
+from torch.utils.data import TensorDataset, DataLoader, RandomSampler, SequentialSampler
+from transformers import BertTokenizer, BertForSequenceClassification, AdamW
+from transformers import get_linear_schedule_with_warmup
+import warnings
+warnings.filterwarnings('ignore')
+
+SEED = 123
+BATCH_SIZE = 16
+LEARNING_RATE = 2e-5
+WEIGHT_DECAY = 1e-2
+EPSILON = 1e-8
+
+random.seed(SEED)
+np.random.seed(SEED)
+torch.manual_seed(SEED)
+------------------
+
+[1;31m---------------------------------------------------------------------------[0m
+[1;31mImportError[0m                               Traceback (most recent call last)
+Input [1;32mIn [1][0m, in [0;36m<cell line: 7>[1;34m()[0m
+[0;32m      5[0m [38;5;28;01mfrom[39;00m [38;5;21;01mtorch[39;00m[38;5;21;01m.[39;00m[38;5;21;01mnn[39;00m[38;5;21;01m.[39;00m[38;5;21;01mutils[39;00m [38;5;28;01mimport[39;00m clip_grad_norm_
+[0;32m      6[0m [38;5;28;01mfrom[39;00m [38;5;21;01mtorch[39;00m[38;5;21;01m.[39;00m[38;5;21;01mutils[39;00m[38;5;21;01m.[39;00m[38;5;21;01mdata[39;00m [38;5;28;01mimport[39;00m TensorDataset, DataLoader, RandomSampler, SequentialSampler
+[1;32m----> 7[0m [38;5;28;01mfrom[39;00m [38;5;21;01mtransformers[39;00m [38;5;28;01mimport[39;00m BertTokenizer, BertForSequenceClassification, AdamW
+[0;32m      8[0m [38;5;28;01mfrom[39;00m [38;5;21;01mtransformers[39;00m [38;5;28;01mimport[39;00m get_linear_schedule_with_warmup
+[0;32m      9[0m [38;5;28;01mimport[39;00m [38;5;21;01mwarnings[39;00m
+
+File [1;32m~\anaconda3\lib\site-packages\transformers\__init__.py:30[0m, in [0;36m<module>[1;34m[0m
+[0;32m     27[0m [38;5;28;01mfrom[39;00m [38;5;21;01mtyping[39;00m [38;5;28;01mimport[39;00m TYPE_CHECKING
+[0;32m     29[0m [38;5;66;03m# Check the dependencies satisfy the minimal versions required.[39;00m
+[1;32m---> 30[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m [38;5;28;01mimport[39;00m dependency_versions_check
+[0;32m     31[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01mfile_utils[39;00m [38;5;28;01mimport[39;00m (
+[0;32m     32[0m     _LazyModule,
+[0;32m     33[0m     is_flax_available,
+[1;32m   (...)[0m
+[0;32m     43[0m     is_vision_available,
+[0;32m     44[0m )
+[0;32m     45[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01mutils[39;00m [38;5;28;01mimport[39;00m logging
+
+File [1;32m~\anaconda3\lib\site-packages\transformers\dependency_versions_check.py:36[0m, in [0;36m<module>[1;34m[0m
+[0;32m     33[0m [38;5;28;01mif[39;00m pkg [38;5;129;01min[39;00m deps:
+[0;32m     34[0m     [38;5;28;01mif[39;00m pkg [38;5;241m==[39m [38;5;124m"[39m[38;5;124mtokenizers[39m[38;5;124m"[39m:
+[0;32m     35[0m         [38;5;66;03m# must be loaded here, or else tqdm check may fail[39;00m
+[1;32m---> 36[0m         [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01mfile_utils[39;00m [38;5;28;01mimport[39;00m is_tokenizers_available
+[0;32m     38[0m         [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m is_tokenizers_available():
+[0;32m     39[0m             [38;5;28;01mcontinue[39;00m  [38;5;66;03m# not required, check version only if installed[39;00m
+
+File [1;32m~\anaconda3\lib\site-packages\transformers\file_utils.py:51[0m, in [0;36m<module>[1;34m[0m
+[0;32m     49[0m [38;5;28;01mimport[39;00m [38;5;21;01mrequests[39;00m
+[0;32m     50[0m [38;5;28;01mfrom[39;00m [38;5;21;01mfilelock[39;00m [38;5;28;01mimport[39;00m FileLock
+[1;32m---> 51[0m [38;5;28;01mfrom[39;00m [38;5;21;01mhuggingface_hub[39;00m [38;5;28;01mimport[39;00m HfFolder, Repository, create_repo, list_repo_files, whoami
+[0;32m     52[0m [38;5;28;01mfrom[39;00m [38;5;21;01mrequests[39;00m[38;5;21;01m.[39;00m[38;5;21;01mexceptions[39;00m [38;5;28;01mimport[39;00m HTTPError
+[0;32m     53[0m [38;5;28;01mfrom[39;00m [38;5;21;01mtransformers[39;00m[38;5;21;01m.[39;00m[38;5;21;01mutils[39;00m[38;5;21;01m.[39;00m[38;5;21;01mlogging[39;00m [38;5;28;01mimport[39;00m tqdm
+
+File [1;32m~\anaconda3\lib\site-packages\huggingface_hub\__init__.py:63[0m, in [0;36m<module>[1;34m[0m
+[0;32m     61[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01mhub_mixin[39;00m [38;5;28;01mimport[39;00m ModelHubMixin, PyTorchModelHubMixin
+[0;32m     62[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01minference_api[39;00m [38;5;28;01mimport[39;00m InferenceApi
+[1;32m---> 63[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01mkeras_mixin[39;00m [38;5;28;01mimport[39;00m (
+[0;32m     64[0m     KerasModelHubMixin,
+[0;32m     65[0m     from_pretrained_keras,
+[0;32m     66[0m     push_to_hub_keras,
+[0;32m     67[0m     save_pretrained_keras,
+[0;32m     68[0m )
+[0;32m     69[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01mrepository[39;00m [38;5;28;01mimport[39;00m Repository
+[0;32m     70[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01msnapshot_download[39;00m [38;5;28;01mimport[39;00m snapshot_download
+
+File [1;32m~\anaconda3\lib\site-packages\huggingface_hub\keras_mixin.py:24[0m, in [0;36m<module>[1;34m[0m
+[0;32m     21[0m logger [38;5;241m=[39m logging[38;5;241m.[39mget_logger([38;5;18m__name__[39m)
+[0;32m     23[0m [38;5;28;01mif[39;00m is_tf_available():
+[1;32m---> 24[0m     [38;5;28;01mimport[39;00m [38;5;21;01mtensorflow[39;00m [38;5;28;01mas[39;00m [38;5;21;01mtf[39;00m
+[0;32m     27[0m [38;5;28;01mdef[39;00m [38;5;21m_extract_hyperparameters_from_keras[39m(model):
+[0;32m     28[0m     [38;5;28;01mif[39;00m model[38;5;241m.[39moptimizer [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m:
+
+File [1;32m~\anaconda3\lib\site-packages\tensorflow\__init__.py:37[0m, in [0;36m<module>[1;34m[0m
+[0;32m     34[0m [38;5;28;01mimport[39;00m [38;5;21;01msys[39;00m [38;5;28;01mas[39;00m [38;5;21;01m_sys[39;00m
+[0;32m     35[0m [38;5;28;01mimport[39;00m [38;5;21;01mtyping[39;00m [38;5;28;01mas[39;00m [38;5;21;01m_typing[39;00m
+[1;32m---> 37[0m [38;5;28;01mfrom[39;00m [38;5;21;01mtensorflow[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpython[39;00m[38;5;21;01m.[39;00m[38;5;21;01mtools[39;00m [38;5;28;01mimport[39;00m module_util [38;5;28;01mas[39;00m _module_util
+[0;32m     38[0m [38;5;28;01mfrom[39;00m [38;5;21;01mtensorflow[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpython[39;00m[38;5;21;01m.[39;00m[38;5;21;01mutil[39;00m[38;5;21;01m.[39;00m[38;5;21;01mlazy_loader[39;00m [38;5;28;01mimport[39;00m LazyLoader [38;5;28;01mas[39;00m _LazyLoader
+[0;32m     40[0m [38;5;66;03m# Make sure code inside the TensorFlow codebase can use tf2.enabled() at import.[39;00m
+
+File [1;32m~\anaconda3\lib\site-packages\tensorflow\python\__init__.py:37[0m, in [0;36m<module>[1;34m[0m
+[0;32m     29[0m [38;5;66;03m# We aim to keep this file minimal and ideally remove completely.[39;00m
+[0;32m     30[0m [38;5;66;03m# If you are adding a new file with @tf_export decorators,[39;00m
+[0;32m     31[0m [38;5;66;03m# import it in modules_with_exports.py instead.[39;00m
+[0;32m     32[0m 
+[0;32m     33[0m [38;5;66;03m# go/tf-wildcard-import[39;00m
+[0;32m     34[0m [38;5;66;03m# pylint: disable=wildcard-import,g-bad-import-order,g-import-not-at-top[39;00m
+[0;32m     36[0m [38;5;28;01mfrom[39;00m [38;5;21;01mtensorflow[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpython[39;00m [38;5;28;01mimport[39;00m pywrap_tensorflow [38;5;28;01mas[39;00m _pywrap_tensorflow
+[1;32m---> 37[0m [38;5;28;01mfrom[39;00m [38;5;21;01mtensorflow[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpython[39;00m[38;5;21;01m.[39;00m[38;5;21;01meager[39;00m [38;5;28;01mimport[39;00m context
+[0;32m     39[0m [38;5;66;03m# pylint: enable=wildcard-import[39;00m
+[0;32m     40[0m 
+[0;32m     41[0m [38;5;66;03m# Bring in subpackages.[39;00m
+[0;32m     42[0m [38;5;28;01mfrom[39;00m [38;5;21;01mtensorflow[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpython[39;00m [38;5;28;01mimport[39;00m data
+
+File [1;32m~\anaconda3\lib\site-packages\tensorflow\python\eager\context.py:35[0m, in [0;36m<module>[1;34m[0m
+[0;32m     33[0m [38;5;28;01mfrom[39;00m [38;5;21;01mtensorflow[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpython[39;00m [38;5;28;01mimport[39;00m pywrap_tfe
+[0;32m     34[0m [38;5;28;01mfrom[39;00m [38;5;21;01mtensorflow[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpython[39;00m [38;5;28;01mimport[39;00m tf2
+[1;32m---> 35[0m [38;5;28;01mfrom[39;00m [38;5;21;01mtensorflow[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpython[39;00m[38;5;21;01m.[39;00m[38;5;21;01mclient[39;00m [38;5;28;01mimport[39;00m pywrap_tf_session
+[0;32m     36[0m [38;5;28;01mfrom[39;00m [38;5;21;01mtensorflow[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpython[39;00m[38;5;21;01m.[39;00m[38;5;21;01meager[39;00m [38;5;28;01mimport[39;00m executor
+[0;32m     37[0m [38;5;28;01mfrom[39;00m [38;5;21;01mtensorflow[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpython[39;00m[38;5;21;01m.[39;00m[38;5;21;01meager[39;00m [38;5;28;01mimport[39;00m monitoring
+
+File [1;32m~\anaconda3\lib\site-packages\tensorflow\python\client\pywrap_tf_session.py:19[0m, in [0;36m<module>[1;34m[0m
+[0;32m     17[0m [38;5;66;03m# pylint: disable=invalid-import-order,g-bad-import-order, wildcard-import, unused-import[39;00m
+[0;32m     18[0m [38;5;28;01mfrom[39;00m [38;5;21;01mtensorflow[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpython[39;00m [38;5;28;01mimport[39;00m pywrap_tensorflow
+[1;32m---> 19[0m [38;5;28;01mfrom[39;00m [38;5;21;01mtensorflow[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpython[39;00m[38;5;21;01m.[39;00m[38;5;21;01mclient[39;00m[38;5;21;01m.[39;00m[38;5;21;01m_pywrap_tf_session[39;00m [38;5;28;01mimport[39;00m [38;5;241m*[39m
+[0;32m     20[0m [38;5;28;01mfrom[39;00m [38;5;21;01mtensorflow[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpython[39;00m[38;5;21;01m.[39;00m[38;5;21;01mclient[39;00m[38;5;21;01m.[39;00m[38;5;21;01m_pywrap_tf_session[39;00m [38;5;28;01mimport[39;00m _TF_SetTarget
+[0;32m     21[0m [38;5;28;01mfrom[39;00m [38;5;21;01mtensorflow[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpython[39;00m[38;5;21;01m.[39;00m[38;5;21;01mclient[39;00m[38;5;21;01m.[39;00m[38;5;21;01m_pywrap_tf_session[39;00m [38;5;28;01mimport[39;00m _TF_SetConfig
+
+[1;31mImportError[0m: SystemError: <built-in method __contains__ of dict object at 0x000002AAEDC81480> returned a result with an error set
+ImportError: SystemError: <built-in method __contains__ of dict object at 0x000002AAEDC81480> returned a result with an error set
+

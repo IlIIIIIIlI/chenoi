@@ -1,0 +1,975 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1.6. 产品观点提取 &#8212; Chenoi AI Lab</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script src="../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="RF" href="../../RF/intro.html" />
+    <link rel="prev" title="1.5. Fraud Detection" href="../Fraud%20Detection%20in%20Insurance.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../_static/logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Chenoi AI Lab</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="搜索这本书..." aria-label="搜索这本书..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../intro.html">
+   Andy’s Coding Book
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Default Use
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../example/intro.html">
+   1. Example Files
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../example/mymarkdownfile.html">
+     1.1. subsection example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../example/notebooks.html">
+     1.2. notebook example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../example/markdown-notebooks.html">
+     1.3. markdown example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../example/markdown.html">
+     1.4. markdown example2
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  AI
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../intro.html">
+   1. AI Competition
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../%E4%B8%AA%E8%B4%B7%E8%BF%9D%E7%BA%A6%E9%A2%84%E6%B5%8B.html">
+     1.1. 个贷违约
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Fraud%20Detection%20in%20Insurance.html">
+     1.5. Fraud Detection
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     1.6. 产品观点提取
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../RF/intro.html">
+   RF
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../RF/test.html">
+     1. COMP90054 AI Planning for Autonomy
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Programming Language
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../Programming/intro.html">
+   1. Java1
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../Programming/JAVA/90041_1.html">
+     1.1. JAVA LEARNING BOOK
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="切换导航" aria-controls="site-navigation"
+                title="切换导航" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="下载此页面"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/AI/AI_competition/4/产品评论观点提取.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="下载源文件" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="列印成PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="全屏模式"
+        title="全屏模式"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/AI/AI_competition/4/产品评论观点提取.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="发射 Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> 内容
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   1.6. 产品观点提取
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pytorch-bilstm-crf">
+   1.7. pytorch 里面定义了一种bilstm-crf的方法
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pytorch">
+   1.8. 查看pytorch版本
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>产品观点提取</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> 内容 </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   1.6. 产品观点提取
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pytorch-bilstm-crf">
+   1.7. pytorch 里面定义了一种bilstm-crf的方法
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pytorch">
+   1.8. 查看pytorch版本
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="id1">
+<h1><span class="section-number">1.6. </span>产品观点提取<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>对于哪一款产品的什么态度</p>
+<p>产品
+评价名词
+评价形容词
+银行</p>
+<p>标注，名词问题，不统一问题，很主观</p>
+<p>2个任务，bio实体标注（begin in &amp; out） 和 情感分类</p>
+<p>总分排名</p>
+<p>precision 和 recall 都有作弊的可能</p>
+<p>F1 结合两者</p>
+<p>Kappa系数 - 情感 - 越小，越不敏感 - 考虑了不平衡的样本</p>
+<p>accuracy在样本不均衡的时候没卵用</p>
+<p>NER 命名实体，从文本中找到你想要的任何东西，sequence tagging</p>
+<p>信息提取，问答系统，句法分析，机器翻译等多种ML的重要基础</p>
+<p>深度学习</p>
+<p>LSTM / BI-LSTM</p>
+<p>LSTM - CRF</p>
+<p>BERT - CRF</p>
+<p>在外面</p>
+<p>维特比的方法来融合两个模型</p>
+<p>CRF 计算transition函数</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="pytorch-bilstm-crf">
+<h1><span class="section-number">1.7. </span>pytorch 里面定义了一种bilstm-crf的方法<a class="headerlink" href="#pytorch-bilstm-crf" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># read data</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">train</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./train_data_public.csv&#39;</span><span class="p">)</span>
+<span class="n">test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./test_public.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 给BIO数据切分一下</span>
+<span class="n">train</span><span class="p">[</span><span class="s1">&#39;BIO_anno&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">train</span><span class="p">[</span><span class="s1">&#39;BIO_anno&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 按照bio顺序加入词</span>
+<span class="n">train</span><span class="p">[</span><span class="s1">&#39;train_Data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">train</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">row</span><span class="p">:</span> <span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">]),</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;BIO_anno&#39;</span><span class="p">]),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>text</th>
+      <th>BIO_anno</th>
+      <th>class</th>
+      <th>train_Data</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>交行14年用过，半年准备提额，却直接被降到1Ｋ，半年期间只T过一次三千，其它全部真实消费，第...</td>
+      <td>[B-BANK, I-BANK, O, O, O, O, O, O, O, O, O, O,...</td>
+      <td>0</td>
+      <td>([交, 行, 1, 4, 年, 用, 过, ，, 半, 年, 准, 备, 提, 额, ，,...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>单标我有了，最近visa双标返现活动好</td>
+      <td>[B-PRODUCT, I-PRODUCT, O, O, O, O, O, O, B-PRO...</td>
+      <td>1</td>
+      <td>([单, 标, 我, 有, 了, ，, 最, 近, v, i, s, a, 双, 标, 返,...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>建设银行提额很慢的……</td>
+      <td>[B-BANK, I-BANK, I-BANK, I-BANK, B-COMMENTS_N,...</td>
+      <td>0</td>
+      <td>([建, 设, 银, 行, 提, 额, 很, 慢, 的, …, …], [B-BANK, I...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>我的怎么显示0.25费率，而且不管分多少期都一样费率，可惜只有69k</td>
+      <td>[O, O, O, O, O, O, O, O, O, O, B-COMMENTS_N, I...</td>
+      <td>2</td>
+      <td>([我, 的, 怎, 么, 显, 示, 0, ., 2, 5, 费, 率, ，, 而, 且,...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>利率不错，可以撸</td>
+      <td>[B-COMMENTS_N, I-COMMENTS_N, B-COMMENTS_ADJ, I...</td>
+      <td>1</td>
+      <td>([利, 率, 不, 错, ，, 可, 以, 撸], [B-COMMENTS_N, I-CO...</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>7523</th>
+      <td>7523</td>
+      <td>我鼎级拒了</td>
+      <td>[O, O, O, B-COMMENTS_ADJ, O]</td>
+      <td>2</td>
+      <td>([我, 鼎, 级, 拒, 了], [O, O, O, B-COMMENTS_ADJ, O])</td>
+    </tr>
+    <tr>
+      <th>7524</th>
+      <td>7524</td>
+      <td>一打一个准，准胜，看激活信用卡时那协议，全是对银行有利的</td>
+      <td>[O, O, O, O, O, O, O, O, O, O, B-COMMENTS_N, I...</td>
+      <td>2</td>
+      <td>([一, 打, 一, 个, 准, ，, 准, 胜, ，, 看, 激, 活, 信, 用, 卡,...</td>
+    </tr>
+    <tr>
+      <th>7525</th>
+      <td>7525</td>
+      <td>招行分期白80k</td>
+      <td>[B-BANK, I-BANK, B-PRODUCT, I-PRODUCT, I-PRODU...</td>
+      <td>2</td>
+      <td>([招, 行, 分, 期, 白, 8, 0, k], [B-BANK, I-BANK, B-...</td>
+    </tr>
+    <tr>
+      <th>7526</th>
+      <td>7526</td>
+      <td>5万，额度还行吧没毕业哦</td>
+      <td>[O, O, O, B-COMMENTS_N, I-COMMENTS_N, O, O, O,...</td>
+      <td>2</td>
+      <td>([5, 万, ，, 额, 度, 还, 行, 吧, 没, 毕, 业, 哦], [O, O, ...</td>
+    </tr>
+    <tr>
+      <th>7527</th>
+      <td>7527</td>
+      <td>张家港农商、江阴农商、无锡农商试试</td>
+      <td>[B-BANK, I-BANK, I-BANK, I-BANK, I-BANK, O, B-...</td>
+      <td>2</td>
+      <td>([张, 家, 港, 农, 商, 、, 江, 阴, 农, 商, 、, 无, 锡, 农, 商,...</td>
+    </tr>
+  </tbody>
+</table>
+<p>7528 rows × 5 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 测试集，标点符号要的，是o</span>
+<span class="n">test</span><span class="p">[</span><span class="s1">&#39;test_Data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">test</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">row</span><span class="p">:</span> <span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">])),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_txt</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">train</span><span class="p">)):</span>
+    <span class="n">train_txt</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">train</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;train_Data&#39;</span><span class="p">])</span>
+
+<span class="n">test_txt</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">test</span><span class="p">)):</span>
+    <span class="n">test_txt</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">test</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;test_Data&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>加载pytorch</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># !pip install torch</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="pytorch">
+<h1><span class="section-number">1.8. </span>查看pytorch版本<a class="headerlink" href="#pytorch" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">torch</span>
+<span class="n">torch</span><span class="o">.</span><span class="n">__version__</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;1.10.2+cpu&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">torch.autograd</span> <span class="k">as</span> <span class="nn">autograd</span>
+<span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
+<span class="kn">import</span> <span class="nn">torch.optim</span> <span class="k">as</span> <span class="nn">optim</span>
+
+<span class="n">torch</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># 返回向量中最大值索引</span>
+<span class="k">def</span> <span class="nf">argmax</span><span class="p">(</span><span class="n">vec</span><span class="p">):</span>
+    <span class="c1"># return argmax as a python int</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">idx</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">vec</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">idx</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+
+<span class="c1"># 将句子转换成IDlist</span>
+<span class="k">def</span> <span class="nf">prepare_sequence</span><span class="p">(</span><span class="n">seq</span><span class="p">,</span> <span class="n">to_ix</span><span class="p">):</span>
+    <span class="n">idxs</span> <span class="o">=</span> <span class="p">[</span><span class="n">to_ix</span><span class="p">[</span><span class="n">w</span><span class="p">]</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">seq</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">idxs</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">long</span><span class="p">)</span>
+
+<span class="c1"># 计算log sum exp</span>
+<span class="c1"># Compute log sum exp in a numerically stable way for the forward algorithm</span>
+<span class="k">def</span> <span class="nf">log_sum_exp</span><span class="p">(</span><span class="n">vec</span><span class="p">):</span>
+    <span class="n">max_score</span> <span class="o">=</span> <span class="n">vec</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">argmax</span><span class="p">(</span><span class="n">vec</span><span class="p">)]</span>
+    <span class="n">max_score_broadcast</span> <span class="o">=</span> <span class="n">max_score</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">vec</span><span class="o">.</span><span class="n">size</span><span class="p">()[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">max_score</span> <span class="o">+</span> \
+        <span class="n">torch</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">vec</span> <span class="o">-</span> <span class="n">max_score_broadcast</span><span class="p">)))</span>
+
+<span class="k">class</span> <span class="nc">BiLSTM_CRF</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vocab_size</span><span class="p">,</span> <span class="n">tag_to_ix</span><span class="p">,</span> <span class="n">embedding_dim</span><span class="p">,</span> <span class="n">hidden_dim</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">BiLSTM_CRF</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">embedding_dim</span> <span class="o">=</span> <span class="n">embedding_dim</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hidden_dim</span> <span class="o">=</span> <span class="n">hidden_dim</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vocab_size</span> <span class="o">=</span> <span class="n">vocab_size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tag_to_ix</span> <span class="o">=</span> <span class="n">tag_to_ix</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tagset_size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">tag_to_ix</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">word_embeds</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Embedding</span><span class="p">(</span><span class="n">vocab_size</span><span class="p">,</span> <span class="n">embedding_dim</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lstm</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">LSTM</span><span class="p">(</span><span class="n">embedding_dim</span><span class="p">,</span> <span class="n">hidden_dim</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span>
+                            <span class="n">num_layers</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">bidirectional</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="c1"># Maps the output of the LSTM into tag space.</span>
+        <span class="c1"># 将bilstm提取的特征向量vec映射到特征空间，得到了发射分数</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hidden2tag</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">hidden_dim</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">tagset_size</span><span class="p">)</span>
+
+        <span class="c1"># Matrix of transition parameters.  Entry i,j is the score of</span>
+        <span class="c1"># transitioning *to* i *from* j.</span>
+        <span class="c1"># 从j 到 i的转移分数得分</span>
+        <span class="c1"># 转移矩阵的参数初始化</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">transitions</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span>
+            <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tagset_size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">tagset_size</span><span class="p">))</span>
+
+        <span class="c1"># These two statements enforce the constraint that we never transfer</span>
+        <span class="c1"># to the start tag and we never transfer from the stop tag</span>
+        <span class="c1"># 初始化到start的分数非常小，因此不可能转移过来</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">transitions</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">tag_to_ix</span><span class="p">[</span><span class="n">START_TAG</span><span class="p">],</span> <span class="p">:]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">10000</span>
+        <span class="c1"># stop点也可能转移到其他tag</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">transitions</span><span class="o">.</span><span class="n">data</span><span class="p">[:,</span> <span class="n">tag_to_ix</span><span class="p">[</span><span class="n">STOP_TAG</span><span class="p">]]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">10000</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">hidden</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">init_hidden</span><span class="p">()</span>
+
+    <span class="c1"># 初始化参数</span>
+    <span class="k">def</span> <span class="nf">init_hidden</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">hidden_dim</span> <span class="o">//</span> <span class="mi">2</span><span class="p">),</span>
+                <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">hidden_dim</span> <span class="o">//</span> <span class="mi">2</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">_forward_alg</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">feats</span><span class="p">):</span>
+        <span class="c1"># 通过前向传播进行计算</span>
+        <span class="c1"># Do the forward algorithm to compute the partition function</span>
+        <span class="n">init_alphas</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">tagset_size</span><span class="p">),</span> <span class="o">-</span><span class="mf">10000.</span><span class="p">)</span>
+        <span class="c1"># START_TAG has all of the score.</span>
+        <span class="c1"># 初始化位置0的发射分数</span>
+        <span class="n">init_alphas</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">tag_to_ix</span><span class="p">[</span><span class="n">START_TAG</span><span class="p">]]</span> <span class="o">=</span> <span class="mf">0.</span>
+
+        <span class="c1"># Wrap in a variable so that we will get automatic backprop</span>
+        <span class="n">forward_var</span> <span class="o">=</span> <span class="n">init_alphas</span>
+
+        <span class="c1"># Iterate through the sentence</span>
+        <span class="c1"># 迭代整个句子</span>
+        <span class="k">for</span> <span class="n">feat</span> <span class="ow">in</span> <span class="n">feats</span><span class="p">:</span>
+            <span class="n">alphas_t</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># The forward tensors at this timestep</span>
+            <span class="k">for</span> <span class="n">next_tag</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tagset_size</span><span class="p">):</span>
+                <span class="c1"># broadcast the emission score: it is the same regardless of</span>
+                <span class="c1"># the previous tag</span>
+                <span class="n">emit_score</span> <span class="o">=</span> <span class="n">feat</span><span class="p">[</span><span class="n">next_tag</span><span class="p">]</span><span class="o">.</span><span class="n">view</span><span class="p">(</span>
+                    <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">tagset_size</span><span class="p">)</span>
+                <span class="c1"># the ith entry of trans_score is the score of transitioning to</span>
+                <span class="c1"># next_tag from i</span>
+                <span class="n">trans_score</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">transitions</span><span class="p">[</span><span class="n">next_tag</span><span class="p">]</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+                <span class="c1"># The ith entry of next_tag_var is the value for the</span>
+                <span class="c1"># edge (i -&gt; next_tag) before we do log-sum-exp</span>
+                <span class="c1"># 当前路径分数 = 之前时间步 + 转移分数 + 发射分数</span>
+                <span class="n">next_tag_var</span> <span class="o">=</span> <span class="n">forward_var</span> <span class="o">+</span> <span class="n">trans_score</span> <span class="o">+</span> <span class="n">emit_score</span>
+                <span class="c1"># The forward variable for this tag is log-sum-exp of all the</span>
+                <span class="c1"># scores.</span>
+                <span class="c1"># 对当前分数计算 loss function （log_sum_exp)</span>
+                <span class="n">alphas_t</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">log_sum_exp</span><span class="p">(</span><span class="n">next_tag_var</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+            <span class="c1"># 更新forward_var</span>
+            <span class="n">forward_var</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">alphas_t</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="c1"># 考虑最终转移到stop</span>
+        <span class="n">terminal_var</span> <span class="o">=</span> <span class="n">forward_var</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">transitions</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">tag_to_ix</span><span class="p">[</span><span class="n">STOP_TAG</span><span class="p">]]</span>
+        <span class="c1"># 计算最终分数</span>
+        <span class="n">alpha</span> <span class="o">=</span> <span class="n">log_sum_exp</span><span class="p">(</span><span class="n">terminal_var</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">alpha</span>
+
+    <span class="k">def</span> <span class="nf">_get_lstm_features</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sentence</span><span class="p">):</span>
+        <span class="c1"># 通过bi_LSTM提取特征</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hidden</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">init_hidden</span><span class="p">()</span>
+        <span class="n">embeds</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">word_embeds</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sentence</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">lstm_out</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">hidden</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lstm</span><span class="p">(</span><span class="n">embeds</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">hidden</span><span class="p">)</span>
+        <span class="n">lstm_out</span> <span class="o">=</span> <span class="n">lstm_out</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sentence</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">hidden_dim</span><span class="p">)</span>
+        <span class="n">lstm_feats</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hidden2tag</span><span class="p">(</span><span class="n">lstm_out</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">lstm_feats</span>
+
+    <span class="k">def</span> <span class="nf">_score_sentence</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">feats</span><span class="p">,</span> <span class="n">tags</span><span class="p">):</span>
+        <span class="c1"># 计算tag序列的分数，一条路径的分数</span>
+        <span class="c1"># Gives the score of a provided tag sequence</span>
+        <span class="n">score</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">tags</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">tag_to_ix</span><span class="p">[</span><span class="n">START_TAG</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">long</span><span class="p">),</span> <span class="n">tags</span><span class="p">])</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">feat</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">feats</span><span class="p">):</span>
+            <span class="c1"># 不断递推计算</span>
+            <span class="n">score</span> <span class="o">=</span> <span class="n">score</span> <span class="o">+</span> \
+                <span class="bp">self</span><span class="o">.</span><span class="n">transitions</span><span class="p">[</span><span class="n">tags</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="n">tags</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">+</span> <span class="n">feat</span><span class="p">[</span><span class="n">tags</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]]</span>
+        <span class="n">score</span> <span class="o">=</span> <span class="n">score</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">transitions</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">tag_to_ix</span><span class="p">[</span><span class="n">STOP_TAG</span><span class="p">],</span> <span class="n">tags</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
+        <span class="k">return</span> <span class="n">score</span>
+
+    <span class="c1"># 求解最优路径</span>
+    <span class="k">def</span> <span class="nf">_viterbi_decode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">feats</span><span class="p">):</span>
+        <span class="n">backpointers</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="c1"># Initialize the viterbi variables in log space</span>
+        <span class="n">init_vvars</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">tagset_size</span><span class="p">),</span> <span class="o">-</span><span class="mf">10000.</span><span class="p">)</span>
+        <span class="n">init_vvars</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">tag_to_ix</span><span class="p">[</span><span class="n">START_TAG</span><span class="p">]]</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="c1"># forward_var at step i holds the viterbi variables for step i-1</span>
+        <span class="n">forward_var</span> <span class="o">=</span> <span class="n">init_vvars</span>
+        <span class="k">for</span> <span class="n">feat</span> <span class="ow">in</span> <span class="n">feats</span><span class="p">:</span>
+            <span class="c1"># 保存当前时间步的回溯指针</span>
+            <span class="n">bptrs_t</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># holds the backpointers for this step</span>
+            <span class="n">viterbivars_t</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># holds the viterbi variables for this step</span>
+
+            <span class="k">for</span> <span class="n">next_tag</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tagset_size</span><span class="p">):</span>
+                <span class="c1"># 只考虑上一步和上一步的转移</span>
+                <span class="c1"># 维特比记录最优路径，考虑上一步的分数以及上一步tag转移到当前tag的分数</span>
+                <span class="c1"># 不用考虑当前的分数</span>
+                <span class="c1"># next_tag_var[i] holds the viterbi variable for tag i at the</span>
+                <span class="c1"># previous step, plus the score of transitioning</span>
+                <span class="c1"># from tag i to next_tag.</span>
+                <span class="c1"># We don&#39;t include the emission scores here because the max</span>
+                <span class="c1"># does not depend on them (we add them in below)</span>
+                <span class="n">next_tag_var</span> <span class="o">=</span> <span class="n">forward_var</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">transitions</span><span class="p">[</span><span class="n">next_tag</span><span class="p">]</span>
+                <span class="n">best_tag_id</span> <span class="o">=</span> <span class="n">argmax</span><span class="p">(</span><span class="n">next_tag_var</span><span class="p">)</span>
+                <span class="n">bptrs_t</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">best_tag_id</span><span class="p">)</span>
+                <span class="n">viterbivars_t</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">next_tag_var</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">best_tag_id</span><span class="p">]</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+            <span class="c1"># Now add in the emission scores, and assign forward_var to the set</span>
+            <span class="c1"># of viterbi variables we just computed</span>
+            <span class="n">forward_var</span> <span class="o">=</span> <span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">viterbivars_t</span><span class="p">)</span> <span class="o">+</span> <span class="n">feat</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">backpointers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">bptrs_t</span><span class="p">)</span>
+
+        <span class="c1"># Transition to STOP_TAG</span>
+        <span class="n">terminal_var</span> <span class="o">=</span> <span class="n">forward_var</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">transitions</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">tag_to_ix</span><span class="p">[</span><span class="n">STOP_TAG</span><span class="p">]]</span>
+        <span class="n">best_tag_id</span> <span class="o">=</span> <span class="n">argmax</span><span class="p">(</span><span class="n">terminal_var</span><span class="p">)</span>
+        <span class="n">path_score</span> <span class="o">=</span> <span class="n">terminal_var</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">best_tag_id</span><span class="p">]</span>
+
+        <span class="c1"># Follow the back pointers to decode the best path.</span>
+        <span class="n">best_path</span> <span class="o">=</span> <span class="p">[</span><span class="n">best_tag_id</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">bptrs_t</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">backpointers</span><span class="p">):</span>
+            <span class="n">best_tag_id</span> <span class="o">=</span> <span class="n">bptrs_t</span><span class="p">[</span><span class="n">best_tag_id</span><span class="p">]</span>
+            <span class="n">best_path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">best_tag_id</span><span class="p">)</span>
+        <span class="c1"># Pop off the start tag (we dont want to return that to the caller)</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="n">best_path</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+        <span class="k">assert</span> <span class="n">start</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">tag_to_ix</span><span class="p">[</span><span class="n">START_TAG</span><span class="p">]</span>  <span class="c1"># Sanity check</span>
+        <span class="n">best_path</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">path_score</span><span class="p">,</span> <span class="n">best_path</span>
+
+    <span class="c1"># 损失函数的组成</span>
+    <span class="k">def</span> <span class="nf">neg_log_likelihood</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sentence</span><span class="p">,</span> <span class="n">tags</span><span class="p">):</span>
+        <span class="n">feats</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_lstm_features</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
+        <span class="n">forward_score</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_forward_alg</span><span class="p">(</span><span class="n">feats</span><span class="p">)</span>
+        <span class="n">gold_score</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_score_sentence</span><span class="p">(</span><span class="n">feats</span><span class="p">,</span> <span class="n">tags</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">forward_score</span> <span class="o">-</span> <span class="n">gold_score</span>
+
+    <span class="c1"># 通过bilstm计算发射分数</span>
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sentence</span><span class="p">):</span>  <span class="c1"># dont confuse this with _forward_alg above.</span>
+        <span class="c1"># Get the emission scores from the BiLSTM</span>
+        <span class="n">lstm_feats</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_lstm_features</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
+
+        <span class="c1"># Find the best path, given the features.</span>
+        <span class="n">score</span><span class="p">,</span> <span class="n">tag_seq</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_viterbi_decode</span><span class="p">(</span><span class="n">lstm_feats</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">score</span><span class="p">,</span> <span class="n">tag_seq</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Running Training</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># START_TAG = &quot;&lt;START&gt;&quot;</span>
+<span class="c1"># STOP_TAG = &quot;&lt;STOP&gt;&quot;</span>
+<span class="c1"># # 隐藏层的神经元</span>
+<span class="c1"># EMBEDDING_DIM = 11</span>
+<span class="c1"># HIDDEN_DIM = 6</span>
+
+<span class="c1"># # Make up some training data</span>
+<span class="c1"># training_data = train_txt[:10000] #使用全量的</span>
+
+<span class="c1"># word_to_ix = {}</span>
+<span class="c1"># for sentence, tags in training_data:</span>
+<span class="c1">#     for word in sentence:</span>
+<span class="c1">#         if word not in word_to_ix:</span>
+<span class="c1">#             word_to_ix[word] = len(word_to_ix)</span>
+
+<span class="c1"># len(word_to_ix)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># # testing data --&gt; 将汉字转换成id</span>
+<span class="c1"># testing_data = test_txt[:10000] #使用全量的</span>
+
+<span class="c1"># for sentence in testing_data:</span>
+<span class="c1">#     for word in sentence:</span>
+<span class="c1">#         if word not in word_to_ix:</span>
+<span class="c1">#             word_to_ix[word] = len(word_to_ix)</span>
+
+<span class="c1"># len(word_to_ix)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import pickle</span>
+<span class="c1"># with open(&#39;./word_to_id.pkl&#39;, &#39;wb&#39;) as file:</span>
+<span class="c1">#     pickle.dump(word_to_ix, file)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>这个bio的数据标注
+一句话，里面不同词性填到不同的列
+产品，名词，形容词，银行
+算法转换这些词性为不同的列</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tag_to_ix = {&quot;B-BANK&quot;: 0, &quot;I-BANK&quot;: 1, &quot;B-PRODUCT&quot;: 2, &quot;I-PRODUCT&quot;: 3, &quot;O&quot;: 4, &quot;B-COMMENTS_N&quot;:5, &quot;I-COMMENTS_N&quot;:6, &quot;B-COMMENTS_ADJ&quot;:7, &quot;I-COMMENTS_ADJ&quot;:8, START_TAG:9, STOP_TAG:10}</span>
+
+<span class="c1"># &#39;&#39;&#39;</span>
+<span class="c1"># B-BANK 代表银行实体的开始</span>
+<span class="c1"># I-BANK 代表银行实体的内部</span>
+<span class="c1"># B-PRODUCT 代表产品实体的开始</span>
+<span class="c1"># I-PRODUCT 代表产品实体的内部</span>
+<span class="c1"># O 代表不属于标注的范围</span>
+<span class="c1"># B-COMMENTS_N 代表用户评论（名词）</span>
+<span class="c1"># I-COMMENTS_N 代表用户评论（名词）实体的内部</span>
+<span class="c1"># B-COMMENTS_ADJ 代表用户评论（形容词）</span>
+<span class="c1"># I-COMMENTS_ADJ 代表用户评论（形容词）实体的内部</span>
+<span class="c1"># &#39;&#39;&#39;</span>
+
+<span class="c1"># model = BiLSTM_CRF(len(word_to_ix), tag_to_ix, EMBEDDING_DIM, HIDDEN_DIM)</span>
+<span class="c1"># optimizer = optim.SGD(model.parameters(), lr=0.01, weight_decay=1e-4)</span>
+
+<span class="c1"># # 用随机参数进行预测, 不准确，只是跑了一遍流程</span>
+<span class="c1"># # Check predictions before training</span>
+<span class="c1"># with torch.no_grad():</span>
+<span class="c1">#     # 句子汉字 --》 ID LIST</span>
+<span class="c1">#     precheck_sent = prepare_sequence(training_data[0][0], word_to_ix)</span>
+<span class="c1">#     precheck_tags = torch.tensor([tag_to_ix[t] for t in training_data[0][1]], dtype=torch.long)</span>
+<span class="c1">#     # 使用model预测BIO类别</span>
+<span class="c1">#     print(model(precheck_sent))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>减少误差的大小</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># from tqdm import tqdm</span>
+<span class="c1"># # Make sure prepare_sequence from earlier in the LSTM section is loaded</span>
+<span class="c1"># # 40多轮的结果得出的结果会比较好一点</span>
+<span class="c1"># for epoch in range(10):  # again, normally you would NOT do 300 epochs, it is toy data</span>
+<span class="c1">#     for sentence, tags in tqdm(training_data):</span>
+<span class="c1">#         # Step 1. Remember that Pytorch accumulates gradients.</span>
+<span class="c1">#         # We need to clear them out before each instance</span>
+<span class="c1">#         # 梯度清零，防止梯度爆炸</span>
+<span class="c1">#         model.zero_grad()</span>
+
+<span class="c1">#         # Step 2. Get our inputs ready for the network, that is,</span>
+<span class="c1">#         # turn them into Tensors of word indices.</span>
+<span class="c1">#         # 原始文字 =》 IDX</span>
+<span class="c1">#         sentence_in = prepare_sequence(sentence, word_to_ix)</span>
+<span class="c1">#         targets = torch.tensor([tag_to_ix[t] for t in tags], dtype=torch.long)</span>
+
+<span class="c1">#         # Step 3. Run our forward pass.</span>
+<span class="c1">#         loss = model.neg_log_likelihood(sentence_in, targets)</span>
+
+<span class="c1">#         # Step 4. Compute the loss, gradients, and update the parameters by</span>
+<span class="c1">#         # calling optimizer.step()</span>
+<span class="c1">#         # 因为之前是前向转播，这里我们反向传播更新参数</span>
+<span class="c1">#         loss.backward()</span>
+<span class="c1">#         optimizer.step()</span>
+<span class="c1">#     # 我们需要保存一下我们的运行结果, 以下代码意思是运行多少轮保存一次</span>
+<span class="c1">#     if (epoch+1)%1==0:</span>
+<span class="c1">#         file_name=&#39;model{}.pt&#39;.format(epoch+1)</span>
+<span class="c1">#         torch.save(model, file_name)</span>
+<span class="c1">#         prepare_sequencerint(&#39;{ saved}&#39;.format(file_name))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># # 也可以.cuda放到GPU里面、 也可以放到paddle里面</span>
+<span class="c1"># # Check predictions after training</span>
+<span class="c1"># # 得出的结果更科学一点</span>
+<span class="c1"># with torch.no_grad():</span>
+<span class="c1">#     precheck_sent = prepare_sequence(training_data[0][0], word_to_ix)</span>
+<span class="c1">#     print(model(precheck_sent))</span>
+<span class="c1"># # We got it!</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>放到GPU 用to(device), 模型和数据都要</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./AI\AI_competition\4"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../Fraud%20Detection%20in%20Insurance.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">1.5. </span>Fraud Detection</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../../RF/intro.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">RF</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      通过 Quechen YANG, with thank to my GF Becky Yu<br/>
+    
+        &copy; 版权 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
