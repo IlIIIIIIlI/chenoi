@@ -1,0 +1,1599 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>银行欺诈检测比赛 &#8212; Chenoi AI Lab</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "github-org/github-repo");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="产品观点提取" href="%E4%BA%A7%E5%93%81%E8%AF%84%E8%AE%BA%E8%A7%82%E7%82%B9%E6%8F%90%E5%8F%96.html" />
+    <link rel="prev" title="个贷违约" href="%E4%B8%AA%E8%B4%B7%E8%BF%9D%E7%BA%A6%E9%A2%84%E6%B5%8B.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Chenoi AI Lab</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   My Coding Book
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../example/intro.html">
+   Example Files
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../example/mymarkdownfile.html">
+     subsection example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../example/notebooks.html">
+     notebook example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../example/markdown-notebooks.html">
+     markdown example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../example/markdown.html">
+     Markdown Files
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Artificial Intelligence
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../RF/intro.html">
+   RF
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../RF/mental_cal.html">
+     个贷违约
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Programming Language
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../Programming/intro.html">
+   Java
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Programming/JAVA/90041_1.html">
+     Basic JAVA
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Interesting staffs
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="intro.html">
+   AI Competition
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="%E4%B8%AA%E8%B4%B7%E8%BF%9D%E7%BA%A6%E9%A2%84%E6%B5%8B.html">
+     个贷违约
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     银行欺诈检测比赛
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="%E4%BA%A7%E5%93%81%E8%AF%84%E8%AE%BA%E8%A7%82%E7%82%B9%E6%8F%90%E5%8F%96.html">
+     产品观点提取
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/AI/AI_competition/Fraud Detection in Insurance.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/iliiiiiili/chenoi/master?urlpath=tree/AI/AI_competition/Fraud Detection in Insurance.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#initialization">
+   Initialization
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#view-the-data">
+   view the data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#feature-engineering">
+   Feature engineering
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     把日期转换成更有意义的特征，列入星期几
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#one-hot">
+     手动对某个特征做one-hot处理
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bin">
+     对某类别数据进行bin处理
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#label-encode">
+     建立特殊值表， 做label encode
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#unique">
+     爬虫车牌列unique数据的车价，用车价给各位欠款人做个特征
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#scratch">
+   标准化处理的scratch
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   训练模型
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>银行欺诈检测比赛</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#initialization">
+   Initialization
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#view-the-data">
+   view the data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#feature-engineering">
+   Feature engineering
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     把日期转换成更有意义的特征，列入星期几
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#one-hot">
+     手动对某个特征做one-hot处理
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bin">
+     对某类别数据进行bin处理
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#label-encode">
+     建立特殊值表， 做label encode
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#unique">
+     爬虫车牌列unique数据的车价，用车价给各位欠款人做个特征
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#scratch">
+   标准化处理的scratch
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   训练模型
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="id1">
+<h1>银行欺诈检测比赛<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>PDF请访问<a class="reference external" href="https://www.dropbox.com/s/n2jt4tkuvnlkomg/L1%20AI%E5%A4%A7%E8%B5%9B%E4%BF%A1%E6%81%AF%E4%BB%8B%E7%BB%8DV1.5.pptx?dl=0">银行欺诈检测.pdf</a>。</p>
+<div class="section" id="initialization">
+<h2>Initialization<a class="headerlink" href="#initialization" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 导入包 用于读取文件</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>读数据，合并</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># train = pd.read_csv(&#39;data/bankfraud_train.csv&#39;)</span>
+<span class="c1"># test = pd.read_csv(&#39;data/bankfraud_test.csv&#39;)</span>
+<span class="c1"># 合并train 和 test 集</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">train</span><span class="p">,</span> <span class="n">test</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="c1"># 用于其他features文件的合并</span>
+<span class="c1"># data = pd.merge(data, car_price,on=&#39;auto_model&#39;, how=&#39;outer&#39;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 声明一些变量</span>
+<span class="c1"># 美国大城市，用于feature engineering</span>
+<span class="n">top_cities</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;NewYork&quot;</span><span class="p">,</span><span class="s2">&quot;LosAngeles&quot;</span><span class="p">,</span><span class="s2">&quot;Chicago&quot;</span><span class="p">,</span><span class="s2">&quot;Houston&quot;</span><span class="p">,</span><span class="s2">&quot;Phoenix&quot;</span><span class="p">,</span><span class="s2">&quot;Philadelphia&quot;</span><span class="p">,</span><span class="s2">&quot;SanAntonio&quot;</span><span class="p">,</span><span class="s2">&quot;SanDiego&quot;</span><span class="p">,</span><span class="s2">&quot;Dallas&quot;</span><span class="p">,</span><span class="s2">&quot;SanJose&quot;</span><span class="p">,</span><span class="s2">&quot;Austin&quot;</span><span class="p">,</span><span class="s2">&quot;Jacksonville&quot;</span><span class="p">,</span><span class="s2">&quot;FortWorth&quot;</span><span class="p">,</span><span class="s2">&quot;Columbus&quot;</span><span class="p">,</span><span class="s2">&quot;Indianapolis&quot;</span><span class="p">,</span><span class="s2">&quot;Charlotte&quot;</span><span class="p">,</span><span class="s2">&quot;SanFrancisco&quot;</span><span class="p">,</span><span class="s2">&quot;Seattle&quot;</span><span class="p">,</span><span class="s2">&quot;Denver&quot;</span><span class="p">,</span><span class="s2">&quot;Washington&quot;</span><span class="p">,</span><span class="s2">&quot;Nashville&quot;</span><span class="p">,</span><span class="s2">&quot;OklahomaCity&quot;</span><span class="p">,</span><span class="s2">&quot;ElPaso&quot;</span><span class="p">,</span><span class="s2">&quot;Boston&quot;</span><span class="p">,</span><span class="s2">&quot;Portland&quot;</span><span class="p">,</span><span class="s2">&quot;LasVegas&quot;</span><span class="p">,</span><span class="s2">&quot;Detroit&quot;</span><span class="p">,</span><span class="s2">&quot;Memphis&quot;</span><span class="p">,</span><span class="s2">&quot;Louisville&quot;</span><span class="p">,</span><span class="s2">&quot;Baltimore&quot;</span><span class="p">,</span><span class="s2">&quot;Milwaukee&quot;</span><span class="p">,</span><span class="s2">&quot;Albuquerque&quot;</span><span class="p">,</span><span class="s2">&quot;Tucson&quot;</span><span class="p">,</span><span class="s2">&quot;Fresno&quot;</span><span class="p">,</span><span class="s2">&quot;Sacramento&quot;</span><span class="p">,</span><span class="s2">&quot;KansasCity&quot;</span><span class="p">,</span><span class="s2">&quot;Mesa&quot;</span><span class="p">,</span><span class="s2">&quot;Atlanta&quot;</span><span class="p">,</span><span class="s2">&quot;Omaha&quot;</span><span class="p">,</span><span class="s2">&quot;ColoradoSprings&quot;</span><span class="p">,</span><span class="s2">&quot;Raleigh&quot;</span><span class="p">,</span><span class="s2">&quot;LongBeach&quot;</span><span class="p">,</span><span class="s2">&quot;VirginiaBeach&quot;</span><span class="p">,</span><span class="s2">&quot;Miami&quot;</span><span class="p">,</span><span class="s2">&quot;Oakland&quot;</span><span class="p">,</span><span class="s2">&quot;Minneapolis&quot;</span><span class="p">,</span><span class="s2">&quot;Tulsa&quot;</span><span class="p">,</span><span class="s2">&quot;Bakersfield&quot;</span><span class="p">,</span><span class="s2">&quot;Wichita&quot;</span><span class="p">,</span><span class="s2">&quot;Arlington&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="view-the-data">
+<h2>view the data<a class="headerlink" href="#view-the-data" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train</span><span class="p">[</span><span class="s1">&#39;incident_city&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Springfield    117
+Arlington      110
+Columbus       108
+Northbend       96
+Hillsdale       96
+Riverwood       90
+Northbrook      83
+Name: incident_city, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;auto_model&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>39
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 用于查看数据中非数字列特殊值的个数</span>
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="nb">object</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+    <span class="c1"># nqunique是一个方法，记得加括号</span>
+	<span class="nb">print</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>policy_bind_date 951
+policy_state 3
+policy_csl 3
+insured_sex 2
+insured_education_level 7
+insured_occupation 14
+insured_hobbies 20
+insured_relationship 6
+incident_date 60
+incident_type 4
+collision_type 4
+incident_severity 4
+authorities_contacted 5
+incident_state 7
+incident_city 7
+incident_location 1000
+property_damage 3
+police_report_available 3
+auto_make 14
+auto_model 39
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="feature-engineering">
+<h2>Feature engineering<a class="headerlink" href="#feature-engineering" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id2">
+<h3>把日期转换成更有意义的特征，列入星期几<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;policy_bind_date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;policy_bind_date&#39;</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;incident_date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;incident_date&#39;</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;policy_bind_date_weekday&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;policy_bind_date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">weekday</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;incident_date_weekday&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;incident_date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">weekday</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">base_date</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;policy_bind_date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;p_diff&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;policy_bind_date&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">base_date</span><span class="p">)</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">days</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;i_diff&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;incident_date&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">base_date</span><span class="p">)</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">days</span>
+<span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;policy_bind_date&#39;</span><span class="p">,</span> <span class="s1">&#39;incident_date&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 日期求差值</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;pi_diff&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;p_diff&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;i_diff&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="one-hot">
+<h3>手动对某个特征做one-hot处理<a class="headerlink" href="#one-hot" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># t = pd.read_csv(&#39;data/bankfraud_train.csv&#39;)</span>
+<span class="c1"># temp = pd.DataFrame(columns=[&quot;months_as_customer&quot;])</span>
+<span class="c1"># temp = t[&quot;months_as_customer&quot;] </span>
+<span class="c1"># t = temp</span>
+<span class="c1"># func1 = lambda x: 1 if x == True else 0</span>
+<span class="c1"># t[&quot;months_as_customer&quot;] = t[&quot;months_as_customer&quot;]  &gt; 24</span>
+<span class="c1"># t[&quot;months_as_customer&quot;]  = t[&quot;months_as_customer&quot;] .apply(func1)</span>
+<span class="c1"># t</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="bin">
+<h3>对某类别数据进行bin处理<a class="headerlink" href="#bin" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;top_state&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;NY&quot;</span><span class="p">,</span> <span class="s2">&quot;SC&quot;</span><span class="p">,</span> <span class="s2">&quot;WV&quot;</span><span class="p">],</span>
+    <span class="s1">&#39;second_state&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;NC&quot;</span><span class="p">,</span> <span class="s2">&quot;VA&quot;</span><span class="p">,</span> <span class="s2">&quot;chi&quot;</span><span class="p">],</span> 
+    <span class="s1">&#39;third_state&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;PA&quot;</span><span class="p">,</span> <span class="s2">&quot;OH&quot;</span><span class="p">,</span> <span class="s2">&quot;ttt&quot;</span><span class="p">]</span>
+<span class="p">})</span>
+
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;big_state&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;incident_state&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s1">&#39;3&#39;</span> <span class="k">if</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">v</span><span class="p">[</span><span class="s1">&#39;top_state&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="k">else</span> <span class="s1">&#39;2&#39;</span> <span class="k">if</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">v</span><span class="p">[</span><span class="s1">&#39;second_state&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> 
+                                             <span class="k">else</span> <span class="s1">&#39;1&#39;</span> <span class="k">if</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">v</span><span class="p">[</span><span class="s1">&#39;third_state&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="k">else</span> <span class="s1">&#39;0&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;incident_state&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;top_city&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Springfield&quot;</span><span class="p">,</span> <span class="s2">&quot;Arlington&quot;</span><span class="p">,</span> <span class="s2">&quot;Columbus&quot;</span><span class="p">],</span>
+    <span class="s1">&#39;second_city&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Northbend&quot;</span><span class="p">,</span> <span class="s2">&quot;Hillsdale&quot;</span><span class="p">,</span> <span class="s2">&quot;chi&quot;</span><span class="p">],</span> 
+    <span class="s1">&#39;third_city&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Riverwood&quot;</span><span class="p">,</span> <span class="s2">&quot;Northbrook&quot;</span><span class="p">,</span> <span class="s2">&quot;ttt&quot;</span><span class="p">]</span>
+<span class="p">})</span>
+
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;big_city&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;incident_city&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s1">&#39;3&#39;</span> <span class="k">if</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">v</span><span class="p">[</span><span class="s1">&#39;top_city&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="k">else</span> <span class="s1">&#39;2&#39;</span> <span class="k">if</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">v</span><span class="p">[</span><span class="s1">&#39;second_city&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> 
+                                             <span class="k">else</span> <span class="s1">&#39;1&#39;</span> <span class="k">if</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">v</span><span class="p">[</span><span class="s1">&#39;third_city&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="k">else</span> <span class="s1">&#39;0&#39;</span><span class="p">)</span>
+
+<span class="c1"># 处理好以后可以删了</span>
+<span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;incident_city&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="label-encode">
+<h3>建立特殊值表， 做label encode<a class="headerlink" href="#label-encode" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">column_name</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">unique_value</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="nb">object</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+	<span class="n">column_name</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">col</span><span class="p">)</span>
+	<span class="n">unique_value</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;col_name&#39;</span><span class="p">]</span> <span class="o">=</span>  <span class="n">column_name</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">unique_value</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>col_name</th>
+      <th>value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>11</th>
+      <td>incident_location</td>
+      <td>1000</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>auto_model</td>
+      <td>39</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>insured_hobbies</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>insured_occupation</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>auto_make</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>insured_education_level</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>insured_relationship</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>authorities_contacted</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>incident_severity</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>incident_type</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>collision_type</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>police_report_available</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>big_state</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>policy_state</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>property_damage</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>policy_csl</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>big_city</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>insured_sex</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="n">cat_columns</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="s1">&#39;O&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span>
+<span class="n">float_d</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">cat_l</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">cat_columns</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">cat_l</span><span class="p">:</span>
+    <span class="n">float_d</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">LabelEncoder</span>
+
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">cat_columns</span><span class="p">:</span>
+	<span class="n">le</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+	<span class="n">temp</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">le</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">col</span><span class="p">])</span>
+
+<span class="n">temp</span><span class="p">[</span><span class="s1">&#39;index&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">temp</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;index&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="unique">
+<h3>爬虫车牌列unique数据的车价，用车价给各位欠款人做个特征<a class="headerlink" href="#unique" title="Permalink to this headline">¶</a></h3>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 简单爬虫代码</span>
+<span class="kn">from</span> <span class="nn">selenium</span> <span class="kn">import</span> <span class="n">webdriver</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.common.by</span> <span class="kn">import</span> <span class="n">By</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.support</span> <span class="kn">import</span> <span class="n">expected_conditions</span> <span class="k">as</span> <span class="n">ec</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.support.wait</span> <span class="kn">import</span> <span class="n">WebDriverWait</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">openpyxl</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.common.keys</span> <span class="kn">import</span> <span class="n">Keys</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.common.by</span> <span class="kn">import</span> <span class="n">By</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.support.ui</span> <span class="kn">import</span> <span class="n">WebDriverWait</span>
+
+<span class="c1"># 配置浏览器</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1"> - </span><span class="si">%(levelname)s</span><span class="s1">: </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">wb</span> <span class="o">=</span> <span class="n">openpyxl</span><span class="o">.</span><span class="n">Workbook</span><span class="p">()</span>
+<span class="n">sheet</span> <span class="o">=</span> <span class="n">wb</span><span class="o">.</span><span class="n">active</span>
+<span class="n">sheet</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="s1">&#39;car&#39;</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">])</span>
+
+<span class="c1"># 关闭左上方 Chrome 正受到自动测试软件的控制的提示</span>
+<span class="n">options</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">ChromeOptions</span><span class="p">()</span>
+<span class="n">options</span><span class="o">.</span><span class="n">add_experimental_option</span><span class="p">(</span><span class="s1">&#39;useAutomationExtension&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+<span class="n">options</span><span class="o">.</span><span class="n">add_experimental_option</span><span class="p">(</span><span class="s2">&quot;excludeSwitches&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;enable-automation&#39;</span><span class="p">])</span>
+<span class="n">browser</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Chrome</span><span class="p">(</span><span class="n">executable_path</span><span class="o">=</span><span class="n">chrome_driver</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">)</span>
+
+<span class="c1"># 导入车数据</span>
+<span class="n">car</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;./车.xlsx&#39;</span><span class="p">)</span>
+<span class="n">car</span> <span class="o">=</span> <span class="n">car</span><span class="p">[</span><span class="s2">&quot;car&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+<span class="c1"># 爬国外二手车网站</span>
+<span class="k">def</span> <span class="nf">foreignWeb</span><span class="p">(</span><span class="n">car</span><span class="p">):</span>
+    <span class="n">chrome_driver</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;./win/chromedriver&#39;</span>
+    <span class="c1"># 关闭左上方 Chrome 正受到自动测试软件的控制的提示</span>
+    <span class="n">options</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">ChromeOptions</span><span class="p">()</span>
+    <span class="n">options</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--incognito&#39;</span><span class="p">)</span>
+    <span class="n">options</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;blink-settings=imagesEnabled=false&#39;</span><span class="p">)</span> <span class="c1"># 不載入圖片,提升速度</span>
+    <span class="n">options</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;User-Agent=Mozilla/5.0 (Linux; U; Android 8.1.0; zh-cn; BLA-AL00 Build/HUAWEIBLA-AL00) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/57.0.2987.132 MQQBrowser/8.9 Mobile Safari/537.36&#39;</span><span class="p">)</span>
+
+<span class="c1">#     options.add_experimental_option(&#39;useAutomationExtension&#39;, False)</span>
+<span class="c1">#     options.add_experimental_option(&quot;excludeSwitches&quot;, [&#39;enable-automation&#39;])</span>
+    <span class="n">browser</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Chrome</span><span class="p">(</span><span class="n">executable_path</span><span class="o">=</span><span class="n">chrome_driver</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">)</span>
+    <span class="n">browser</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://www.carmax.com/cars?search=BMW&#39;</span><span class="p">)</span>
+<span class="c1">#     wait = WebDriverWait(browser, 20)</span>
+    <span class="c1">## 解决弹窗</span>
+<span class="c1">#     time.sleep(20)</span>
+<span class="c1">#     ttype = browser.find_element_by_xpath(&#39;//button/parent::div[@class=&quot;tour-popover-next-button&quot;]&#39;)</span>
+<span class="c1">#     print(ttype)</span>
+    
+    <span class="n">xxpe</span> <span class="o">=</span> <span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span><span class="s1">&#39;//div[contains(text(), &quot;close filters.&quot;)]&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">xxpe</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="c1">#     browser.quit()</span>
+
+<span class="c1"># browser.maximize_window()</span>
+<span class="c1"># 设定最长等待时间  在10s内发现了输入框已经加载出来后就输入“网易云热评墙”</span>
+<span class="n">num</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">car</span><span class="p">:</span>
+    <span class="n">foreignWeb</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">num</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="c1"># 保存数据  输出日志信息  退出浏览器</span>
+<span class="n">wb</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;car_info2.xlsx&#39;</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;共获取</span><span class="si">{</span><span class="n">num</span><span class="si">}</span><span class="s1">条信息&#39;</span><span class="p">)</span>
+<span class="n">browser</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 易车网的爬虫代码</span>
+<span class="k">def</span> <span class="nf">Chineseprocess</span><span class="p">(</span><span class="n">car</span><span class="p">):</span>
+    <span class="n">wait</span> <span class="o">=</span> <span class="n">WebDriverWait</span><span class="p">(</span><span class="n">browser</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+    <span class="n">_input</span> <span class="o">=</span> <span class="n">wait</span><span class="o">.</span><span class="n">until</span><span class="p">(</span><span class="n">ec</span><span class="o">.</span><span class="n">presence_of_element_located</span><span class="p">((</span><span class="n">By</span><span class="o">.</span><span class="n">CLASS_NAME</span><span class="p">,</span> <span class="s1">&#39;yccmp-search-input&#39;</span><span class="p">)))</span>
+    <span class="c1"># # 搜索框中输入内容，输入之前先清空</span>
+    <span class="c1"># _input.clear()</span>
+    <span class="c1"># _input.send_keys(&#39;Forrestor&#39;)</span>
+    <span class="c1"># # class定位   模拟点击搜文章</span>
+    <span class="c1"># browser.find_element_by_xpath(&quot;//input[@class=&#39;yccmp-search-btn&#39;]&quot;).click()</span>
+    <span class="c1"># time.sleep(10)</span>
+
+    <span class="n">_input</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+    <span class="n">_input</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">car</span><span class="p">)</span>
+    <span class="c1"># class定位   模拟点击搜文章</span>
+    <span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span><span class="s2">&quot;//input[@class=&#39;yccmp-search-btn&#39;]&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+    
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">elem</span> <span class="o">=</span> <span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span><span class="s1">&#39;//*[@class=&quot;pp-car-list&quot;]/ul&#39;</span><span class="p">)</span>
+        <span class="n">all_li</span> <span class="o">=</span> <span class="n">elem</span><span class="o">.</span><span class="n">find_elements_by_tag_name</span><span class="p">(</span><span class="s2">&quot;li&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">li</span> <span class="ow">in</span> <span class="n">all_li</span><span class="p">:</span>
+            <span class="n">text</span> <span class="o">=</span> <span class="n">li</span><span class="o">.</span><span class="n">text</span>
+            <span class="n">sheet</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">car</span><span class="p">,</span> <span class="n">text</span><span class="p">])</span>
+    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+        <span class="n">sheet</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">car</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">])</span>
+    
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">browser</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://so.yiche.com/chexing/&#39;</span><span class="p">)</span>
+<span class="c1"># browser.maximize_window()</span>
+<span class="c1"># 设定最长等待时间  在10s内发现了输入框已经加载出来后就输入“网易云热评墙”</span>
+<span class="n">num</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">car</span><span class="p">:</span>
+    <span class="n">Chineseprocess</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">num</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 保存数据  输出日志信息  退出浏览器</span>
+<span class="n">wb</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;car_info.xlsx&#39;</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;共获取</span><span class="si">{</span><span class="n">num</span><span class="si">}</span><span class="s1">条信息&#39;</span><span class="p">)</span>
+<span class="n">browser</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="scratch">
+<h2>标准化处理的scratch<a class="headerlink" href="#scratch" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">normalize</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">feature_name</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">feature_name</span> <span class="o">==</span> <span class="s1">&#39;model_price&#39;</span> <span class="ow">or</span> <span class="n">feature_name</span> <span class="o">==</span> <span class="s1">&#39;policy_number&#39;</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">max_value</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">feature_name</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+            <span class="n">min_value</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">feature_name</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+            <span class="n">result</span><span class="p">[</span><span class="n">feature_name</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">feature_name</span><span class="p">]</span> <span class="o">-</span> <span class="n">min_value</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">max_value</span> <span class="o">-</span> <span class="n">min_value</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">float_d</span> <span class="o">=</span> <span class="n">normalize</span><span class="p">(</span><span class="n">float_d</span><span class="p">)</span>
+<span class="n">float_d</span><span class="p">[</span><span class="s1">&#39;index&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">float_d</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">float_d</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;index&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>months_as_customer</th>
+      <th>age</th>
+      <th>policy_number</th>
+      <th>policy_deductable</th>
+      <th>policy_annual_premium</th>
+      <th>umbrella_limit</th>
+      <th>insured_zip</th>
+      <th>capital-gains</th>
+      <th>capital-loss</th>
+      <th>incident_hour_of_the_day</th>
+      <th>...</th>
+      <th>property_claim</th>
+      <th>vehicle_claim</th>
+      <th>auto_year</th>
+      <th>fraud_reported</th>
+      <th>_c39</th>
+      <th>policy_bind_date_weekday</th>
+      <th>incident_date_weekday</th>
+      <th>p_diff</th>
+      <th>i_diff</th>
+      <th>pi_diff</th>
+    </tr>
+    <tr>
+      <th>index</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>0.390397</td>
+      <td>0.400000</td>
+      <td>125591</td>
+      <td>0.333333</td>
+      <td>0.606303</td>
+      <td>0.545455</td>
+      <td>0.109207</td>
+      <td>0.598010</td>
+      <td>1.000000</td>
+      <td>0.913043</td>
+      <td>...</td>
+      <td>0.243768</td>
+      <td>0.579821</td>
+      <td>0.25</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>0.500000</td>
+      <td>0.666667</td>
+      <td>0.938644</td>
+      <td>0.254237</td>
+      <td>0.940601</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.507307</td>
+      <td>0.555556</td>
+      <td>967713</td>
+      <td>0.000000</td>
+      <td>0.232788</td>
+      <td>0.090909</td>
+      <td>0.891259</td>
+      <td>0.330348</td>
+      <td>1.000000</td>
+      <td>0.173913</td>
+      <td>...</td>
+      <td>0.434305</td>
+      <td>0.451755</td>
+      <td>0.05</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>0.500000</td>
+      <td>0.166667</td>
+      <td>0.316914</td>
+      <td>0.440678</td>
+      <td>0.318755</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.050104</td>
+      <td>0.311111</td>
+      <td>649082</td>
+      <td>0.333333</td>
+      <td>0.922720</td>
+      <td>0.090909</td>
+      <td>0.006146</td>
+      <td>0.000000</td>
+      <td>0.593159</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.395437</td>
+      <td>0.411247</td>
+      <td>0.35</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>0.666667</td>
+      <td>0.833333</td>
+      <td>0.239974</td>
+      <td>0.389831</td>
+      <td>0.242276</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.448852</td>
+      <td>0.511111</td>
+      <td>519312</td>
+      <td>0.000000</td>
+      <td>0.876860</td>
+      <td>0.090909</td>
+      <td>0.028215</td>
+      <td>0.000000</td>
+      <td>0.558956</td>
+      <td>0.869565</td>
+      <td>...</td>
+      <td>0.241234</td>
+      <td>0.645616</td>
+      <td>0.40</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>0.166667</td>
+      <td>0.666667</td>
+      <td>0.748474</td>
+      <td>0.610169</td>
+      <td>0.748477</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0.177453</td>
+      <td>0.244444</td>
+      <td>190588</td>
+      <td>0.333333</td>
+      <td>0.224883</td>
+      <td>0.090909</td>
+      <td>0.964392</td>
+      <td>0.720398</td>
+      <td>0.306931</td>
+      <td>0.391304</td>
+      <td>...</td>
+      <td>0.452894</td>
+      <td>0.538558</td>
+      <td>0.45</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>1.000000</td>
+      <td>0.666667</td>
+      <td>0.474390</td>
+      <td>0.847458</td>
+      <td>0.473346</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>996</th>
+      <td>0.064718</td>
+      <td>0.377778</td>
+      <td>679370</td>
+      <td>1.000000</td>
+      <td>0.548183</td>
+      <td>0.909091</td>
+      <td>0.899328</td>
+      <td>0.000000</td>
+      <td>0.292529</td>
+      <td>0.391304</td>
+      <td>...</td>
+      <td>0.019856</td>
+      <td>0.040508</td>
+      <td>0.35</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.000000</td>
+      <td>0.666667</td>
+      <td>0.382084</td>
+      <td>0.491525</td>
+      <td>0.383486</td>
+    </tr>
+    <tr>
+      <th>997</th>
+      <td>0.620042</td>
+      <td>0.622222</td>
+      <td>272330</td>
+      <td>0.000000</td>
+      <td>0.733042</td>
+      <td>0.727273</td>
+      <td>0.137584</td>
+      <td>0.000000</td>
+      <td>0.464446</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.234474</td>
+      <td>0.418040</td>
+      <td>0.20</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.000000</td>
+      <td>0.666667</td>
+      <td>0.791739</td>
+      <td>0.254237</td>
+      <td>0.793951</td>
+    </tr>
+    <tr>
+      <th>998</th>
+      <td>0.524008</td>
+      <td>0.444444</td>
+      <td>315631</td>
+      <td>1.000000</td>
+      <td>0.494747</td>
+      <td>0.090909</td>
+      <td>0.957801</td>
+      <td>0.000000</td>
+      <td>0.714671</td>
+      <td>0.434783</td>
+      <td>...</td>
+      <td>0.233629</td>
+      <td>0.416530</td>
+      <td>0.10</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.666667</td>
+      <td>0.500000</td>
+      <td>0.368134</td>
+      <td>0.118644</td>
+      <td>0.371954</td>
+    </tr>
+    <tr>
+      <th>999</th>
+      <td>0.112735</td>
+      <td>0.355556</td>
+      <td>445195</td>
+      <td>0.000000</td>
+      <td>0.512898</td>
+      <td>0.090909</td>
+      <td>0.121352</td>
+      <td>0.681592</td>
+      <td>0.621062</td>
+      <td>0.913043</td>
+      <td>...</td>
+      <td>0.303760</td>
+      <td>0.722732</td>
+      <td>0.85</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.000000</td>
+      <td>0.333333</td>
+      <td>0.824651</td>
+      <td>0.932203</td>
+      <td>0.822454</td>
+    </tr>
+    <tr>
+      <th>1000</th>
+      <td>0.323591</td>
+      <td>0.333333</td>
+      <td>914815</td>
+      <td>0.000000</td>
+      <td>0.788882</td>
+      <td>0.090909</td>
+      <td>0.169629</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>0.043478</td>
+      <td>...</td>
+      <td>0.361639</td>
+      <td>0.752925</td>
+      <td>0.15</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.500000</td>
+      <td>0.333333</td>
+      <td>0.028553</td>
+      <td>0.101695</td>
+      <td>0.033072</td>
+    </tr>
+  </tbody>
+</table>
+<p>1000 rows × 25 columns</p>
+</div></div></div>
+</div>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span><span class="n">float_d</span><span class="p">,</span><span class="n">on</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>训练模型<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># from sklearn.model_selection import RandomizedSearchCV</span>
+<span class="c1"># import lightgbm as lgb</span>
+
+<span class="c1"># rs_params = {</span>
+
+<span class="c1">#         &#39;colsample_bytree&#39;: (0.5, 0.6, 1),</span>
+<span class="c1">#         &#39;learning_rate&#39;: (0.005, 0.1, 0.2, 0.3),</span>
+<span class="c1">#         &#39;reg_lambda&#39;: (0.25, 0.3, 0.5, 3, 5),</span>
+<span class="c1">#         &#39;max_depth&#39;: (-1, 2, 3, 5, 10),</span>
+<span class="c1">#         &#39;min_child_samples&#39;: (1, 3, 5, 9, 10),</span>
+<span class="c1">#         &#39;num_leaves&#39;: (20, 2**5-1, 2**5-1, 300, 400),</span>
+<span class="c1">#         &#39;reg_alpha&#39; : (0.1, 0.25, 0.3, 0.5, 3, 5)</span>
+    
+<span class="c1"># }</span>
+
+<span class="c1"># # Initialize a RandomizedSearchCV object using 5-fold CV-</span>
+<span class="c1"># # 折15次，每次用100样本</span>
+<span class="c1"># rs_cv = RandomizedSearchCV(estimator=lgb.LGBMClassifier(), param_distributions=rs_params, cv = 7, n_iter=300,verbose=1)</span>
+
+<span class="c1"># # Train on training data</span>
+<span class="c1"># rs_cv.fit(train.drop([&#39;fraud_reported&#39;], axis=1), train[&#39;fraud_reported&#39;],verbose=1)</span>
+<span class="c1"># print(rs_cv.best_params_)</span>
+<span class="c1"># print(rs_cv.best_score_)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># model_lgb = lgb.LGBMClassifier(num_leaves = 300, </span>
+<span class="c1">#                                reg_alpha=5, </span>
+<span class="c1">#                                reg_lambda=0.5, </span>
+<span class="c1">#                                objective=&#39;binary&#39;, </span>
+<span class="c1">#                                max_depth=3, </span>
+<span class="c1">#                                learning_rate=0.3, </span>
+<span class="c1">#                                min_child_samples=5, </span>
+<span class="c1">#                                random_state=7777,n_estimators=2000,subsample=1, colsample_bytree=1,)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># model_lgb.fit(train.drop([&#39;fraud_reported&#39;], axis=1), train[&#39;fraud_reported&#39;])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LGBMClassifier(colsample_bytree=1, learning_rate=0.3, max_depth=3,
+               min_child_samples=5, n_estimators=2000, num_leaves=300,
+               objective=&#39;binary&#39;, random_state=7777, reg_alpha=5,
+               reg_lambda=0.5, subsample=1)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># y_pred = model_lgb.predict_proba(test.drop([&#39;fraud_reported&#39;], axis=1))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># train[&#39;fraud_reported&#39;].mean()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.25857142857142856
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># sum(y_pred) / 300</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.77069713, 0.22930287])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># result = pd.read_csv(&#39;sampleSubmission.csv&#39;)</span>
+<span class="c1"># # 调整矩阵形状</span>
+<span class="c1"># result[&#39;fraud_reported&#39;] = y_pred[:, 1]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># result</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>policy_number</th>
+      <th>fraud_reported</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>698589</td>
+      <td>0.587929</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>287489</td>
+      <td>0.507880</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>211578</td>
+      <td>0.040526</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>807369</td>
+      <td>0.045366</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>830878</td>
+      <td>0.053479</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>295</th>
+      <td>679370</td>
+      <td>0.059729</td>
+    </tr>
+    <tr>
+      <th>296</th>
+      <td>272330</td>
+      <td>0.101335</td>
+    </tr>
+    <tr>
+      <th>297</th>
+      <td>315631</td>
+      <td>0.069951</td>
+    </tr>
+    <tr>
+      <th>298</th>
+      <td>445195</td>
+      <td>0.036823</td>
+    </tr>
+    <tr>
+      <th>299</th>
+      <td>914815</td>
+      <td>0.080392</td>
+    </tr>
+  </tbody>
+</table>
+<p>300 rows × 2 columns</p>
+</div></div></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "iliiiiiili/chenoi",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./AI\AI_competition"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="%E4%B8%AA%E8%B4%B7%E8%BF%9D%E7%BA%A6%E9%A2%84%E6%B5%8B.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">个贷违约</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="%E4%BA%A7%E5%93%81%E8%AF%84%E8%AE%BA%E8%A7%82%E7%82%B9%E6%8F%90%E5%8F%96.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">产品观点提取</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Quechen YANG, with thank to my GF Becky Yu<br/>
+    
+        &copy; Copyright 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

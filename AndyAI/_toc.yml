@@ -3,15 +3,37 @@
 
 format: jb-book
 root: intro
+defaults:  # The defaults key will be applied to all chapters and sub-sections
+  titlesonly: True
+  # numbered: True
 parts:
-  - caption: AI
-    chapters:
-    - file: markdown
+  - chapters:
+    - file: example/intro
       sections:
-      - file: mymarkdownfile
-  - caption: AI2
+      - file: example/mymarkdownfile
+        title: subsection example
+      - file: example/notebooks
+        title: notebook example
+      - file: example/markdown-notebooks
+        title: markdown example
+      - file: example/markdown
+        title: markdown example2
+  - caption: Artificial Intelligence
     chapters:
-    - file: notebooks
+    - file: AI/RF/intro
       sections:
-      - file: markdown-notebooks
+      - file: AI/RF/mental_cal
+  - caption: Programming Language
+    chapters:
+    - file: Programming/intro
+      sections:
+      - file: Programming/JAVA/90041_1
+  - caption: Interesting staffs
+    chapters:
+    - file: AI/AI_competition/intro
+      sections:
+      - file: AI/AI_competition/个贷违约预测
+      - file: AI/AI_competition/Fraud Detection in Insurance
+      - file: AI/AI_competition/产品评论观点提取
+      
 
