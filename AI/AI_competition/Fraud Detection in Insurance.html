@@ -86,11 +86,9 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="产品观点提取" href="4/%E4%BA%A7%E5%93%81%E8%AF%84%E8%AE%BA%E8%A7%82%E7%82%B9%E6%8F%90%E5%8F%96.html" />
+    <link rel="next" title="产品观点提取" href="%E4%BA%A7%E5%93%81%E8%AF%84%E8%AE%BA%E8%A7%82%E7%82%B9%E6%8F%90%E5%8F%96.html" />
     <link rel="prev" title="个贷违约" href="%E4%B8%AA%E8%B4%B7%E8%BF%9D%E7%BA%A6%E9%A2%84%E6%B5%8B.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
@@ -186,8 +184,8 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../RF/test.html">
-     COMP90054 AI Planning for Autonomy
+    <a class="reference internal" href="../RF/mental_cal.html">
+     practice mental calculation
     </a>
    </li>
   </ul>
@@ -244,7 +242,7 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="4/%E4%BA%A7%E5%93%81%E8%AF%84%E8%AE%BA%E8%A7%82%E7%82%B9%E6%8F%90%E5%8F%96.html">
+    <a class="reference internal" href="%E4%BA%A7%E5%93%81%E8%AF%84%E8%AE%BA%E8%A7%82%E7%82%B9%E6%8F%90%E5%8F%96.html">
      产品观点提取
     </a>
    </li>
@@ -316,7 +314,7 @@ const thebe_selector_output = ".output, .cell_output"
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/AI/AI_competition/Fraud Detection in Insurance.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/iliiiiiili/chenoi/master?urlpath=tree/AI/AI_competition/Fraud Detection in Insurance.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
@@ -324,6 +322,9 @@ const thebe_selector_output = ".output, .cell_output"
         
         
         
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
         
     </div>
 </div>
@@ -484,10 +485,11 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
+<p>读数据，合并</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/bankfraud_train.csv&#39;</span><span class="p">)</span>
-<span class="n">test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/bankfraud_test.csv&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># train = pd.read_csv(&#39;data/bankfraud_train.csv&#39;)</span>
+<span class="c1"># test = pd.read_csv(&#39;data/bankfraud_test.csv&#39;)</span>
 <span class="c1"># 合并train 和 test 集</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">train</span><span class="p">,</span> <span class="n">test</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="c1"># 用于其他features文件的合并</span>
@@ -1392,6 +1394,14 @@ auto_model 39
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LGBMClassifier(colsample_bytree=1, learning_rate=0.3, max_depth=3,
+               min_child_samples=5, n_estimators=2000, num_leaves=300,
+               objective=&#39;binary&#39;, random_state=7777, reg_alpha=5,
+               reg_lambda=0.5, subsample=1)
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1406,10 +1416,20 @@ auto_model 39
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.25857142857142856
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># sum(y_pred) / 300</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.77069713, 0.22930287])
 </pre></div>
 </div>
 </div>
@@ -1429,6 +1449,89 @@ auto_model 39
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>policy_number</th>
+      <th>fraud_reported</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>698589</td>
+      <td>0.587929</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>287489</td>
+      <td>0.507880</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>211578</td>
+      <td>0.040526</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>807369</td>
+      <td>0.045366</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>830878</td>
+      <td>0.053479</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>295</th>
+      <td>679370</td>
+      <td>0.059729</td>
+    </tr>
+    <tr>
+      <th>296</th>
+      <td>272330</td>
+      <td>0.101335</td>
+    </tr>
+    <tr>
+      <th>297</th>
+      <td>315631</td>
+      <td>0.069951</td>
+    </tr>
+    <tr>
+      <th>298</th>
+      <td>445195</td>
+      <td>0.036823</td>
+    </tr>
+    <tr>
+      <th>299</th>
+      <td>914815</td>
+      <td>0.080392</td>
+    </tr>
+  </tbody>
+</table>
+<p>300 rows × 2 columns</p>
+</div></div></div>
 </div>
 </div>
 </div>
@@ -1437,7 +1540,7 @@ auto_model 39
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
+            repo: "iliiiiiili/chenoi",
             ref: "master",
         },
         codeMirrorConfig: {
@@ -1465,7 +1568,7 @@ auto_model 39
             <p class="prev-next-title">个贷违约</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="4/%E4%BA%A7%E5%93%81%E8%AF%84%E8%AE%BA%E8%A7%82%E7%82%B9%E6%8F%90%E5%8F%96.html" title="next page">
+    <a class='right-next' id="next-link" href="%E4%BA%A7%E5%93%81%E8%AF%84%E8%AE%BA%E8%A7%82%E7%82%B9%E6%8F%90%E5%8F%96.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">产品观点提取</p>

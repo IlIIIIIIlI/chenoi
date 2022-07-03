@@ -86,8 +86,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="银行欺诈检测比赛" href="Fraud%20Detection%20in%20Insurance.html" />
@@ -186,8 +184,8 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../RF/test.html">
-     COMP90054 AI Planning for Autonomy
+    <a class="reference internal" href="../RF/mental_cal.html">
+     practice mental calculation
     </a>
    </li>
   </ul>
@@ -244,7 +242,7 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="4/%E4%BA%A7%E5%93%81%E8%AF%84%E8%AE%BA%E8%A7%82%E7%82%B9%E6%8F%90%E5%8F%96.html">
+    <a class="reference internal" href="%E4%BA%A7%E5%93%81%E8%AF%84%E8%AE%BA%E8%A7%82%E7%82%B9%E6%8F%90%E5%8F%96.html">
      产品观点提取
     </a>
    </li>
@@ -316,7 +314,7 @@ const thebe_selector_output = ".output, .cell_output"
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/AI/AI_competition/个贷违约预测.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/iliiiiiili/chenoi/master?urlpath=tree/AI/AI_competition/个贷违约预测.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
@@ -324,6 +322,9 @@ const thebe_selector_output = ".output, .cell_output"
         
         
         
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
         
     </div>
 </div>
@@ -338,44 +339,32 @@ const thebe_selector_output = ".output, .cell_output"
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   个贷违约
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#automl">
+   使用autoML模型
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#internetbank">
-   个贷违约预测，用internet大数据用于bank自己的模型预测
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#feature">
+   特征工程：考虑每个feature实际的重要性
   </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#autogluon">
-   插入一个步骤, 此为autogluon后半段内容
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
-     数据分箱
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id3">
-     模型训练
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#numericcategoric">
+     一种numeric格式转换成categoric的格式的方式
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id4">
-   结束
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   数据分箱
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id5">
-     模型训练
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   模型训练
+  </a>
  </li>
 </ul>
 
@@ -397,44 +386,32 @@ const thebe_selector_output = ".output, .cell_output"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   个贷违约
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#automl">
+   使用autoML模型
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#internetbank">
-   个贷违约预测，用internet大数据用于bank自己的模型预测
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#feature">
+   特征工程：考虑每个feature实际的重要性
   </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#autogluon">
-   插入一个步骤, 此为autogluon后半段内容
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
-     数据分箱
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id3">
-     模型训练
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#numericcategoric">
+     一种numeric格式转换成categoric的格式的方式
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id4">
-   结束
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   数据分箱
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id5">
-     模型训练
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   模型训练
+  </a>
  </li>
 </ul>
 
@@ -447,16 +424,9 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="id1">
 <h1>个贷违约<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># # for a list of pred, makes it be a human-readable labels and input to a dataframe as a column</span>
-<span class="c1"># y_pred = [1 if x &gt;= 0.5 else 0 for x in y_pred]</span>
-<span class="c1"># subscribe_map = {1.0:&quot;yes&quot;, 0.0:&quot;no&quot;}</span>
-<span class="c1"># result[&#39;subscribe&#39;] = [subscribe_map[x] for x in y_pred]</span>
-</pre></div>
-</div>
-</div>
-</div>
+<p>PDF请访问<a class="reference external" href="https://www.dropbox.com/s/ms0sefr2sulvmdg/L3%20%E4%B8%AA%E8%B4%B7%E8%BF%9D%E7%BA%A6%E9%A2%84%E6%B5%8B1V0.2.pptx?dl=0">个贷违约预测.pdf</a>。</p>
+<div class="section" id="automl">
+<h2>使用autoML模型<a class="headerlink" href="#automl" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># # 用autoML 来找最佳的metric - path 只是model信息保存的文件路径</span>
@@ -474,39 +444,63 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<p>特征工程：考虑每个feature实际的重要性</p>
+</div>
+<div class="section" id="feature">
+<h2>特征工程：考虑每个feature实际的重要性<a class="headerlink" href="#feature" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="numericcategoric">
+<h3>一种numeric格式转换成categoric的格式的方式<a class="headerlink" href="#numericcategoric" title="Permalink to this headline">¶</a></h3>
+<p>for a list of pred, makes it be a human-readable labels and input to a dataframe as a column</p>
+<p>y_pred = [1 if x &gt;= 0.5 else 0 for x in y_pred]</p>
+<p>subscribe_map = {1.0:”yes”, 0.0:”no”}</p>
+<p>result[‘subscribe’] = [subscribe_map[x] for x in y_pred]</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 最后一位按照年加进去</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">x3</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">x1</span> <span class="o">==</span> <span class="s1">&#39;2022&#39;</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">x3</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2000</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">x2</span>  <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="s1">&#39;1&#39;</span>
+    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+        <span class="n">x</span> <span class="o">==</span> <span class="n">x</span>
+    <span class="k">return</span> <span class="n">x</span>
+<span class="n">train_public</span><span class="p">[</span><span class="s1">&#39;earlies_credit_mon&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">train_public</span><span class="p">[</span><span class="s1">&#39;earlies_credit_mon&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="n">test_public</span><span class="p">[</span><span class="s1">&#39;earlies_credit_mon&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">test_public</span><span class="p">[</span><span class="s1">&#39;earlies_credit_mon&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">process_cat</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
     <span class="c1"># 	class	employer_type	industry	work_year</span>
     <span class="c1"># 先看class有多少类</span>
-    <span class="n">class_map</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;A&#39;</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">}</span> 
-    <span class="n">yr_map</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;&lt; 1 year&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;1 years&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;2 years&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;3 years&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;4 years&#39;</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;5 years&#39;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;6 years&#39;</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span> <span class="s1">&#39;7 years&#39;</span><span class="p">:</span><span class="mi">7</span><span class="p">,</span> <span class="s1">&#39;8 years&#39;</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span> <span class="s1">&#39;9 years&#39;</span><span class="p">:</span><span class="mi">9</span><span class="p">,</span> <span class="s1">&#39;10+ years&#39;</span><span class="p">:</span><span class="mi">10</span><span class="p">}</span> 
+    <span class="n">class_map</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;A&#39;</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">}</span>
+    <span class="n">yr_map</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;&lt; 1 year&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;1 years&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;2 years&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;3 years&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;4 years&#39;</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;5 years&#39;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;6 years&#39;</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span> <span class="s1">&#39;7 years&#39;</span><span class="p">:</span><span class="mi">7</span><span class="p">,</span> <span class="s1">&#39;8 years&#39;</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span> <span class="s1">&#39;9 years&#39;</span><span class="p">:</span><span class="mi">9</span><span class="p">,</span> <span class="s1">&#39;10+ years&#39;</span><span class="p">:</span><span class="mi">10</span><span class="p">}</span>
     <span class="n">industry_map</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;金融业&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;房地产业&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;电力、热力生产供应业&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;制造业&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;建筑业&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;交通运输、仓储和邮政业&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;农、林、牧、渔业&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;采矿业&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;批发和零售业&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;住宿和餐饮业&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;文化和体育业&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;公共服务、社会组织&#39;</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;国际组织&#39;</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;信息传输、软件和信息技术服务业&#39;</span><span class="p">:</span><span class="mi">5</span><span class="p">}</span>
     <span class="n">emp_map</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;普通企业&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;政府机构&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;世界五百强&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;高等教育机构&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;上市企业&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;幼教与中小学校&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">}</span>
     <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    单纯的用于表示cat的numeric变成程度关联</span>
 <span class="sd">        金融业                122758</span>
-<span class="sd">        电力、热力生产供应业          92072</span>
-<span class="sd">        公共服务、社会组织           77326</span>
-<span class="sd">        住宿和餐饮业              68422</span>
-<span class="sd">        文化和体育业              61548</span>
+<span class="sd">        电力、热力生产供应业   92072</span>
+<span class="sd">        公共服务、社会组织     77326</span>
+<span class="sd">        住宿和餐饮业           68422</span>
+<span class="sd">        文化和体育业           61548</span>
 <span class="sd">        信息传输、软件和信息技术服务业     61023</span>
-<span class="sd">        建筑业                 53330</span>
-<span class="sd">        房地产业                45733</span>
-<span class="sd">        交通运输、仓储和邮政业         38300</span>
-<span class="sd">        采矿业                 38092</span>
-<span class="sd">        农、林、牧、渔业            38091</span>
-<span class="sd">        国际组织                22909</span>
-<span class="sd">        批发和零售业              22738</span>
-<span class="sd">        制造业                 22658</span>
-<span class="sd">        </span>
-<span class="sd">        普通企业       347404</span>
-<span class="sd">        政府机构       197443</span>
-<span class="sd">        幼教与中小学校     76547</span>
-<span class="sd">        上市企业        76425</span>
-<span class="sd">        世界五百强       41361</span>
-<span class="sd">        高等教育机构      25820</span>
+<span class="sd">        建筑业                53330</span>
+<span class="sd">        房地产业              45733</span>
+<span class="sd">        交通运输、仓储和邮政业 38300</span>
+<span class="sd">        采矿业                38092</span>
+<span class="sd">        农、林、牧、渔业       38091</span>
+<span class="sd">        国际组织              22909</span>
+<span class="sd">        批发和零售业          22738</span>
+<span class="sd">        制造业                22658</span>
+<span class="sd">        普通企业             347404</span>
+<span class="sd">        政府机构             197443</span>
+<span class="sd">        幼教与中小学校        76547</span>
+<span class="sd">        上市企业             76425</span>
+<span class="sd">        世界五百强           41361</span>
+<span class="sd">        高等教育机构         25820</span>
 <span class="sd">    &#39;&#39;&#39;</span>
     <span class="c1"># 其他几个类用labelencoder</span>
     <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">LabelEncoder</span>
@@ -543,147 +537,9 @@ const thebe_selector_output = ".output, .cell_output"
     <span class="c1"># train[&#39;issue_date_diffs&#39;]</span>
     
     <span class="c1"># drop多余的列</span>
-<span class="c1">#     data.drop([&#39;issue_date&#39;, &#39;earlies_credit_mon&#39;], axis=1, inplace=True)</span>
+    <span class="c1"># data.drop([&#39;issue_date&#39;, &#39;earlies_credit_mon&#39;], axis=1, inplace=True)</span>
     
     <span class="k">return</span> <span class="n">data</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="internetbank">
-<h1>个贷违约预测，用internet大数据用于bank自己的模型预测<a class="headerlink" href="#internetbank" title="Permalink to this headline">¶</a></h1>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_internet</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./train_internet.csv&#39;</span><span class="p">)</span>
-<span class="n">train_public</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./train_public.csv&#39;</span><span class="p">)</span>
-<span class="n">test_public</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./test_public.csv&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="nn">Input In [6],</span> in <span class="ni">&lt;cell line: 3&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">train_internet</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./train_internet.csv&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">train_public</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./train_public.csv&#39;</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">test_public</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./test_public.csv&#39;</span><span class="p">)</span>
-
-<span class="nn">File ~\anaconda3\lib\site-packages\pandas\util\_decorators.py:311,</span> in <span class="ni">deprecate_nonkeyword_arguments.&lt;locals&gt;.decorate.&lt;locals&gt;.wrapper</span><span class="nt">(*args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">305</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">num_allow_args</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">306</span>     <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">307</span>         <span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">arguments</span><span class="o">=</span><span class="n">arguments</span><span class="p">),</span>
-<span class="g g-Whitespace">    </span><span class="mi">308</span>         <span class="ne">FutureWarning</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">309</span>         <span class="n">stacklevel</span><span class="o">=</span><span class="n">stacklevel</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">310</span>     <span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">311</span> <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-<span class="nn">File ~\anaconda3\lib\site-packages\pandas\io\parsers\readers.py:586,</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, error_bad_lines, warn_bad_lines, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options)</span>
-<span class="g g-Whitespace">    </span><span class="mi">571</span> <span class="n">kwds_defaults</span> <span class="o">=</span> <span class="n">_refine_defaults_read</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">572</span>     <span class="n">dialect</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">573</span>     <span class="n">delimiter</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">582</span>     <span class="n">defaults</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;delimiter&quot;</span><span class="p">:</span> <span class="s2">&quot;,&quot;</span><span class="p">},</span>
-<span class="g g-Whitespace">    </span><span class="mi">583</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">584</span> <span class="n">kwds</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwds_defaults</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">586</span> <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
-
-<span class="nn">File ~\anaconda3\lib\site-packages\pandas\io\parsers\readers.py:482,</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
-<span class="g g-Whitespace">    </span><span class="mi">479</span> <span class="n">_validate_names</span><span class="p">(</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;names&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
-<span class="g g-Whitespace">    </span><span class="mi">481</span> <span class="c1"># Create the parser.</span>
-<span class="ne">--&gt; </span><span class="mi">482</span> <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">484</span> <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">485</span>     <span class="k">return</span> <span class="n">parser</span>
-
-<span class="nn">File ~\anaconda3\lib\site-packages\pandas\io\parsers\readers.py:811,</span> in <span class="ni">TextFileReader.__init__</span><span class="nt">(self, f, engine, **kwds)</span>
-<span class="g g-Whitespace">    </span><span class="mi">808</span> <span class="k">if</span> <span class="s2">&quot;has_index_names&quot;</span> <span class="ow">in</span> <span class="n">kwds</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">809</span>     <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span>
-<span class="ne">--&gt; </span><span class="mi">811</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
-
-<span class="nn">File ~\anaconda3\lib\site-packages\pandas\io\parsers\readers.py:1040,</span> in <span class="ni">TextFileReader._make_engine</span><span class="nt">(self, engine)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1036</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1037</span>         <span class="sa">f</span><span class="s2">&quot;Unknown engine: </span><span class="si">{</span><span class="n">engine</span><span class="si">}</span><span class="s2"> (valid options are </span><span class="si">{</span><span class="n">mapping</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span><span class="si">}</span><span class="s2">)&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1038</span>     <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1039</span> <span class="c1"># error: Too many arguments for &quot;ParserBase&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">1040</span> <span class="k">return</span> <span class="n">mapping</span><span class="p">[</span><span class="n">engine</span><span class="p">](</span><span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">)</span>
-
-<span class="nn">File ~\anaconda3\lib\site-packages\pandas\io\parsers\c_parser_wrapper.py:51,</span> in <span class="ni">CParserWrapper.__init__</span><span class="nt">(self, src, **kwds)</span>
-<span class="g g-Whitespace">     </span><span class="mi">48</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;usecols&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">usecols</span>
-<span class="g g-Whitespace">     </span><span class="mi">50</span> <span class="c1"># open handles</span>
-<span class="ne">---&gt; </span><span class="mi">51</span> <span class="bp">self</span><span class="o">.</span><span class="n">_open_handles</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">52</span> <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
-<span class="g g-Whitespace">     </span><span class="mi">54</span> <span class="c1"># Have to pass int, would break tests using TextReader directly otherwise :(</span>
-
-<span class="nn">File ~\anaconda3\lib\site-packages\pandas\io\parsers\base_parser.py:222,</span> in <span class="ni">ParserBase._open_handles</span><span class="nt">(self, src, kwds)</span>
-<span class="g g-Whitespace">    </span><span class="mi">218</span> <span class="k">def</span> <span class="nf">_open_handles</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">src</span><span class="p">:</span> <span class="n">FilePathOrBuffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">219</span>     <span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">220</span><span class="sd">     Let the readers open IOHandles after they are done with their potential raises.</span>
-<span class="g g-Whitespace">    </span><span class="mi">221</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">222</span>     <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="o">=</span> <span class="n">get_handle</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">223</span>         <span class="n">src</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">224</span>         <span class="s2">&quot;r&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">225</span>         <span class="n">encoding</span><span class="o">=</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
-<span class="g g-Whitespace">    </span><span class="mi">226</span>         <span class="n">compression</span><span class="o">=</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;compression&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
-<span class="g g-Whitespace">    </span><span class="mi">227</span>         <span class="n">memory_map</span><span class="o">=</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;memory_map&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
-<span class="g g-Whitespace">    </span><span class="mi">228</span>         <span class="n">storage_options</span><span class="o">=</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;storage_options&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
-<span class="g g-Whitespace">    </span><span class="mi">229</span>         <span class="n">errors</span><span class="o">=</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding_errors&quot;</span><span class="p">,</span> <span class="s2">&quot;strict&quot;</span><span class="p">),</span>
-<span class="g g-Whitespace">    </span><span class="mi">230</span>     <span class="p">)</span>
-
-<span class="nn">File ~\anaconda3\lib\site-packages\pandas\io\common.py:702,</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
-<span class="g g-Whitespace">    </span><span class="mi">697</span> <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">698</span>     <span class="c1"># Check whether the filename is to be opened in binary mode.</span>
-<span class="g g-Whitespace">    </span><span class="mi">699</span>     <span class="c1"># Binary mode does not support &#39;encoding&#39; and &#39;newline&#39;.</span>
-<span class="g g-Whitespace">    </span><span class="mi">700</span>     <span class="k">if</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span> <span class="ow">and</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">701</span>         <span class="c1"># Encoding</span>
-<span class="ne">--&gt; </span><span class="mi">702</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">703</span>             <span class="n">handle</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">704</span>             <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">705</span>             <span class="n">encoding</span><span class="o">=</span><span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">706</span>             <span class="n">errors</span><span class="o">=</span><span class="n">errors</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">707</span>             <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">708</span>         <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">709</span>     <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">710</span>         <span class="c1"># Binary mode</span>
-<span class="g g-Whitespace">    </span><span class="mi">711</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">)</span>
-
-<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;./test_public.csv&#39;
-</pre></div>
-</div>
-</div>
-</div>
-<p>public 的日期有点问题</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 最后一位按照年加进去</span>
-<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">x3</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">x1</span> <span class="o">==</span> <span class="s1">&#39;2022&#39;</span><span class="p">:</span>
-            <span class="n">x</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">x3</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2000</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">x2</span>  <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="s1">&#39;1&#39;</span>
-    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
-        <span class="n">x</span> <span class="o">==</span> <span class="n">x</span>
-    <span class="k">return</span> <span class="n">x</span>
-<span class="n">train_public</span><span class="p">[</span><span class="s1">&#39;earlies_credit_mon&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">train_public</span><span class="p">[</span><span class="s1">&#39;earlies_credit_mon&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-<span class="n">test_public</span><span class="p">[</span><span class="s1">&#39;earlies_credit_mon&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">test_public</span><span class="p">[</span><span class="s1">&#39;earlies_credit_mon&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">Input In [7],</span> in <span class="ni">&lt;cell line: 11&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span>     <span class="k">return</span> <span class="n">x</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">train_public</span><span class="p">[</span><span class="s1">&#39;earlies_credit_mon&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">train_public</span><span class="p">[</span><span class="s1">&#39;earlies_credit_mon&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">11</span> <span class="n">test_public</span><span class="p">[</span><span class="s1">&#39;earlies_credit_mon&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">test_public</span><span class="p">[</span><span class="s1">&#39;earlies_credit_mon&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;test_public&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -720,14 +576,11 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;house_loan_status&#39;, &#39;f5&#39;, &#39;offsprings&#39;, &#39;marriage&#39;, &#39;sub_class&#39;, &#39;work_type&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;f5&#39;, &#39;house_loan_status&#39;, &#39;marriage&#39;, &#39;sub_class&#39;, &#39;offsprings&#39;, &#39;work_type&#39;}
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="autogluon">
-<h1>插入一个步骤, 此为autogluon后半段内容<a class="headerlink" href="#autogluon" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -743,20 +596,6 @@ const thebe_selector_output = ".output, .cell_output"
 
 <span class="c1"># 拼接所有数据</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">train_public</span><span class="p">,</span> <span class="n">test_public</span><span class="p">,</span> <span class="n">train_internet</span><span class="p">])</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">Input In [11],</span> in <span class="ni">&lt;cell line: 10&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">train_internet</span><span class="p">[</span><span class="s1">&#39;is_internet&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="n">train_public</span><span class="p">[</span><span class="s1">&#39;is_internet&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="ne">---&gt; </span><span class="mi">10</span> <span class="n">test_public</span><span class="p">[</span><span class="s1">&#39;is_internet&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="c1"># 拼接所有数据</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">train_public</span><span class="p">,</span> <span class="n">test_public</span><span class="p">,</span> <span class="n">train_internet</span><span class="p">])</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;test_public&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -802,21 +641,6 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">Input In [12],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">df</span> <span class="o">=</span> <span class="n">process_cat</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1"># ---------- # </span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="sd">&#39;&#39;&#39;[&#39;loan_id&#39;, &#39;user_id&#39;, &#39;total_loan&#39;, &#39;year_of_loan&#39;, &#39;interest&#39;,</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span><span class="sd">        &#39;monthly_payment&#39;, &#39;class&#39;, &#39;employer_type&#39;, &#39;industry&#39;, &#39;work_year&#39;,</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span><span class="sd">        &#39;house_exist&#39;, &#39;censor_status&#39;, &#39;issue_date&#39;, &#39;use&#39;, &#39;post_code&#39;,</span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span><span class="sd">        &#39;known_outstanding_loan&#39;, &#39;app_type&#39;, &#39;known_dero&#39;, &#39;is_internet&#39;],</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span><span class="sd"> &#39;&#39;&#39;</span>
-
-<span class="ne">NameError</span>: name &#39;df&#39; is not defined
-</pre></div>
 </div>
 </div>
 </div>
@@ -832,18 +656,6 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">Input In [13],</span> in <span class="ni">&lt;cell line: 5&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">bin_number</span> <span class="o">=</span> <span class="mi">12</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">label_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">bin_number</span><span class="p">))</span>
-<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;total_loan_bin&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">qcut</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;total_loan&#39;</span><span class="p">],</span> <span class="n">bin_number</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">label_list</span><span class="p">,</span> <span class="n">duplicates</span><span class="o">=</span><span class="s1">&#39;drop&#39;</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;df&#39; is not defined
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -852,18 +664,6 @@ const thebe_selector_output = ".output, .cell_output"
 
 <span class="n">db_train</span> <span class="o">=</span> <span class="n">df_internet_f</span><span class="p">[</span><span class="n">df_internet_f</span><span class="p">[</span><span class="s1">&#39;is_default&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notnull</span><span class="p">()]</span>
 <span class="n">db_test</span> <span class="o">=</span> <span class="n">df_internet_f</span><span class="p">[</span><span class="n">df_internet_f</span><span class="p">[</span><span class="s1">&#39;is_default&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">Input In [14],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">df_internet_f</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;is_internet&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="kc">False</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">df_internet_t</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;is_internet&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="kc">True</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">db_train</span> <span class="o">=</span> <span class="n">df_internet_f</span><span class="p">[</span><span class="n">df_internet_f</span><span class="p">[</span><span class="s1">&#39;is_default&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notnull</span><span class="p">()]</span>
-
-<span class="ne">NameError</span>: name &#39;df&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -884,16 +684,6 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">Input In [16],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">db_train</span><span class="p">,</span> <span class="n">df_internet_t</span><span class="p">])</span>
-
-<span class="ne">NameError</span>: name &#39;db_train&#39; is not defined
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -910,151 +700,139 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ImportError</span><span class="g g-Whitespace">                               </span>Traceback (most recent call last)
-<span class="nn">Input In [17],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">autogluon.tabular</span> <span class="kn">import</span> <span class="n">TabularPredictor</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">model_autogluon</span> <span class="o">=</span> <span class="n">TabularPredictor</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;is_default&#39;</span><span class="p">,</span><span class="n">eval_metric</span><span class="o">=</span><span class="s1">&#39;roc_auc&#39;</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s2">&quot;./model&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">model_autogluon</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">time_limit</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">hyperparameters</span> <span class="o">=</span> <span class="p">{</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1">#                &#39;GBM&#39;: {&#39;num_boost_round&#39;: 5000},</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span>                <span class="s1">&#39;CAT&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;iterations&#39;</span><span class="p">:</span> <span class="mi">2000</span><span class="p">},</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="c1">#                &#39;XT&#39;: {&#39;n_estimators&#39;: 300},</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="p">})</span>
-
-<span class="n">File</span> <span class="o">~</span>\<span class="n">anaconda3</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">autogluon</span>\<span class="n">tabular</span>\<span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">logging</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">autogluon.common.features.feature_metadata</span> <span class="kn">import</span> <span class="n">FeatureMetadata</span>
-<span class="ne">----&gt; </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">autogluon.core.dataset</span> <span class="kn">import</span> <span class="n">TabularDataset</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="kn">from</span> <span class="nn">.version</span> <span class="kn">import</span> <span class="n">__version__</span>
-
-<span class="n">File</span> <span class="o">~</span>\<span class="n">anaconda3</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">autogluon</span>\<span class="n">core</span>\<span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">.dataset</span> <span class="kn">import</span> <span class="n">TabularDataset</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">.space</span> <span class="kn">import</span> <span class="n">Space</span><span class="p">,</span> <span class="n">Categorical</span><span class="p">,</span> <span class="n">Real</span><span class="p">,</span> <span class="n">Int</span><span class="p">,</span> <span class="n">Bool</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">metrics</span>
-
-<span class="n">File</span> <span class="o">~</span>\<span class="n">anaconda3</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">autogluon</span>\<span class="n">core</span>\<span class="n">dataset</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="ne">----&gt; </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">.utils.loaders</span> <span class="kn">import</span> <span class="n">load_pd</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;TabularDataset&#39;</span><span class="p">]</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="k">class</span> <span class="nc">TabularDataset</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
-
-<span class="n">File</span> <span class="o">~</span>\<span class="n">anaconda3</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">autogluon</span>\<span class="n">core</span>\<span class="n">utils</span>\<span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="kn">from</span> <span class="nn">.defaultdict</span> <span class="kn">import</span> <span class="n">keydefaultdict</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="kn">from</span> <span class="nn">.custom_process</span> <span class="kn">import</span> <span class="n">CustomProcess</span>
-<span class="ne">---&gt; </span><span class="mi">10</span> <span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="kn">from</span> <span class="nn">.version_utils</span> <span class="kn">import</span> <span class="n">show_versions</span>
-
-<span class="n">File</span> <span class="o">~</span>\<span class="n">anaconda3</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">autogluon</span>\<span class="n">core</span>\<span class="n">utils</span>\<span class="n">utils</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">15</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="kn">import</span> <span class="nn">psutil</span>
-<span class="ne">---&gt; </span><span class="mi">15</span> <span class="kn">import</span> <span class="nn">scipy.stats</span>
-<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">Series</span>
-<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">RepeatedKFold</span><span class="p">,</span> <span class="n">RepeatedStratifiedKFold</span><span class="p">,</span> <span class="n">LeaveOneGroupOut</span>
-
-<span class="n">File</span> <span class="o">~</span>\<span class="n">anaconda3</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">scipy</span>\<span class="n">stats</span>\<span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">441</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span><span class="sd"> .. _statsrefmanual:</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span><span class="sd"> </span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">    </span><span class="mi">438</span><span class="sd"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">439</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">441</span> <span class="kn">from</span> <span class="nn">.stats</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="g g-Whitespace">    </span><span class="mi">442</span> <span class="kn">from</span> <span class="nn">.distributions</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="g g-Whitespace">    </span><span class="mi">443</span> <span class="kn">from</span> <span class="nn">.morestats</span> <span class="kn">import</span> <span class="o">*</span>
-
-<span class="n">File</span> <span class="o">~</span>\<span class="n">anaconda3</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">scipy</span>\<span class="n">stats</span>\<span class="n">stats</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">43</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">41</span> <span class="kn">import</span> <span class="nn">scipy.special</span> <span class="k">as</span> <span class="nn">special</span>
-<span class="g g-Whitespace">     </span><span class="mi">42</span> <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">linalg</span>
-<span class="ne">---&gt; </span><span class="mi">43</span> <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">distributions</span>
-<span class="g g-Whitespace">     </span><span class="mi">44</span> <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">mstats_basic</span>
-<span class="g g-Whitespace">     </span><span class="mi">45</span> <span class="kn">from</span> <span class="nn">._stats_mstats_common</span> <span class="kn">import</span> <span class="p">(</span><span class="n">_find_repeats</span><span class="p">,</span> <span class="n">linregress</span><span class="p">,</span> <span class="n">theilslopes</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">46</span>                                    <span class="n">siegelslopes</span><span class="p">)</span>
-
-<span class="n">File</span> <span class="o">~</span>\<span class="n">anaconda3</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">scipy</span>\<span class="n">stats</span>\<span class="n">distributions</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1"># Author:  Travis Oliphant  2002-2011 with contributions from</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1">#          SciPy Developers 2004-2011</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1">#       instead of `git blame -Lxxx,+x`.</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="c1">#</span>
-<span class="ne">----&gt; </span><span class="mi">8</span> <span class="kn">from</span> <span class="nn">._distn_infrastructure</span> <span class="kn">import</span> <span class="p">(</span><span class="n">rv_discrete</span><span class="p">,</span> <span class="n">rv_continuous</span><span class="p">,</span> <span class="n">rv_frozen</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">_continuous_distns</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">_discrete_distns</span>
-
-<span class="n">File</span> <span class="o">~</span>\<span class="n">anaconda3</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">scipy</span>\<span class="n">stats</span>\<span class="n">_distn_infrastructure</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">24</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="kn">from</span> <span class="nn">scipy.special</span> <span class="kn">import</span> <span class="p">(</span><span class="n">comb</span><span class="p">,</span> <span class="n">chndtr</span><span class="p">,</span> <span class="n">entr</span><span class="p">,</span> <span class="n">xlogy</span><span class="p">,</span> <span class="n">ive</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="c1"># for root finding for continuous distribution ppf, and max likelihood</span>
-<span class="g g-Whitespace">     </span><span class="mi">23</span> <span class="c1"># estimation</span>
-<span class="ne">---&gt; </span><span class="mi">24</span> <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">optimize</span>
-<span class="g g-Whitespace">     </span><span class="mi">26</span> <span class="c1"># for functions of continuous distributions (e.g. moments, entropy, cdf)</span>
-<span class="g g-Whitespace">     </span><span class="mi">27</span> <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">integrate</span>
-
-<span class="n">File</span> <span class="o">~</span>\<span class="n">anaconda3</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">scipy</span>\<span class="n">optimize</span>\<span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">400</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span><span class="sd"> =====================================================</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span><span class="sd"> Optimization and root finding (:mod:`scipy.optimize`)</span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">    </span><span class="mi">397</span><span class="sd"> :mod:`Additional information on the nonlinear solvers &lt;scipy.optimize.nonlin&gt;`</span>
-<span class="g g-Whitespace">    </span><span class="mi">398</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">400</span> <span class="kn">from</span> <span class="nn">.optimize</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="g g-Whitespace">    </span><span class="mi">401</span> <span class="kn">from</span> <span class="nn">._minimize</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="g g-Whitespace">    </span><span class="mi">402</span> <span class="kn">from</span> <span class="nn">._root</span> <span class="kn">import</span> <span class="o">*</span>
-
-<span class="n">File</span> <span class="o">~</span>\<span class="n">anaconda3</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">scipy</span>\<span class="n">optimize</span>\<span class="n">optimize</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">36</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">32</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="g g-Whitespace">     </span><span class="mi">33</span> <span class="kn">from</span> <span class="nn">.linesearch</span> <span class="kn">import</span> <span class="p">(</span><span class="n">line_search_wolfe1</span><span class="p">,</span> <span class="n">line_search_wolfe2</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">34</span>                          <span class="n">line_search_wolfe2</span> <span class="k">as</span> <span class="n">line_search</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">35</span>                          <span class="n">LineSearchWarning</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">36</span> <span class="kn">from</span> <span class="nn">._numdiff</span> <span class="kn">import</span> <span class="n">approx_derivative</span>
-<span class="g g-Whitespace">     </span><span class="mi">37</span> <span class="kn">from</span> <span class="nn">scipy._lib._util</span> <span class="kn">import</span> <span class="n">getfullargspec_no_self</span> <span class="k">as</span> <span class="n">_getfullargspec</span>
-<span class="g g-Whitespace">     </span><span class="mi">38</span> <span class="kn">from</span> <span class="nn">scipy._lib._util</span> <span class="kn">import</span> <span class="n">MapWrapper</span>
-
-<span class="n">File</span> <span class="o">~</span>\<span class="n">anaconda3</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">scipy</span>\<span class="n">optimize</span>\<span class="n">_numdiff</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">numpy.linalg</span> <span class="kn">import</span> <span class="n">norm</span>
-<span class="ne">----&gt; </span><span class="mi">6</span> <span class="kn">from</span> <span class="nn">scipy.sparse.linalg</span> <span class="kn">import</span> <span class="n">LinearOperator</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">from</span> <span class="nn">..sparse</span> <span class="kn">import</span> <span class="n">issparse</span><span class="p">,</span> <span class="n">csc_matrix</span><span class="p">,</span> <span class="n">csr_matrix</span><span class="p">,</span> <span class="n">coo_matrix</span><span class="p">,</span> <span class="n">find</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="kn">from</span> <span class="nn">._group_columns</span> <span class="kn">import</span> <span class="n">group_dense</span><span class="p">,</span> <span class="n">group_sparse</span>
-
-<span class="n">File</span> <span class="o">~</span>\<span class="n">anaconda3</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">scipy</span>\<span class="n">sparse</span>\<span class="n">linalg</span>\<span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">114</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">    </span><span class="mi">112</span> <span class="kn">from</span> <span class="nn">.dsolve</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="g g-Whitespace">    </span><span class="mi">113</span> <span class="kn">from</span> <span class="nn">.interface</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="ne">--&gt; </span><span class="mi">114</span> <span class="kn">from</span> <span class="nn">.eigen</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="g g-Whitespace">    </span><span class="mi">115</span> <span class="kn">from</span> <span class="nn">.matfuncs</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="g g-Whitespace">    </span><span class="mi">116</span> <span class="kn">from</span> <span class="nn">._onenormest</span> <span class="kn">import</span> <span class="o">*</span>
-
-<span class="n">File</span> <span class="o">~</span>\<span class="n">anaconda3</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">scipy</span>\<span class="n">sparse</span>\<span class="n">linalg</span>\<span class="n">eigen</span>\<span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">9</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span><span class="sd"> Sparse Eigenvalue Solvers</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span><span class="sd"> -------------------------</span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span><span class="sd"> </span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="ne">----&gt; </span><span class="mi">9</span> <span class="kn">from</span> <span class="nn">.arpack</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="kn">from</span> <span class="nn">.lobpcg</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">()</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">s</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)]</span>
-
-<span class="n">File</span> <span class="o">~</span>\<span class="n">anaconda3</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">scipy</span>\<span class="n">sparse</span>\<span class="n">linalg</span>\<span class="n">eigen</span>\<span class="n">arpack</span>\<span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">20</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span><span class="sd"> Eigenvalue solver using iterative methods.</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span><span class="sd"> </span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">     </span><span class="mi">18</span><span class="sd"> </span>
-<span class="g g-Whitespace">     </span><span class="mi">19</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="ne">---&gt; </span><span class="mi">20</span> <span class="kn">from</span> <span class="nn">.arpack</span> <span class="kn">import</span> <span class="o">*</span>
-
-<span class="n">File</span> <span class="o">~</span>\<span class="n">anaconda3</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">scipy</span>\<span class="n">sparse</span>\<span class="n">linalg</span>\<span class="n">eigen</span>\<span class="n">arpack</span>\<span class="n">arpack</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">42</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">38</span> <span class="n">__docformat__</span> <span class="o">=</span> <span class="s2">&quot;restructuredtext en&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">40</span> <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;eigs&#39;</span><span class="p">,</span> <span class="s1">&#39;eigsh&#39;</span><span class="p">,</span> <span class="s1">&#39;svds&#39;</span><span class="p">,</span> <span class="s1">&#39;ArpackError&#39;</span><span class="p">,</span> <span class="s1">&#39;ArpackNoConvergence&#39;</span><span class="p">]</span>
-<span class="ne">---&gt; </span><span class="mi">42</span> <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">_arpack</span>
-<span class="g g-Whitespace">     </span><span class="mi">43</span> <span class="n">arpack_int</span> <span class="o">=</span> <span class="n">_arpack</span><span class="o">.</span><span class="n">timing</span><span class="o">.</span><span class="n">nbx</span><span class="o">.</span><span class="n">dtype</span>
-<span class="g g-Whitespace">     </span><span class="mi">45</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
-<span class="ne">ImportError</span>: DLL load failed while importing _arpack: The specified procedure could not be found.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning: path already exists! This predictor may overwrite an existing predictor! path=&quot;./model&quot;
+Beginning AutoGluon training ... Time limit = 500s
+AutoGluon will save models to &quot;./model\&quot;
+AutoGluon Version:  0.4.0
+Python Version:     3.8.3
+Operating System:   Windows
+Train Data Rows:    760000
+Train Data Columns: 56
+Label Column: is_default
+Preprocessing data ...
+AutoGluon infers your prediction problem is: &#39;binary&#39; (because only two unique label-values observed).
+	2 unique label values:  [0.0, 1.0]
+	If &#39;binary&#39; is not the correct problem_type, please manually specify the problem_type parameter during predictor init (You may specify problem_type as one of: [&#39;binary&#39;, &#39;multiclass&#39;, &#39;regression&#39;])
+Selected class &lt;--&gt; label mapping:  class 1 = 1, class 0 = 0
+Using Feature Generators to preprocess the data ...
+Fitting AutoMLPipelineFeatureGenerator...
+	Available Memory:                    5099.24 MB
+	Train Data (Original)  Memory Usage: 326.8 MB (6.4% of available memory)
+	Warning: Data size prior to feature transformation consumes 6.4% of available memory. Consider increasing memory or subsampling the data to avoid instability.
+	Inferring data type of each feature based on column values. Set feature_metadata_in to manually specify special dtypes of the features.
+	Stage 1 Generators:
+		Fitting AsTypeFeatureGenerator...
+			Note: Converting 3 features to boolean dtype as they only contain 2 unique values.
+	Stage 2 Generators:
+		Fitting FillNaFeatureGenerator...
+	Stage 3 Generators:
+		Fitting IdentityFeatureGenerator...
+		Fitting CategoryFeatureGenerator...
+			Fitting CategoryMemoryMinimizeFeatureGenerator...
+		Fitting DatetimeFeatureGenerator...
+	Stage 4 Generators:
+		Fitting DropUniqueFeatureGenerator...
+	Useless Original Features (Count: 1): [&#39;policy_code&#39;]
+		These features carry no predictive signal and should be manually investigated.
+		This is typically a feature which has the same value for all rows.
+		These features do not need to be present at inference time.
+	Types of features in original data (raw dtype, special dtypes):
+		(&#39;bool&#39;, [])     :  1 | [&#39;is_internet&#39;]
+		(&#39;category&#39;, []) :  1 | [&#39;total_loan_bin&#39;]
+		(&#39;datetime&#39;, []) :  2 | [&#39;issue_date&#39;, &#39;earlies_credit_mon&#39;]
+		(&#39;float&#39;, [])    : 31 | [&#39;total_loan&#39;, &#39;interest&#39;, &#39;monthly_payment&#39;, &#39;work_year&#39;, &#39;post_code&#39;, ...]
+		(&#39;int&#39;, [])      : 20 | [&#39;loan_id&#39;, &#39;user_id&#39;, &#39;year_of_loan&#39;, &#39;class&#39;, &#39;employer_type&#39;, ...]
+	Types of features in processed data (raw dtype, special dtypes):
+		(&#39;category&#39;, [])             :  1 | [&#39;total_loan_bin&#39;]
+		(&#39;float&#39;, [])                : 31 | [&#39;total_loan&#39;, &#39;interest&#39;, &#39;monthly_payment&#39;, &#39;work_year&#39;, &#39;post_code&#39;, ...]
+		(&#39;int&#39;, [])                  : 18 | [&#39;loan_id&#39;, &#39;user_id&#39;, &#39;class&#39;, &#39;employer_type&#39;, &#39;industry&#39;, ...]
+		(&#39;int&#39;, [&#39;bool&#39;])            :  3 | [&#39;year_of_loan&#39;, &#39;initial_list_status&#39;, &#39;is_internet&#39;]
+		(&#39;int&#39;, [&#39;datetime_as_int&#39;]) :  8 | [&#39;issue_date&#39;, &#39;issue_date.year&#39;, &#39;issue_date.month&#39;, &#39;issue_date.dayofweek&#39;, &#39;earlies_credit_mon&#39;, ...]
+	5.7s = Fit runtime
+	55 features in original data used to generate 61 features in processed data.
+	Train Data (Processed) Memory Usage: 328.32 MB (6.2% of available memory)
+Data preprocessing and feature engineering runtime = 6.77s ...
+AutoGluon will gauge predictive performance using evaluation metric: &#39;roc_auc&#39;
+	This metric expects predicted probabilities rather than predicted class labels, so you&#39;ll need to use predict_proba() instead of predict()
+	To change this, specify the eval_metric parameter of Predictor()
+Automatically generating train/validation split with holdout_frac=0.01, Train Rows: 752400, Val Rows: 7600
+Fitting 1 L1 models ...
+Fitting model: CatBoost ... Training model for up to 493.23s of the 493.23s of remaining time.
+	Warning: Potentially not enough memory to safely train CatBoost model, roughly requires: 2.483 GB, but only 4.867 GB is available...
+	Ran out of time, early stopping on iteration 1499.
+	0.7969	 = Validation score   (roc_auc)
+	493.63s	 = Training   runtime
+	0.02s	 = Validation runtime
+Fitting model: WeightedEnsemble_L2 ... Training model for up to 360.0s of the -0.48s of remaining time.
+	0.7969	 = Validation score   (roc_auc)
+	0.01s	 = Training   runtime
+	0.0s	 = Validation runtime
+AutoGluon training complete, total runtime = 501.64s ... Best model: &quot;WeightedEnsemble_L2&quot;
+TabularPredictor saved. To load, use: predictor = TabularPredictor.load(&quot;./model\&quot;)
 </pre></div>
 </div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                 model  score_val  pred_time_val    fit_time  pred_time_val_marginal  fit_time_marginal  stack_level  can_infer  fit_order
+0             CatBoost   0.796899       0.015957  493.625306                0.015957         493.625306            1       True          1
+1  WeightedEnsemble_L2   0.796899       0.018947  493.631290                0.002990           0.005985            2       True          2
+</pre></div>
 </div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>model</th>
+      <th>score_val</th>
+      <th>pred_time_val</th>
+      <th>fit_time</th>
+      <th>pred_time_val_marginal</th>
+      <th>fit_time_marginal</th>
+      <th>stack_level</th>
+      <th>can_infer</th>
+      <th>fit_order</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>CatBoost</td>
+      <td>0.796899</td>
+      <td>0.015957</td>
+      <td>493.625306</td>
+      <td>0.015957</td>
+      <td>493.625306</td>
+      <td>1</td>
+      <td>True</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>WeightedEnsemble_L2</td>
+      <td>0.796899</td>
+      <td>0.018947</td>
+      <td>493.631290</td>
+      <td>0.002990</td>
+      <td>0.005985</td>
+      <td>2</td>
+      <td>True</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1067,37 +845,10 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">Input In [18],</span> in <span class="ni">&lt;cell line: 2&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># predict</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">y_pred</span> <span class="o">=</span> <span class="n">model_autogluon</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">db_test</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;isDefault&#39;</span><span class="p">])</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">result</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">db_test</span><span class="p">[</span><span class="s1">&#39;loan_id&#39;</span><span class="p">]</span>
-
-<span class="ne">NameError</span>: name &#39;model_autogluon&#39; is not defined
-</pre></div>
 </div>
-</div>
-</div>
-</div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="id4">
-<h1>结束<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;is_default&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">Input In [19],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;is_default&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;data&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -1121,624 +872,6 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">XGBoostError</span><span class="g g-Whitespace">                              </span>Traceback (most recent call last)
-<span class="nn">Input In [20],</span> in <span class="ni">&lt;cell line: 5&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">catboost</span> <span class="kn">import</span> <span class="n">CatBoostClassifier</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># model_lgb = lgb.LGBMClassifier(n_estimators=500)</span>
-<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">xgb_lgb</span> <span class="o">=</span> <span class="n">xgb</span><span class="o">.</span><span class="n">XGBClassifier</span><span class="p">(</span><span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">n_estimators</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">subsample</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">colsample_bytree</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">2022</span><span class="p">,</span> <span class="n">enable_categorical</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1"># model_Cat = CatBoostClassifier(iterations=5000, depth=7, learning_rate=0.001, loss_function=&#39;Logloss&#39;, eval_metric=&#39;AUC&#39;, logging_level=&#39;Verbose&#39;, metric_period=50)</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="c1"># 模型训练</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;is_default&#39;</span><span class="p">]</span>
-
-<span class="nn">File ~\anaconda3\lib\site-packages\xgboost\core.py:436,</span> in <span class="ni">_deprecate_positional_args.&lt;locals&gt;.inner_f</span><span class="nt">(*args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">434</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">arg</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">sig</span><span class="o">.</span><span class="n">parameters</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">435</span>     <span class="n">kwargs</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">arg</span>
-<span class="ne">--&gt; </span><span class="mi">436</span> <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-<span class="nn">File ~\anaconda3\lib\site-packages\xgboost\sklearn.py:1058,</span> in <span class="ni">XGBClassifier.__init__</span><span class="nt">(self, objective, use_label_encoder, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1055</span> <span class="nd">@_deprecate_positional_args</span>
-<span class="g g-Whitespace">   </span><span class="mi">1056</span> <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">objective</span><span class="o">=</span><span class="s2">&quot;binary:logistic&quot;</span><span class="p">,</span> <span class="n">use_label_encoder</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1057</span>     <span class="bp">self</span><span class="o">.</span><span class="n">use_label_encoder</span> <span class="o">=</span> <span class="n">use_label_encoder</span>
-<span class="ne">-&gt; </span><span class="mi">1058</span>     <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">objective</span><span class="o">=</span><span class="n">objective</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-<span class="nn">File ~\anaconda3\lib\site-packages\xgboost\sklearn.py:349,</span> in <span class="ni">XGBModel.__init__</span><span class="nt">(self, max_depth, learning_rate, n_estimators, verbosity, objective, booster, tree_method, n_jobs, gamma, min_child_weight, max_delta_step, subsample, colsample_bytree, colsample_bylevel, colsample_bynode, reg_alpha, reg_lambda, scale_pos_weight, base_score, random_state, missing, num_parallel_tree, monotone_constraints, interaction_constraints, importance_type, gpu_id, validate_parameters, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">317</span> <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">318</span>     <span class="bp">self</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">319</span>     <span class="n">max_depth</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">346</span>     <span class="o">**</span><span class="n">kwargs</span>
-<span class="g g-Whitespace">    </span><span class="mi">347</span> <span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">348</span>     <span class="k">if</span> <span class="ow">not</span> <span class="n">SKLEARN_INSTALLED</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">349</span>         <span class="k">raise</span> <span class="n">XGBoostError</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">350</span>             <span class="s2">&quot;sklearn needs to be installed in order to use this module&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">351</span>         <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">352</span>     <span class="bp">self</span><span class="o">.</span><span class="n">n_estimators</span> <span class="o">=</span> <span class="n">n_estimators</span>
-<span class="g g-Whitespace">    </span><span class="mi">353</span>     <span class="bp">self</span><span class="o">.</span><span class="n">objective</span> <span class="o">=</span> <span class="n">objective</span>
-
-<span class="ne">XGBoostError</span>: sklearn needs to be installed in order to use this module
-</pre></div>
-</div>
-</div>
-</div>
-<p>之前的，+sub class的</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># test 5000</span>
-<span class="c1"># train，bank自己的，样本少，如果要训练精度高的，只能用别人的, 质量高，数量少</span>
-<span class="c1"># train，网上的，75w，质量低，数量大</span>
-<span class="c1"># 合并train数据集</span>
-<span class="n">columns2</span> <span class="o">=</span> <span class="n">common_cols</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;sub_class&#39;</span><span class="p">]</span>
-<span class="n">train1</span> <span class="o">=</span> <span class="n">train_public</span><span class="p">[</span><span class="n">common_cols</span><span class="p">]</span>
-<span class="n">train2</span> <span class="o">=</span> <span class="n">train_internet</span><span class="p">[</span><span class="n">columns2</span><span class="p">]</span>
-<span class="n">test</span> <span class="o">=</span> <span class="n">test_public</span><span class="p">[</span><span class="n">common_cols</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
-
-<span class="c1"># 做一个空位</span>
-<span class="n">train1</span><span class="p">[</span><span class="s1">&#39;sub_class&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="n">test</span><span class="p">[</span><span class="s1">&#39;sub_class&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="nn">Input In [21],</span> in <span class="ni">&lt;cell line: 7&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">columns2</span> <span class="o">=</span> <span class="n">common_cols</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;sub_class&#39;</span><span class="p">]</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">train1</span> <span class="o">=</span> <span class="n">train_public</span><span class="p">[</span><span class="n">common_cols</span><span class="p">]</span>
-<span class="ne">----&gt; </span><span class="mi">7</span> <span class="n">train2</span> <span class="o">=</span> <span class="n">train_internet</span><span class="p">[</span><span class="n">columns2</span><span class="p">]</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">test</span> <span class="o">=</span> <span class="n">test_public</span><span class="p">[</span><span class="n">common_cols</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="c1"># 做一个空位</span>
-
-<span class="nn">File ~\anaconda3\lib\site-packages\pandas\core\frame.py:3464,</span> in <span class="ni">DataFrame.__getitem__</span><span class="nt">(self, key)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3462</span>     <span class="k">if</span> <span class="n">is_iterator</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">3463</span>         <span class="n">key</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">3464</span>     <span class="n">indexer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">loc</span><span class="o">.</span><span class="n">_get_listlike_indexer</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
-<span class="g g-Whitespace">   </span><span class="mi">3466</span> <span class="c1"># take() does not accept boolean indexers</span>
-<span class="g g-Whitespace">   </span><span class="mi">3467</span> <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">indexer</span><span class="p">,</span> <span class="s2">&quot;dtype&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="o">==</span> <span class="nb">bool</span><span class="p">:</span>
-
-<span class="nn">File ~\anaconda3\lib\site-packages\pandas\core\indexing.py:1314,</span> in <span class="ni">_LocIndexer._get_listlike_indexer</span><span class="nt">(self, key, axis)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1311</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1312</span>     <span class="n">keyarr</span><span class="p">,</span> <span class="n">indexer</span><span class="p">,</span> <span class="n">new_indexer</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">_reindex_non_unique</span><span class="p">(</span><span class="n">keyarr</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1314</span> <span class="bp">self</span><span class="o">.</span><span class="n">_validate_read_indexer</span><span class="p">(</span><span class="n">keyarr</span><span class="p">,</span> <span class="n">indexer</span><span class="p">,</span> <span class="n">axis</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1316</span> <span class="k">if</span> <span class="n">needs_i8_conversion</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1317</span>     <span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="n">IntervalIndex</span><span class="p">,</span> <span class="n">CategoricalIndex</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1318</span> <span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1319</span>     <span class="c1"># For CategoricalIndex take instead of reindex to preserve dtype.</span>
-<span class="g g-Whitespace">   </span><span class="mi">1320</span>     <span class="c1">#  For IntervalIndex this is to map integers to the Intervals they match to.</span>
-<span class="g g-Whitespace">   </span><span class="mi">1321</span>     <span class="n">keyarr</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="n">indexer</span><span class="p">)</span>
-
-<span class="nn">File ~\anaconda3\lib\site-packages\pandas\core\indexing.py:1377,</span> in <span class="ni">_LocIndexer._validate_read_indexer</span><span class="nt">(self, key, indexer, axis)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1374</span>     <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;None of [</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">] are in the [</span><span class="si">{</span><span class="n">axis_name</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1376</span> <span class="n">not_found</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">ensure_index</span><span class="p">(</span><span class="n">key</span><span class="p">)[</span><span class="n">missing_mask</span><span class="o">.</span><span class="n">nonzero</span><span class="p">()[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
-<span class="ne">-&gt; </span><span class="mi">1377</span> <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">not_found</span><span class="si">}</span><span class="s2"> not in index&quot;</span><span class="p">)</span>
-
-<span class="ne">KeyError</span>: &quot;[&#39;sub_class&#39;] not in index&quot;
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">train1</span><span class="p">,</span> <span class="n">train2</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">Input In [22],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">train</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">train1</span><span class="p">,</span> <span class="n">train2</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;train2&#39; is not defined
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 看数据类别</span>
-<span class="n">train</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">Input In [23],</span> in <span class="ni">&lt;cell line: 2&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># 看数据类别</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">train</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
-
-<span class="ne">NameError</span>: name &#39;train&#39; is not defined
-</pre></div>
-</div>
-</div>
-</div>
-<p>处理 categorical 数据</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="s1">&#39;O&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">Input In [24],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">train</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="s1">&#39;O&#39;</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;train&#39; is not defined
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">process_cat</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
-    <span class="c1"># 	class	employer_type	industry	work_year</span>
-    <span class="c1"># 先看class有多少类</span>
-    <span class="n">class_map</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;A&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">:</span><span class="mi">6</span><span class="p">}</span> 
-    <span class="n">yr_map</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;&lt; 1 year&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;1 years&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;2 years&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;3 years&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;4 years&#39;</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;5 years&#39;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;6 years&#39;</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span> <span class="s1">&#39;7 years&#39;</span><span class="p">:</span><span class="mi">7</span><span class="p">,</span> <span class="s1">&#39;8 years&#39;</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span> <span class="s1">&#39;9 years&#39;</span><span class="p">:</span><span class="mi">9</span><span class="p">,</span> <span class="s1">&#39;10+ years&#39;</span><span class="p">:</span><span class="mi">10</span><span class="p">}</span> 
-    <span class="c1"># 其他几个类用labelencoder</span>
-    <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">LabelEncoder</span>
-    <span class="n">le</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
-    <span class="n">data</span><span class="p">[</span><span class="s1">&#39;employer_type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">le</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;employer_type&#39;</span><span class="p">])</span>
-    <span class="n">data</span><span class="p">[</span><span class="s1">&#39;industry&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">le</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;industry&#39;</span><span class="p">])</span>
-    <span class="n">data</span><span class="p">[</span><span class="s1">&#39;class&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;class&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">class_map</span><span class="p">)</span>
-    <span class="n">data</span><span class="p">[</span><span class="s1">&#39;work_year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;work_year&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">yr_map</span><span class="p">)</span>
-    
-    <span class="c1"># 看到有时间，就先处理时间类型</span>
-    <span class="kn">import</span> <span class="nn">datetime</span>
-    <span class="n">data</span><span class="p">[</span><span class="s1">&#39;earlies_credit_mon&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;earlies_credit_mon&#39;</span><span class="p">])</span>
-    <span class="c1"># 时间多尺度, 都是月度时间，用value_counts()可以看到日期日的话都是1</span>
-    <span class="n">data</span><span class="p">[</span><span class="s1">&#39;earlies_credit_mon_yr&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;earlies_credit_mon&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span>
-    <span class="n">data</span><span class="p">[</span><span class="s1">&#39;earlies_credit_mon_mt&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;earlies_credit_mon&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span>
-
-    <span class="c1"># 将时间转换成时间区间</span>
-    <span class="c1"># 首先设置basetime</span>
-    <span class="n">basetime1</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;earlies_credit_mon&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
-    <span class="n">data</span><span class="p">[</span><span class="s1">&#39;earlies_credit_mon_diffs&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;earlies_credit_mon&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span><span class="o">-</span><span class="n">basetime1</span><span class="p">)</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">days</span>
-    <span class="c1"># train[&#39;issue_date_diffs&#39;]</span>
-
-    <span class="n">data</span><span class="p">[</span><span class="s1">&#39;issue_date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;issue_date&#39;</span><span class="p">])</span>
-    <span class="c1"># 时间多尺度, 都是月度时间，用value_counts()可以看到日期日的话都是1</span>
-    <span class="n">data</span><span class="p">[</span><span class="s1">&#39;issue_year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;issue_date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span>
-    <span class="n">data</span><span class="p">[</span><span class="s1">&#39;issue_month&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;issue_date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span>
-
-    <span class="c1"># 将时间转换成时间区间</span>
-    <span class="c1"># 首先设置basetime</span>
-    <span class="n">basetime2</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;issue_date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
-    <span class="n">data</span><span class="p">[</span><span class="s1">&#39;issue_date_diffs&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;issue_date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span><span class="o">-</span><span class="n">basetime2</span><span class="p">)</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">days</span>
-    <span class="c1"># train[&#39;issue_date_diffs&#39;]</span>
-    
-    <span class="c1"># drop多余的列</span>
-    <span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;issue_date&#39;</span><span class="p">,</span> <span class="s1">&#39;earlies_credit_mon&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    
-    <span class="k">return</span> <span class="n">data</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train</span> <span class="o">=</span> <span class="n">process_cat</span><span class="p">(</span><span class="n">train</span><span class="p">)</span>
-<span class="n">test</span> <span class="o">=</span> <span class="n">process_cat</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">Input In [26],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">train</span> <span class="o">=</span> <span class="n">process_cat</span><span class="p">(</span><span class="n">train</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">test</span> <span class="o">=</span> <span class="n">process_cat</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;train&#39; is not defined
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># train.info()</span>
-<span class="n">train</span><span class="p">[</span><span class="s1">&#39;class&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">Input In [27],</span> in <span class="ni">&lt;cell line: 2&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># train.info()</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">train</span><span class="p">[</span><span class="s1">&#39;class&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
-
-<span class="ne">NameError</span>: name &#39;train&#39; is not defined
-</pre></div>
-</div>
-</div>
-</div>
-<p>可能需要加点特征</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db_train</span> <span class="o">=</span> <span class="n">train</span><span class="p">[</span><span class="n">train</span><span class="p">[</span><span class="s1">&#39;sub_class&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()]</span>
-<span class="n">df_internet</span> <span class="o">=</span> <span class="n">train</span><span class="p">[</span><span class="n">train</span><span class="p">[</span><span class="s1">&#39;sub_class&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notnull</span><span class="p">()]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">Input In [28],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">db_train</span> <span class="o">=</span> <span class="n">train</span><span class="p">[</span><span class="n">train</span><span class="p">[</span><span class="s1">&#39;sub_class&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()]</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">df_internet</span> <span class="o">=</span> <span class="n">train</span><span class="p">[</span><span class="n">train</span><span class="p">[</span><span class="s1">&#39;sub_class&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notnull</span><span class="p">()]</span>
-
-<span class="ne">NameError</span>: name &#39;train&#39; is not defined
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># subclass 是在 class 的基础上有五个子类， 但是被丢掉了这个</span>
-<span class="c1"># train_internet[&#39;sub_class&#39;].value_counts()</span>
-<span class="c1"># 用KMEANS来构建sub_class特征</span>
-<span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
-<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">MinMaxScaler</span>
-
-<span class="k">def</span> <span class="nf">KMEANS</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">class_label</span><span class="p">):</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;class&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">class_label</span><span class="p">]</span>
-    <span class="n">scaler</span> <span class="o">=</span>  <span class="n">MinMaxScaler</span><span class="p">()</span>
-    <span class="n">scaler_data</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;class&#39;</span><span class="p">,</span> <span class="s1">&#39;sub_class&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
-    <span class="c1"># 使用kmeans</span>
-    <span class="n">clf</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">2022</span><span class="p">)</span>
-    <span class="n">pred</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">scaler_data</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">pred</span><span class="o">.</span><span class="n">labels_</span>
-
-<span class="c1"># 构造subclass</span>
-<span class="k">def</span> <span class="nf">sub_class_f</span><span class="p">(</span><span class="n">db_train</span><span class="p">,</span> <span class="n">test</span><span class="p">):</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">db_train</span><span class="p">,</span> <span class="n">test</span><span class="p">])</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">s</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">class_map</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span><span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span><span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">:</span><span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="mi">6</span><span class="p">:</span><span class="s1">&#39;G&#39;</span><span class="p">}</span>
-    <span class="c1"># 开始对class数据找k了</span>
-    <span class="k">for</span> <span class="n">class_label</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">):</span>
-        <span class="c1"># 聚成了五个子类</span>
-        <span class="n">data_label</span> <span class="o">=</span> <span class="n">KMEANS</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">class_label</span><span class="p">)</span>
-        <span class="n">data_label</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data_label</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;class&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">class_label</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
-        <span class="n">class_label</span> <span class="o">=</span> <span class="n">class_map</span><span class="p">[</span><span class="n">class_label</span><span class="p">]</span>
-        <span class="n">data_label</span> <span class="o">=</span> <span class="n">data_label</span><span class="o">.</span><span class="n">map</span><span class="p">({</span><span class="mi">0</span><span class="p">:</span><span class="n">class_label</span><span class="o">+</span><span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="n">class_label</span><span class="o">+</span><span class="s1">&#39;2&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">:</span><span class="n">class_label</span><span class="o">+</span><span class="s1">&#39;3&#39;</span><span class="p">,</span><span class="mi">3</span><span class="p">:</span><span class="n">class_label</span><span class="o">+</span><span class="s1">&#39;4&#39;</span><span class="p">,</span><span class="mi">4</span><span class="p">:</span><span class="n">class_label</span><span class="o">+</span><span class="s1">&#39;5&#39;</span><span class="p">})</span> 
-        <span class="n">s</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data_label</span><span class="p">)</span>
-<span class="c1">#     train_sub_class = pd.concat(s).reset_index(drop=True)</span>
-    <span class="n">train_sub_class</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">train_sub_class</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ImportError</span><span class="g g-Whitespace">                               </span>Traceback (most recent call last)
-<span class="nn">Input In [29],</span> in <span class="ni">&lt;cell line: 4&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># subclass 是在 class 的基础上有五个子类， 但是被丢掉了这个</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1"># train_internet[&#39;sub_class&#39;].value_counts()</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1"># 用KMEANS来构建sub_class特征</span>
-<span class="ne">----&gt; </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">MinMaxScaler</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="k">def</span> <span class="nf">KMEANS</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">class_label</span><span class="p">):</span>
-
-<span class="n">File</span> <span class="o">~</span>\<span class="n">anaconda3</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">sklearn</span>\<span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">82</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">80</span> <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">_distributor_init</span>  <span class="c1"># noqa: F401</span>
-<span class="g g-Whitespace">     </span><span class="mi">81</span> <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">__check_build</span>  <span class="c1"># noqa: F401</span>
-<span class="ne">---&gt; </span><span class="mi">82</span> <span class="kn">from</span> <span class="nn">.base</span> <span class="kn">import</span> <span class="n">clone</span>
-<span class="g g-Whitespace">     </span><span class="mi">83</span> <span class="kn">from</span> <span class="nn">.utils._show_versions</span> <span class="kn">import</span> <span class="n">show_versions</span>
-<span class="g g-Whitespace">     </span><span class="mi">85</span> <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
-<span class="g g-Whitespace">     </span><span class="mi">86</span>     <span class="s2">&quot;calibration&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">87</span>     <span class="s2">&quot;cluster&quot;</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">128</span>     <span class="s2">&quot;show_versions&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">129</span> <span class="p">]</span>
-
-<span class="n">File</span> <span class="o">~</span>\<span class="n">anaconda3</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">sklearn</span>\<span class="n">base</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">17</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">__version__</span>
-<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="kn">from</span> <span class="nn">._config</span> <span class="kn">import</span> <span class="n">get_config</span>
-<span class="ne">---&gt; </span><span class="mi">17</span> <span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="n">_IS_32BIT</span>
-<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="kn">from</span> <span class="nn">.utils._tags</span> <span class="kn">import</span> <span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">19</span>     <span class="n">_DEFAULT_TAGS</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">20</span>     <span class="n">_safe_tags</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="kn">from</span> <span class="nn">.utils.validation</span> <span class="kn">import</span> <span class="n">check_X_y</span>
-
-<span class="n">File</span> <span class="o">~</span>\<span class="n">anaconda3</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">sklearn</span>\<span class="n">utils</span>\<span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">28</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">26</span> <span class="kn">from</span> <span class="nn">..exceptions</span> <span class="kn">import</span> <span class="n">DataConversionWarning</span>
-<span class="g g-Whitespace">     </span><span class="mi">27</span> <span class="kn">from</span> <span class="nn">.deprecation</span> <span class="kn">import</span> <span class="n">deprecated</span>
-<span class="ne">---&gt; </span><span class="mi">28</span> <span class="kn">from</span> <span class="nn">.fixes</span> <span class="kn">import</span> <span class="n">np_version</span><span class="p">,</span> <span class="n">parse_version</span>
-<span class="g g-Whitespace">     </span><span class="mi">29</span> <span class="kn">from</span> <span class="nn">._estimator_html_repr</span> <span class="kn">import</span> <span class="n">estimator_html_repr</span>
-<span class="g g-Whitespace">     </span><span class="mi">30</span> <span class="kn">from</span> <span class="nn">.validation</span> <span class="kn">import</span> <span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">31</span>     <span class="n">as_float_array</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">32</span>     <span class="n">assert_all_finite</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">40</span>     <span class="n">check_scalar</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">41</span> <span class="p">)</span>
-
-<span class="n">File</span> <span class="o">~</span>\<span class="n">anaconda3</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">sklearn</span>\<span class="n">utils</span>\<span class="n">fixes</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">20</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="kn">import</span> <span class="nn">scipy.sparse</span> <span class="k">as</span> <span class="nn">sp</span>
-<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="kn">import</span> <span class="nn">scipy</span>
-<span class="ne">---&gt; </span><span class="mi">20</span> <span class="kn">import</span> <span class="nn">scipy.stats</span>
-<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="kn">from</span> <span class="nn">scipy.sparse.linalg</span> <span class="kn">import</span> <span class="n">lsqr</span> <span class="k">as</span> <span class="n">sparse_lsqr</span>  <span class="c1"># noqa</span>
-<span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="kn">import</span> <span class="nn">threadpoolctl</span>
-
-<span class="n">File</span> <span class="o">~</span>\<span class="n">anaconda3</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">scipy</span>\<span class="n">stats</span>\<span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">441</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span><span class="sd"> .. _statsrefmanual:</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span><span class="sd"> </span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">    </span><span class="mi">438</span><span class="sd"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">439</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">441</span> <span class="kn">from</span> <span class="nn">.stats</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="g g-Whitespace">    </span><span class="mi">442</span> <span class="kn">from</span> <span class="nn">.distributions</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="g g-Whitespace">    </span><span class="mi">443</span> <span class="kn">from</span> <span class="nn">.morestats</span> <span class="kn">import</span> <span class="o">*</span>
-
-<span class="n">File</span> <span class="o">~</span>\<span class="n">anaconda3</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">scipy</span>\<span class="n">stats</span>\<span class="n">stats</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">43</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">41</span> <span class="kn">import</span> <span class="nn">scipy.special</span> <span class="k">as</span> <span class="nn">special</span>
-<span class="g g-Whitespace">     </span><span class="mi">42</span> <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">linalg</span>
-<span class="ne">---&gt; </span><span class="mi">43</span> <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">distributions</span>
-<span class="g g-Whitespace">     </span><span class="mi">44</span> <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">mstats_basic</span>
-<span class="g g-Whitespace">     </span><span class="mi">45</span> <span class="kn">from</span> <span class="nn">._stats_mstats_common</span> <span class="kn">import</span> <span class="p">(</span><span class="n">_find_repeats</span><span class="p">,</span> <span class="n">linregress</span><span class="p">,</span> <span class="n">theilslopes</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">46</span>                                    <span class="n">siegelslopes</span><span class="p">)</span>
-
-<span class="n">File</span> <span class="o">~</span>\<span class="n">anaconda3</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">scipy</span>\<span class="n">stats</span>\<span class="n">distributions</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1"># Author:  Travis Oliphant  2002-2011 with contributions from</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1">#          SciPy Developers 2004-2011</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1">#       instead of `git blame -Lxxx,+x`.</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="c1">#</span>
-<span class="ne">----&gt; </span><span class="mi">8</span> <span class="kn">from</span> <span class="nn">._distn_infrastructure</span> <span class="kn">import</span> <span class="p">(</span><span class="n">rv_discrete</span><span class="p">,</span> <span class="n">rv_continuous</span><span class="p">,</span> <span class="n">rv_frozen</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">_continuous_distns</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">_discrete_distns</span>
-
-<span class="n">File</span> <span class="o">~</span>\<span class="n">anaconda3</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">scipy</span>\<span class="n">stats</span>\<span class="n">_distn_infrastructure</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">24</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="kn">from</span> <span class="nn">scipy.special</span> <span class="kn">import</span> <span class="p">(</span><span class="n">comb</span><span class="p">,</span> <span class="n">chndtr</span><span class="p">,</span> <span class="n">entr</span><span class="p">,</span> <span class="n">xlogy</span><span class="p">,</span> <span class="n">ive</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="c1"># for root finding for continuous distribution ppf, and max likelihood</span>
-<span class="g g-Whitespace">     </span><span class="mi">23</span> <span class="c1"># estimation</span>
-<span class="ne">---&gt; </span><span class="mi">24</span> <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">optimize</span>
-<span class="g g-Whitespace">     </span><span class="mi">26</span> <span class="c1"># for functions of continuous distributions (e.g. moments, entropy, cdf)</span>
-<span class="g g-Whitespace">     </span><span class="mi">27</span> <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">integrate</span>
-
-<span class="n">File</span> <span class="o">~</span>\<span class="n">anaconda3</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">scipy</span>\<span class="n">optimize</span>\<span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">400</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span><span class="sd"> =====================================================</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span><span class="sd"> Optimization and root finding (:mod:`scipy.optimize`)</span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">    </span><span class="mi">397</span><span class="sd"> :mod:`Additional information on the nonlinear solvers &lt;scipy.optimize.nonlin&gt;`</span>
-<span class="g g-Whitespace">    </span><span class="mi">398</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">400</span> <span class="kn">from</span> <span class="nn">.optimize</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="g g-Whitespace">    </span><span class="mi">401</span> <span class="kn">from</span> <span class="nn">._minimize</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="g g-Whitespace">    </span><span class="mi">402</span> <span class="kn">from</span> <span class="nn">._root</span> <span class="kn">import</span> <span class="o">*</span>
-
-<span class="n">File</span> <span class="o">~</span>\<span class="n">anaconda3</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">scipy</span>\<span class="n">optimize</span>\<span class="n">optimize</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">36</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">32</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="g g-Whitespace">     </span><span class="mi">33</span> <span class="kn">from</span> <span class="nn">.linesearch</span> <span class="kn">import</span> <span class="p">(</span><span class="n">line_search_wolfe1</span><span class="p">,</span> <span class="n">line_search_wolfe2</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">34</span>                          <span class="n">line_search_wolfe2</span> <span class="k">as</span> <span class="n">line_search</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">35</span>                          <span class="n">LineSearchWarning</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">36</span> <span class="kn">from</span> <span class="nn">._numdiff</span> <span class="kn">import</span> <span class="n">approx_derivative</span>
-<span class="g g-Whitespace">     </span><span class="mi">37</span> <span class="kn">from</span> <span class="nn">scipy._lib._util</span> <span class="kn">import</span> <span class="n">getfullargspec_no_self</span> <span class="k">as</span> <span class="n">_getfullargspec</span>
-<span class="g g-Whitespace">     </span><span class="mi">38</span> <span class="kn">from</span> <span class="nn">scipy._lib._util</span> <span class="kn">import</span> <span class="n">MapWrapper</span>
-
-<span class="n">File</span> <span class="o">~</span>\<span class="n">anaconda3</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">scipy</span>\<span class="n">optimize</span>\<span class="n">_numdiff</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">numpy.linalg</span> <span class="kn">import</span> <span class="n">norm</span>
-<span class="ne">----&gt; </span><span class="mi">6</span> <span class="kn">from</span> <span class="nn">scipy.sparse.linalg</span> <span class="kn">import</span> <span class="n">LinearOperator</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">from</span> <span class="nn">..sparse</span> <span class="kn">import</span> <span class="n">issparse</span><span class="p">,</span> <span class="n">csc_matrix</span><span class="p">,</span> <span class="n">csr_matrix</span><span class="p">,</span> <span class="n">coo_matrix</span><span class="p">,</span> <span class="n">find</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="kn">from</span> <span class="nn">._group_columns</span> <span class="kn">import</span> <span class="n">group_dense</span><span class="p">,</span> <span class="n">group_sparse</span>
-
-<span class="n">File</span> <span class="o">~</span>\<span class="n">anaconda3</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">scipy</span>\<span class="n">sparse</span>\<span class="n">linalg</span>\<span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">114</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">    </span><span class="mi">112</span> <span class="kn">from</span> <span class="nn">.dsolve</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="g g-Whitespace">    </span><span class="mi">113</span> <span class="kn">from</span> <span class="nn">.interface</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="ne">--&gt; </span><span class="mi">114</span> <span class="kn">from</span> <span class="nn">.eigen</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="g g-Whitespace">    </span><span class="mi">115</span> <span class="kn">from</span> <span class="nn">.matfuncs</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="g g-Whitespace">    </span><span class="mi">116</span> <span class="kn">from</span> <span class="nn">._onenormest</span> <span class="kn">import</span> <span class="o">*</span>
-
-<span class="n">File</span> <span class="o">~</span>\<span class="n">anaconda3</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">scipy</span>\<span class="n">sparse</span>\<span class="n">linalg</span>\<span class="n">eigen</span>\<span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">9</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span><span class="sd"> Sparse Eigenvalue Solvers</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span><span class="sd"> -------------------------</span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span><span class="sd"> </span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="ne">----&gt; </span><span class="mi">9</span> <span class="kn">from</span> <span class="nn">.arpack</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="kn">from</span> <span class="nn">.lobpcg</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">()</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">s</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)]</span>
-
-<span class="n">File</span> <span class="o">~</span>\<span class="n">anaconda3</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">scipy</span>\<span class="n">sparse</span>\<span class="n">linalg</span>\<span class="n">eigen</span>\<span class="n">arpack</span>\<span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">20</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span><span class="sd"> Eigenvalue solver using iterative methods.</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span><span class="sd"> </span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">     </span><span class="mi">18</span><span class="sd"> </span>
-<span class="g g-Whitespace">     </span><span class="mi">19</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="ne">---&gt; </span><span class="mi">20</span> <span class="kn">from</span> <span class="nn">.arpack</span> <span class="kn">import</span> <span class="o">*</span>
-
-<span class="n">File</span> <span class="o">~</span>\<span class="n">anaconda3</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">scipy</span>\<span class="n">sparse</span>\<span class="n">linalg</span>\<span class="n">eigen</span>\<span class="n">arpack</span>\<span class="n">arpack</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">42</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">38</span> <span class="n">__docformat__</span> <span class="o">=</span> <span class="s2">&quot;restructuredtext en&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">40</span> <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;eigs&#39;</span><span class="p">,</span> <span class="s1">&#39;eigsh&#39;</span><span class="p">,</span> <span class="s1">&#39;svds&#39;</span><span class="p">,</span> <span class="s1">&#39;ArpackError&#39;</span><span class="p">,</span> <span class="s1">&#39;ArpackNoConvergence&#39;</span><span class="p">]</span>
-<span class="ne">---&gt; </span><span class="mi">42</span> <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">_arpack</span>
-<span class="g g-Whitespace">     </span><span class="mi">43</span> <span class="n">arpack_int</span> <span class="o">=</span> <span class="n">_arpack</span><span class="o">.</span><span class="n">timing</span><span class="o">.</span><span class="n">nbx</span><span class="o">.</span><span class="n">dtype</span>
-<span class="g g-Whitespace">     </span><span class="mi">45</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
-<span class="ne">ImportError</span>: DLL load failed while importing _arpack: The specified procedure could not be found.
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_sub_class</span> <span class="o">=</span> <span class="n">sub_class_f</span><span class="p">(</span><span class="n">db_train</span><span class="p">,</span> <span class="n">test</span><span class="p">)</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">db_train</span><span class="p">,</span> <span class="n">test</span><span class="p">])</span>
-<span class="n">data</span><span class="p">[</span><span class="s1">&#39;sub_class&#39;</span><span class="p">]</span> <span class="o">=</span>  <span class="n">train_sub_class</span>
-<span class="n">db_train</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;is_default&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notnull</span><span class="p">()]</span>
-<span class="n">temp</span> <span class="o">=</span> <span class="n">db_train</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;sub_class&#39;</span><span class="p">])[</span><span class="s1">&#39;is_default&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-<span class="n">temp</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;is_default&#39;</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">Input In [30],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">train_sub_class</span> <span class="o">=</span> <span class="n">sub_class_f</span><span class="p">(</span><span class="n">db_train</span><span class="p">,</span> <span class="n">test</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">db_train</span><span class="p">,</span> <span class="n">test</span><span class="p">])</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;sub_class&#39;</span><span class="p">]</span> <span class="o">=</span>  <span class="n">train_sub_class</span>
-
-<span class="ne">NameError</span>: name &#39;sub_class_f&#39; is not defined
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="id5">
-<h2>模型训练<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">lightgbm</span> <span class="k">as</span> <span class="nn">lgb</span>
-<span class="kn">import</span> <span class="nn">xgboost</span> <span class="k">as</span> <span class="nn">xgb</span>
-<span class="kn">from</span> <span class="nn">catboost</span> <span class="kn">import</span> <span class="n">CatBoostClassifier</span>
-<span class="c1"># model_lgb = lgb.LGBMClassifier(n_estimators=500)</span>
-<span class="n">xgb_lgb</span> <span class="o">=</span> <span class="n">xgb</span><span class="o">.</span><span class="n">XGBClassifier</span><span class="p">(</span><span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">n_estimators</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">subsample</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">colsample_bytree</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span><span class="n">max_depth</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">2022</span><span class="p">)</span>
-<span class="c1"># model_Cat = CatBoostClassifier(iterations=5000, depth=7, learning_rate=0.001, loss_function=&#39;Logloss&#39;, eval_metric=&#39;AUC&#39;, logging_level=&#39;Verbose&#39;, metric_period=50)</span>
-<span class="c1"># 模型训练</span>
-<span class="n">labels</span> <span class="o">=</span> <span class="n">train</span><span class="p">[</span><span class="s1">&#39;is_default&#39;</span><span class="p">]</span>
-<span class="n">xgb_lgb</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;is_default&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">labels</span><span class="p">)</span>
-<span class="n">y_pred</span> <span class="o">=</span> <span class="n">xgb_lgb</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">XGBoostError</span><span class="g g-Whitespace">                              </span>Traceback (most recent call last)
-<span class="nn">Input In [31],</span> in <span class="ni">&lt;cell line: 5&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">catboost</span> <span class="kn">import</span> <span class="n">CatBoostClassifier</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># model_lgb = lgb.LGBMClassifier(n_estimators=500)</span>
-<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">xgb_lgb</span> <span class="o">=</span> <span class="n">xgb</span><span class="o">.</span><span class="n">XGBClassifier</span><span class="p">(</span><span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">n_estimators</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">subsample</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">colsample_bytree</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span><span class="n">max_depth</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">2022</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1"># model_Cat = CatBoostClassifier(iterations=5000, depth=7, learning_rate=0.001, loss_function=&#39;Logloss&#39;, eval_metric=&#39;AUC&#39;, logging_level=&#39;Verbose&#39;, metric_period=50)</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="c1"># 模型训练</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">train</span><span class="p">[</span><span class="s1">&#39;is_default&#39;</span><span class="p">]</span>
-
-<span class="nn">File ~\anaconda3\lib\site-packages\xgboost\core.py:436,</span> in <span class="ni">_deprecate_positional_args.&lt;locals&gt;.inner_f</span><span class="nt">(*args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">434</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">arg</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">sig</span><span class="o">.</span><span class="n">parameters</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">435</span>     <span class="n">kwargs</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">arg</span>
-<span class="ne">--&gt; </span><span class="mi">436</span> <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-<span class="nn">File ~\anaconda3\lib\site-packages\xgboost\sklearn.py:1058,</span> in <span class="ni">XGBClassifier.__init__</span><span class="nt">(self, objective, use_label_encoder, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1055</span> <span class="nd">@_deprecate_positional_args</span>
-<span class="g g-Whitespace">   </span><span class="mi">1056</span> <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">objective</span><span class="o">=</span><span class="s2">&quot;binary:logistic&quot;</span><span class="p">,</span> <span class="n">use_label_encoder</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1057</span>     <span class="bp">self</span><span class="o">.</span><span class="n">use_label_encoder</span> <span class="o">=</span> <span class="n">use_label_encoder</span>
-<span class="ne">-&gt; </span><span class="mi">1058</span>     <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">objective</span><span class="o">=</span><span class="n">objective</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-<span class="nn">File ~\anaconda3\lib\site-packages\xgboost\sklearn.py:349,</span> in <span class="ni">XGBModel.__init__</span><span class="nt">(self, max_depth, learning_rate, n_estimators, verbosity, objective, booster, tree_method, n_jobs, gamma, min_child_weight, max_delta_step, subsample, colsample_bytree, colsample_bylevel, colsample_bynode, reg_alpha, reg_lambda, scale_pos_weight, base_score, random_state, missing, num_parallel_tree, monotone_constraints, interaction_constraints, importance_type, gpu_id, validate_parameters, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">317</span> <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">318</span>     <span class="bp">self</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">319</span>     <span class="n">max_depth</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">346</span>     <span class="o">**</span><span class="n">kwargs</span>
-<span class="g g-Whitespace">    </span><span class="mi">347</span> <span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">348</span>     <span class="k">if</span> <span class="ow">not</span> <span class="n">SKLEARN_INSTALLED</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">349</span>         <span class="k">raise</span> <span class="n">XGBoostError</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">350</span>             <span class="s2">&quot;sklearn needs to be installed in order to use this module&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">351</span>         <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">352</span>     <span class="bp">self</span><span class="o">.</span><span class="n">n_estimators</span> <span class="o">=</span> <span class="n">n_estimators</span>
-<span class="g g-Whitespace">    </span><span class="mi">353</span>     <span class="bp">self</span><span class="o">.</span><span class="n">objective</span> <span class="o">=</span> <span class="n">objective</span>
-
-<span class="ne">XGBoostError</span>: sklearn needs to be installed in order to use this module
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">Input In [32],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">y_pred</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
-
-<span class="ne">NameError</span>: name &#39;y_pred&#39; is not defined
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;isDefault&#39;</span><span class="p">])</span>
-<span class="n">result</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">test</span><span class="p">[</span><span class="s1">&#39;loan_id&#39;</span><span class="p">]</span>
-<span class="n">result</span><span class="p">[</span><span class="s1">&#39;isDefault&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_pred</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">result</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">Input In [33],</span> in <span class="ni">&lt;cell line: 2&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;isDefault&#39;</span><span class="p">])</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">result</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">test</span><span class="p">[</span><span class="s1">&#39;loan_id&#39;</span><span class="p">]</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">result</span><span class="p">[</span><span class="s1">&#39;isDefault&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_pred</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">result</span>
-
-<span class="ne">NameError</span>: name &#39;test&#39; is not defined
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;./baseline_xgb.csv&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">train</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">Input In [35],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">list</span><span class="p">(</span><span class="n">train</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;train&#39; is not defined
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;./baseline_CAT.csv&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="s1">&#39;O&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">Input In [37],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">train</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="s1">&#39;O&#39;</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;train&#39; is not defined
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 </div>
@@ -1747,7 +880,7 @@ const thebe_selector_output = ".output, .cell_output"
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
+            repo: "iliiiiiili/chenoi",
             ref: "master",
         },
         codeMirrorConfig: {
