@@ -40,7 +40,7 @@ html:
   comments:
     hypothesis: true
     utterances:
-      repo: "github-org/github-repo"
+      repo: "iliiiiiili/chenoi"
 
 sphinx:
     config:
@@ -49,6 +49,7 @@ sphinx:
 
 repository:
   url                       : https://github.com/iliiiiiili/chenoi  # Online location of your book
+  branch                    : gh-pages/
   # path_to_book              : /AI/RF/test.ipynb  # Optional path to your book, relative to the repository root
 
 launch_buttons:
