@@ -36,11 +36,12 @@ bibtex_bibfiles:
 html:
   # use_issues_button: true
   # use_repository_button: true
+  announcement: "Welcome to chenoiAI Lab"
   use_multitoc_numbering: false
   comments:
     hypothesis: true
     utterances:
-      repo: "iliiiiiili/chenoi"
+      repo: "iliiiiiili/chenoi/AndyAI/AI/AI_competition"
 
 sphinx:
     config:
