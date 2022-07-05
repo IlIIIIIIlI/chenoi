@@ -36,12 +36,16 @@ bibtex_bibfiles:
 html:
   # use_issues_button: true
   # use_repository_button: true
+  google_analytics_id: G-X7Q6P8J04K
   announcement: "Welcome to chenoiAI Lab"
   use_multitoc_numbering: false
   comments:
     hypothesis: true
     utterances:
-      repo: "iliiiiiili/chenoi/AndyAI/AI/AI_competition"
+      repo: "iliiiiiili/chenoi"
+      label: "✨💬✨"
+      issue-term: "title"
+      theme: "boxy-light"
 
 sphinx:
     config:

@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+# (product_AI)= 
 # # 产品观点提取
 
 # PDF请访问[产品观点提取1.pdf](https://www.dropbox.com/s/mfovj0uw7obygad/L8%20%E4%BA%A7%E5%93%81%E8%AF%84%E8%AE%BA%E8%A7%82%E7%82%B9%E6%8F%90%E5%8F%961V0.2.pptx?dl=0)。[产品观点提取2.pdf](https://www.dropbox.com/s/vhmyi86zaicj45m/L9%20%E4%BA%A7%E5%93%81%E8%AF%84%E8%AE%BA%E8%A7%82%E7%82%B9%E6%8F%90%E5%8F%962V0.2.pptx?dl=0)。

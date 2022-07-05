@@ -7,33 +7,25 @@ defaults:  # The defaults key will be applied to all chapters and sub-sections
   titlesonly: True
   # numbered: True
 parts:
-  - chapters:
-    - file: example/intro
-      sections:
-      - file: example/mymarkdownfile
-        title: subsection example
-      - file: example/notebooks
-        title: notebook example
-      - file: example/markdown-notebooks
-        title: markdown example
-      - file: example/markdown
-        title: markdown example2
-  - caption: Artificial Intelligence
+  - caption: 人工智障 - Artificial Intelligence
     chapters:
-    - file: AI/RF/intro
+    - file: AI/RF/RF_intro
       sections:
-      - file: AI/RF/mental_cal
-  - caption: Programming Language
+      - file: AI/RF/Q_learning
+  - caption: 语言 - Programming Language
     chapters:
-    - file: Programming/intro
+    - file: Programming/programming_intro
       sections:
       - file: Programming/JAVA/90041_1
-  - caption: Interesting staffs
+  - caption: 趣库 - Interesting staffs
     chapters:
-    - file: AI/AI_competition/intro
+    - file: AI/AI_competition/AI_competition_intro
       sections:
       - file: AI/AI_competition/个贷违约预测
-      - file: AI/AI_competition/Fraud Detection in Insurance
+      - file: AI/AI_competition/银行欺诈检测比赛
       - file: AI/AI_competition/产品评论观点提取
+    - file: AI/i/i_intro
+      sections:
+        - file: AI/i/mental_cal
       
 
