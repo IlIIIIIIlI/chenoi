@@ -44,18 +44,6 @@
     <script src="../../_static/togglebutton.js"></script>
     <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
 
-    var commentsRunWhenDOMLoaded = cb => {
-    if (document.readyState != 'loading') {
-    cb()
-    } else if (document.addEventListener) {
-    document.addEventListener('DOMContentLoaded', cb)
-    } else {
-    document.attachEvent('onreadystatechange', function() {
-    if (document.readyState == 'complete') cb()
-    })
-    }
-    }
-
     </script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/design-tabs.js"></script>
