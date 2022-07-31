@@ -12,15 +12,15 @@ This book is for AI lover, not for exploitation!
 
 ```{admonition} Content
 * Artificial Intelligence
-    1. Q-learning
+    1. [Q-learning](Q)
     2. RF in Starcraft2
 * Programming Language
-    1. Java
+    1. [Java](java1)
     2. C++
 * Interesting staffs
     1. IML scratch algo
     2. AI classic search notes
-    3. AI Competitions notes
+    3. [AI Competitions notes](AI_competition)
 ```
 
 ---

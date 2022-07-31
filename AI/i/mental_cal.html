@@ -196,7 +196,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../AI_competition/AI_competition_intro.html">
-   AI Competition
+   打比赛，一些网站的项目
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
   <label for="toctree-checkbox-3">
@@ -243,9 +243,6 @@ const thebe_selector_output = ".output, .cell_output"
     </div>
 </nav> <!-- To handle the deprecated key -->
 
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
 
 </div>
 
@@ -344,15 +341,34 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="practice-mental-calculation">
 <span id="mentalcal"></span><h1>practice mental calculation<a class="headerlink" href="#practice-mental-calculation" title="Permalink to this headline">¶</a></h1>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span> 
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">re</span>
 
 <span class="n">a</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">99</span><span class="p">)</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">99</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;*&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
-<span class="n">result</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;your answer: &quot;</span><span class="p">))</span>
+<span class="n">time_start</span><span class="o">=</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;*&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
+<span class="n">result</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;your answer: &quot;</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;\d+&quot;</span><span class="p">,</span><span class="n">result</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">time_end</span><span class="o">=</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">==</span><span class="n">a</span><span class="o">*</span><span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;your input: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;the true answer: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">b</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;time cost: &#39;</span><span class="p">,</span><span class="n">time_end</span><span class="o">-</span><span class="n">time_start</span><span class="p">,</span><span class="s1">&#39;seconds&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>87*24
+87*24
+False
+your input: 123
+the true answer: 2088
+time cost:  3.099858522415161 seconds
 </pre></div>
 </div>
 </div>

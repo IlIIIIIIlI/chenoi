@@ -197,7 +197,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../AI_competition/AI_competition_intro.html">
-   AI Competition
+   打比赛，一些网站的项目
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
   <label for="toctree-checkbox-3">
@@ -244,9 +244,6 @@ const thebe_selector_output = ".output, .cell_output"
     </div>
 </nav> <!-- To handle the deprecated key -->
 
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
 
 </div>
 
@@ -325,6 +322,78 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gym-initial-gym-environment">
+   初始化GYM库的配置 - Initial gym environment
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   对山地车做简单训练
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#state">
+   对山地车state/ 动作的阈值做一个提取
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#chunks">
+     离散化 - 首先对于动作高点的范畴，我们将其变成20个模块 20 chunks
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#q-tablestate-action">
+   建立一个20*20 的q-table来储存state action对
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#q-leanring">
+   建立Q-leanring必需的参数
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   构造一次训练
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   批次训练
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#target-target">
+   小结 - 我们刚刚的训练只能保证达到target，但不能保证使用完美的策略最有效地达到target
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#q-table">
+   可视化一个Q-table
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     可视化全周期Q-table
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     并做成视频
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -337,6 +406,78 @@ const thebe_selector_output = ".output, .cell_output"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gym-initial-gym-environment">
+   初始化GYM库的配置 - Initial gym environment
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   对山地车做简单训练
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#state">
+   对山地车state/ 动作的阈值做一个提取
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#chunks">
+     离散化 - 首先对于动作高点的范畴，我们将其变成20个模块 20 chunks
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#q-tablestate-action">
+   建立一个20*20 的q-table来储存state action对
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#q-leanring">
+   建立Q-leanring必需的参数
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   构造一次训练
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   批次训练
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#target-target">
+   小结 - 我们刚刚的训练只能保证达到target，但不能保证使用完美的策略最有效地达到target
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#q-table">
+   可视化一个Q-table
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     可视化全周期Q-table
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     并做成视频
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -345,6 +486,522 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="q-learning">
 <span id="q"></span><h1>Q-learning<a class="headerlink" href="#q-learning" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install gym
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="gym-initial-gym-environment">
+<h2>初始化GYM库的配置 - Initial gym environment<a class="headerlink" href="#gym-initial-gym-environment" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gym</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">env</span> <span class="o">=</span> <span class="n">gym</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="s2">&quot;MountainCar-v0&quot;</span><span class="p">)</span>
+<span class="n">env</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+
+<span class="n">done</span> <span class="o">=</span> <span class="kc">False</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>该游戏介绍：即操纵小车达到山坡的顶点
+Q-learning 策略：用得分点backpropagate到action的Q值，来选择action}</p>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>对山地车做简单训练<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="ow">not</span> <span class="n">done</span><span class="p">:</span>
+    <span class="n">action</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="c1">## 每个环节都有三个参数， 状态， 奖励， 目标完成与否</span>
+    <span class="n">new_state</span><span class="p">,</span> <span class="n">reward</span><span class="p">,</span> <span class="n">done</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">action</span><span class="p">)</span>
+    <span class="n">env</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+<span class="n">env</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Q learning formulae</p>
+<img alt="../../_images/20220717011435.png" id="label" src="../../_images/20220717011435.png" />
+<p>we just pick up those with highest Q-value</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>单说做循环，问题在什么地方？
+-&gt; 由于每个动作的角度的state是continuous的，在这个问题中。Q-table可能会特别大，因此需要对Q-table做一个精简处理 （Discrete）</p>
+</div>
+</div>
+<div class="section" id="state">
+<h2>对山地车state/ 动作的阈值做一个提取<a class="headerlink" href="#state" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## 获取所有动作中高点可能的值</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">observation_space</span><span class="o">.</span><span class="n">high</span><span class="p">)</span>
+<span class="c1">## 获取所有动作中底部可能的值</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">observation_space</span><span class="o">.</span><span class="n">low</span><span class="p">)</span>
+<span class="c1">## 获取动作个数  how many actions are possible</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">action_space</span><span class="o">.</span><span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="chunks">
+<h3>离散化 - 首先对于动作高点的范畴，我们将其变成20个模块 20 chunks<a class="headerlink" href="#chunks" title="Permalink to this headline">¶</a></h3>
+<p>** 这个 20 是自己定义的 **</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 建立一个个数为观测数的20的list</span>
+<span class="n">discrete_size</span> <span class="o">=</span> <span class="p">[</span><span class="mi">20</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">observation_space</span><span class="o">.</span><span class="n">high</span><span class="p">)</span>
+<span class="c1"># 获取每段的长度</span>
+<span class="n">discrete_win_size</span> <span class="o">=</span> <span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">observation_space</span><span class="o">.</span><span class="n">high</span> <span class="o">-</span> <span class="n">env</span><span class="o">.</span><span class="n">observation_space</span><span class="o">.</span><span class="n">low</span><span class="p">)</span> <span class="o">/</span> <span class="n">discrete_size</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 计算state属于哪一个bucket</span>
+<span class="k">def</span> <span class="nf">get_discrete_state</span><span class="p">(</span><span class="n">state</span><span class="p">):</span>
+    <span class="n">discrete_state</span> <span class="o">=</span> <span class="p">(</span><span class="n">state</span><span class="o">-</span><span class="n">env</span><span class="o">.</span><span class="n">observation_space</span><span class="o">.</span><span class="n">low</span><span class="p">)</span> <span class="o">/</span> <span class="n">discrete_win_size</span>
+    <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">discrete_state</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="q-tablestate-action">
+<h2>建立一个20*20 的q-table来储存state action对<a class="headerlink" href="#q-tablestate-action" title="Permalink to this headline">¶</a></h2>
+<p><strong>该表是三维的</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## -2 和 0 靠直觉 和 经验 定义。。。</span>
+<span class="n">q_table</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">low</span><span class="o">=-</span><span class="mi">2</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">discrete_size</span><span class="o">+</span><span class="p">[</span><span class="n">env</span><span class="o">.</span><span class="n">action_space</span><span class="o">.</span><span class="n">n</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="q-leanring">
+<h2>建立Q-leanring必需的参数<a class="headerlink" href="#q-leanring" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## 学习率 0-1 </span>
+<span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="c1"># 用于折扣未来奖励对于现在步数的影响 how important is future reward</span>
+<span class="n">discount</span> <span class="o">=</span> <span class="mf">0.95</span>
+<span class="c1"># episodes, 训练周期多少轮</span>
+<span class="n">episodes</span><span class="o">=</span> <span class="mi">4000</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="margin sidebar">
+<p class="sidebar-title">np.max的用法：</p>
+<p>求序列的最值</p>
+<p>最少接收一个参数</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+<span class="o">&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="mi">6</span>
+<span class="o">&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># max of each column</span>
+<span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+
+
+<span class="o">&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="o">&gt;</span> <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">])</span>
+<span class="o">&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+<span class="n">array</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>构造一次训练<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## 按照离散的进行训练</span>
+<span class="n">discrete_state</span> <span class="o">=</span> <span class="n">get_discrete_state</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">reset</span><span class="p">())</span>
+
+<span class="n">done</span><span class="o">=</span><span class="kc">False</span>
+<span class="k">while</span> <span class="ow">not</span> <span class="n">done</span><span class="p">:</span>
+    <span class="c1"># 获取q表中，每个获得的离散状态下，返回q值最高的动作</span>
+    <span class="n">action</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">q_table</span><span class="p">[</span><span class="n">discrete_state</span><span class="p">])</span>
+    <span class="c1"># 做了这个工作之后进入下一个state</span>
+    <span class="n">new_state</span><span class="p">,</span> <span class="n">reward</span><span class="p">,</span> <span class="n">done</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">action</span><span class="p">)</span>
+    <span class="c1"># 下一个state的离散形态</span>
+    <span class="n">new_discrete_state</span> <span class="o">=</span> <span class="n">get_discrete_state</span><span class="p">(</span><span class="n">new_state</span><span class="p">)</span>
+    <span class="n">env</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+    
+    <span class="c1"># 如果没有做了该动作后没有达到target，那么下面使用Q-learning公式，根据公式我们知道，需要 1.旧Q值 2.学习率 3.奖励 4.折现率 5.对于未来估计的最大Q值</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">done</span><span class="p">:</span>
+        <span class="c1"># 我们先计算1和5</span>
+        <span class="c1">## 做完动作后的Q值</span>
+        <span class="n">current_Q</span> <span class="o">=</span> <span class="n">q_table</span><span class="p">[</span><span class="n">discrete_state</span> <span class="o">+</span> <span class="p">(</span><span class="n">action</span><span class="p">,</span> <span class="p">)]</span>
+        <span class="c1">## 在做完动作后的该状态下，未来最大的Q值</span>
+        <span class="n">max_future_Q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">q_table</span><span class="p">[</span><span class="n">new_discrete_state</span><span class="p">])</span>
+        <span class="c1"># 根据公式计算出新的Q值</span>
+        <span class="n">new_Q</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">learning_rate</span><span class="p">)</span> <span class="o">*</span> <span class="n">current_Q</span> <span class="o">+</span> <span class="n">learning_rate</span> <span class="o">*</span> <span class="p">(</span><span class="n">reward</span> <span class="o">+</span> <span class="n">discount</span> <span class="o">*</span> <span class="n">max_future_Q</span><span class="p">)</span>
+        <span class="c1"># 用新获得的Q值来更新Q表， key-value键值对，key是做完动作后的状态</span>
+        <span class="n">q_table</span><span class="p">[</span><span class="n">discrete_state</span><span class="o">+</span><span class="p">(</span><span class="n">action</span><span class="p">,</span> <span class="p">)]</span> <span class="o">=</span> <span class="n">new_Q</span>
+    <span class="c1"># 如果达到目标了，那么</span>
+    <span class="k">elif</span> <span class="n">new_state</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">env</span><span class="o">.</span><span class="n">goal_position</span><span class="p">:</span>
+        <span class="c1"># 在这次训练中，reward被设置为0，当达到目标时。。无惩罚项</span>
+        <span class="n">q_table</span><span class="p">[</span><span class="n">discrete_state</span><span class="o">+</span><span class="p">(</span><span class="n">action</span><span class="p">,)]</span> <span class="o">=</span> <span class="mi">0</span>
+    
+    <span class="c1"># 更新状态到下一状态</span>
+    <span class="n">discrete_state</span> <span class="o">=</span> <span class="n">new_discrete_state</span>
+    
+<span class="n">env</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>批次训练<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">episode</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">episodes</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">episode</span> <span class="o">%</span> <span class="mi">2000</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="c1"># 每2000轮，把这个小车加载出来看下</span>
+        <span class="n">render</span><span class="o">=</span><span class="kc">True</span>
+        <span class="c1"># 同时打印目前多少轮了</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">render</span><span class="o">=</span><span class="kc">False</span>
+        
+    <span class="n">discrete_state</span> <span class="o">=</span> <span class="n">get_discrete_state</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">reset</span><span class="p">())</span>
+    <span class="n">done</span><span class="o">=</span><span class="kc">False</span>
+    <span class="k">while</span> <span class="ow">not</span> <span class="n">done</span><span class="p">:</span>
+        <span class="n">action</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">q_table</span><span class="p">[</span><span class="n">discrete_state</span><span class="p">])</span>
+        <span class="n">new_state</span><span class="p">,</span> <span class="n">reward</span><span class="p">,</span> <span class="n">done</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">action</span><span class="p">)</span>
+        <span class="n">new_discrete_state</span> <span class="o">=</span> <span class="n">get_discrete_state</span><span class="p">(</span><span class="n">new_state</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">render</span><span class="p">:</span>
+            <span class="n">env</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">done</span><span class="p">:</span>
+            <span class="n">current_Q</span> <span class="o">=</span> <span class="n">q_table</span><span class="p">[</span><span class="n">discrete_state</span> <span class="o">+</span> <span class="p">(</span><span class="n">action</span><span class="p">,</span> <span class="p">)]</span>
+            <span class="n">max_future_Q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">q_table</span><span class="p">[</span><span class="n">new_discrete_state</span><span class="p">])</span>
+            <span class="n">new_Q</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">learning_rate</span><span class="p">)</span> <span class="o">*</span> <span class="n">current_Q</span> <span class="o">+</span> <span class="n">learning_rate</span> <span class="o">*</span> <span class="p">(</span><span class="n">reward</span> <span class="o">+</span> <span class="n">discount</span> <span class="o">*</span> <span class="n">max_future_Q</span><span class="p">)</span>
+            <span class="n">q_table</span><span class="p">[</span><span class="n">discrete_state</span><span class="o">+</span><span class="p">(</span><span class="n">action</span><span class="p">,</span> <span class="p">)]</span> <span class="o">=</span> <span class="n">new_Q</span>
+        <span class="k">elif</span> <span class="n">new_state</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">env</span><span class="o">.</span><span class="n">goal_position</span><span class="p">:</span>
+            <span class="c1"># 当达到目的时，终止</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;we made that in </span><span class="si">{</span><span class="n">episode</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">q_table</span><span class="p">[</span><span class="n">discrete_state</span><span class="o">+</span><span class="p">(</span><span class="n">action</span><span class="p">,)]</span> <span class="o">=</span> <span class="mi">0</span>
+            
+        <span class="n">discrete_state</span> <span class="o">=</span> <span class="n">new_discrete_state</span>
+
+<span class="n">env</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>结果：</p>
+<img alt="../../_images/more-episodes-end-decay.png" id="id4" src="../../_images/more-episodes-end-decay.png" />
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Epsilon
+在以上的训练中我们没有设置epsilon，这是一个随机值。用于balance exploration和exploitation</p>
+<ul class="simple">
+<li><p>exploitation就是当找到一条正确道路的时候，继续往下走</p></li>
+<li><p>exploration就是寻找其他随机道路，看是否能达到终点</p></li>
+</ul>
+<p>如果要加入Epsilon，那么</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">epsilon</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="n">start_epsilon_decay</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">end_epsilon_decay</span><span class="o">=</span><span class="n">episodes</span><span class="o">//</span><span class="mi">2</span>
+<span class="n">epsilon_decay_value</span><span class="o">=</span><span class="n">epsilon</span><span class="o">/</span><span class="p">(</span><span class="n">end_epsilon_decay</span><span class="o">-</span><span class="n">start_epsilon_decay</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>并在while not done同列的最后添加</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">end_epsilon_decay</span> <span class="o">&gt;=</span> <span class="n">episode</span> <span class="o">&gt;=</span> <span class="n">start_epsilon_decay</span><span class="p">:</span>
+    <span class="n">epsilon</span> <span class="o">-=</span> <span class="n">epsilon_decay_value</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="target-target">
+<h2>小结 - 我们刚刚的训练只能保证达到target，但不能保证使用完美的策略最有效地达到target<a class="headerlink" href="#target-target" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>对于这个简单的项目来说，我们使用的Q-learning完全够了，但是对于复杂的环境，远远不止如此简单。下面我们开始进行Q-learning的高级一点的操作，比如可视化tracking。</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gym</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">env</span> <span class="o">=</span> <span class="n">gym</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="s2">&quot;MountainCar-v0&quot;</span><span class="p">)</span>
+
+<span class="n">LEARNING_RATE</span> <span class="o">=</span> <span class="mf">0.1</span>
+
+<span class="n">DISCOUNT</span> <span class="o">=</span> <span class="mf">0.95</span>
+<span class="n">EPISODES</span> <span class="o">=</span> <span class="mi">4000</span>
+<span class="n">SHOW_EVERY</span> <span class="o">=</span> <span class="mi">20</span>
+
+<span class="n">DISCRETE_OS_SIZE</span> <span class="o">=</span> <span class="p">[</span><span class="mi">20</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">observation_space</span><span class="o">.</span><span class="n">high</span><span class="p">)</span>
+<span class="n">discrete_os_win_size</span> <span class="o">=</span> <span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">observation_space</span><span class="o">.</span><span class="n">high</span> <span class="o">-</span> <span class="n">env</span><span class="o">.</span><span class="n">observation_space</span><span class="o">.</span><span class="n">low</span><span class="p">)</span><span class="o">/</span><span class="n">DISCRETE_OS_SIZE</span>
+
+<span class="c1"># Exploration settings</span>
+<span class="n">epsilon</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">START_EPSILON_DECAYING</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">END_EPSILON_DECAYING</span> <span class="o">=</span> <span class="n">EPISODES</span><span class="o">//</span><span class="mi">2</span>
+<span class="n">epsilon_decay_value</span> <span class="o">=</span> <span class="n">epsilon</span><span class="o">/</span><span class="p">(</span><span class="n">END_EPSILON_DECAYING</span> <span class="o">-</span> <span class="n">START_EPSILON_DECAYING</span><span class="p">)</span>
+
+
+<span class="n">q_table</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">low</span><span class="o">=-</span><span class="mi">2</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">DISCRETE_OS_SIZE</span> <span class="o">+</span> <span class="p">[</span><span class="n">env</span><span class="o">.</span><span class="n">action_space</span><span class="o">.</span><span class="n">n</span><span class="p">]))</span>
+<span class="c1"># 可视化代码片段插入1</span>
+<span class="n">ep_rewards</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="c1">## 用于统计在当前episode，reward的情况（if better, how better; if worse, how worse the model is）</span>
+<span class="n">aggr_ep_rewards</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;ep&#39;</span><span class="p">:</span> <span class="p">[],</span> <span class="s1">&#39;avg&#39;</span><span class="p">:</span> <span class="p">[],</span> <span class="s1">&#39;max&#39;</span><span class="p">:</span> <span class="p">[],</span> <span class="s1">&#39;min&#39;</span><span class="p">:</span> <span class="p">[]}</span>
+
+<span class="k">def</span> <span class="nf">get_discrete_state</span><span class="p">(</span><span class="n">state</span><span class="p">):</span>
+    <span class="n">discrete_state</span> <span class="o">=</span> <span class="p">(</span><span class="n">state</span> <span class="o">-</span> <span class="n">env</span><span class="o">.</span><span class="n">observation_space</span><span class="o">.</span><span class="n">low</span><span class="p">)</span><span class="o">/</span><span class="n">discrete_os_win_size</span>
+    <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">discrete_state</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int</span><span class="p">))</span>  <span class="c1"># we use this tuple to look up the 3 Q values for the available actions in the q-table</span>
+
+
+<span class="k">for</span> <span class="n">episode</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">EPISODES</span><span class="p">):</span>
+    <span class="c1"># 可视化代码片段插入2, 定义单个episode的reward</span>
+    <span class="n">ep_reward</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">discrete_state</span> <span class="o">=</span> <span class="n">get_discrete_state</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">reset</span><span class="p">())</span>
+    <span class="n">done</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">if</span> <span class="n">episode</span> <span class="o">%</span> <span class="n">SHOW_EVERY</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">render</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">episode</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">render</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">while</span> <span class="ow">not</span> <span class="n">done</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&gt;</span> <span class="n">epsilon</span><span class="p">:</span>
+            <span class="c1"># Get action from Q table</span>
+            <span class="n">action</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">q_table</span><span class="p">[</span><span class="n">discrete_state</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Get random action</span>
+            <span class="n">action</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">env</span><span class="o">.</span><span class="n">action_space</span><span class="o">.</span><span class="n">n</span><span class="p">)</span>
+            
+        <span class="n">new_state</span><span class="p">,</span> <span class="n">reward</span><span class="p">,</span> <span class="n">done</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">action</span><span class="p">)</span>
+        <span class="c1"># 可视化代码片段插入3， 当获得reward时加入</span>
+        <span class="n">ep_reward</span> <span class="o">+=</span> <span class="n">reward</span>
+        <span class="n">new_discrete_state</span> <span class="o">=</span> <span class="n">get_discrete_state</span><span class="p">(</span><span class="n">new_state</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="n">episode</span> <span class="o">%</span> <span class="n">SHOW_EVERY</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">env</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+        <span class="c1">#new_q = (1 - LEARNING_RATE) * current_q + LEARNING_RATE * (reward + DISCOUNT * max_future_q)</span>
+
+        <span class="c1"># If simulation did not end yet after last step - update Q table</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">done</span><span class="p">:</span>
+
+            <span class="c1"># Maximum possible Q value in next step (for new state)</span>
+            <span class="n">max_future_q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">q_table</span><span class="p">[</span><span class="n">new_discrete_state</span><span class="p">])</span>
+            <span class="c1"># Current Q value (for current state and performed action)</span>
+            <span class="n">current_q</span> <span class="o">=</span> <span class="n">q_table</span><span class="p">[</span><span class="n">discrete_state</span> <span class="o">+</span> <span class="p">(</span><span class="n">action</span><span class="p">,)]</span>
+            <span class="c1"># And here&#39;s our equation for a new Q value for current state and action</span>
+            <span class="n">new_q</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">LEARNING_RATE</span><span class="p">)</span> <span class="o">*</span> <span class="n">current_q</span> <span class="o">+</span> <span class="n">LEARNING_RATE</span> <span class="o">*</span> <span class="p">(</span><span class="n">reward</span> <span class="o">+</span> <span class="n">DISCOUNT</span> <span class="o">*</span> <span class="n">max_future_q</span><span class="p">)</span>
+            <span class="c1"># Update Q table with new Q value</span>
+            <span class="n">q_table</span><span class="p">[</span><span class="n">discrete_state</span> <span class="o">+</span> <span class="p">(</span><span class="n">action</span><span class="p">,)]</span> <span class="o">=</span> <span class="n">new_q</span>
+
+        <span class="c1"># Simulation ended (for any reson) - if goal position is achived - update Q value with reward directly</span>
+        <span class="k">elif</span> <span class="n">new_state</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">env</span><span class="o">.</span><span class="n">goal_position</span><span class="p">:</span>
+            <span class="c1">#q_table[discrete_state + (action,)] = reward</span>
+            <span class="n">q_table</span><span class="p">[</span><span class="n">discrete_state</span> <span class="o">+</span> <span class="p">(</span><span class="n">action</span><span class="p">,)]</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="n">discrete_state</span> <span class="o">=</span> <span class="n">new_discrete_state</span>
+
+    <span class="c1"># Decaying is being done every episode if episode number is within decaying range</span>
+    <span class="k">if</span> <span class="n">END_EPSILON_DECAYING</span> <span class="o">&gt;=</span> <span class="n">episode</span> <span class="o">&gt;=</span> <span class="n">START_EPSILON_DECAYING</span><span class="p">:</span>
+        <span class="n">epsilon</span> <span class="o">-=</span> <span class="n">epsilon_decay_value</span>
+        
+    <span class="c1"># 可视化代码片段插入4, 循环最外层的ep reward加上</span>
+    <span class="n">ep_rewards</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ep_reward</span><span class="p">)</span>
+    
+     <span class="c1"># 可视化代码片段插入5, 更新agg_reward</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">episode</span> <span class="o">%</span> <span class="n">SHOW_EVERY</span><span class="p">:</span>
+        <span class="n">average_reward</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">ep_rewards</span><span class="p">[</span><span class="o">-</span><span class="n">SHOW_EVERY</span><span class="p">:])</span><span class="o">/</span><span class="n">SHOW_EVERY</span>
+        <span class="n">aggr_ep_rewards</span><span class="p">[</span><span class="s1">&#39;ep&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">episode</span><span class="p">)</span>
+        <span class="n">aggr_ep_rewards</span><span class="p">[</span><span class="s1">&#39;avg&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">average_reward</span><span class="p">)</span>
+        <span class="n">aggr_ep_rewards</span><span class="p">[</span><span class="s1">&#39;max&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">ep_rewards</span><span class="p">[</span><span class="o">-</span><span class="n">SHOW_EVERY</span><span class="p">:]))</span>
+        <span class="n">aggr_ep_rewards</span><span class="p">[</span><span class="s1">&#39;min&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">ep_rewards</span><span class="p">[</span><span class="o">-</span><span class="n">SHOW_EVERY</span><span class="p">:]))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Episode: </span><span class="si">{</span><span class="n">episode</span><span class="si">:</span><span class="s1">&gt;5d</span><span class="si">}</span><span class="s1">, average reward: </span><span class="si">{</span><span class="n">average_reward</span><span class="si">:</span><span class="s1">&gt;4.1f</span><span class="si">}</span><span class="s1">, current epsilon: </span><span class="si">{</span><span class="n">epsilon</span><span class="si">:</span><span class="s1">&gt;1.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    
+
+<span class="n">env</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">aggr_ep_rewards</span><span class="p">[</span><span class="s1">&#39;ep&#39;</span><span class="p">],</span> <span class="n">aggr_ep_rewards</span><span class="p">[</span><span class="s1">&#39;avg&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;average rewards&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">aggr_ep_rewards</span><span class="p">[</span><span class="s1">&#39;ep&#39;</span><span class="p">],</span> <span class="n">aggr_ep_rewards</span><span class="p">[</span><span class="s1">&#39;max&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;max rewards&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">aggr_ep_rewards</span><span class="p">[</span><span class="s1">&#39;ep&#39;</span><span class="p">],</span> <span class="n">aggr_ep_rewards</span><span class="p">[</span><span class="s1">&#39;min&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;min rewards&quot;</span><span class="p">)</span>
+<span class="c1"># 图标的位置，lower right 右下角</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>对于想要保存Q table的，以下是方法</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">episode</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">EPISODES</span><span class="p">):</span>
+    <span class="o">...</span>
+    <span class="c1"># AT THE END</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;qtables/</span><span class="si">{</span><span class="n">episode</span><span class="si">}</span><span class="s2">-qtable.npy&quot;</span><span class="p">,</span> <span class="n">q_table</span><span class="p">)</span>
+
+<span class="n">env</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>当然要慎用以上代码，因为可能会保存很多很多个
+最好限制一下 -》</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>if episode % 10 == 0:
+
+
+    np.save(f&quot;qtables/{episode}-qtable.npy&quot;, q_table)
+    
+    
+    《-
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="q-table">
+<h2>可视化一个Q-table<a class="headerlink" href="#q-table" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">axes3d</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">style</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;ggplot&#39;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">get_q_color</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">vals</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">value</span> <span class="o">==</span> <span class="nb">max</span><span class="p">(</span><span class="n">vals</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="mf">1.0</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="mf">0.3</span>
+
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
+
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">311</span><span class="p">)</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">312</span><span class="p">)</span>
+<span class="n">ax3</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">313</span><span class="p">)</span>
+
+<span class="n">i</span> <span class="o">=</span> <span class="mi">24999</span>
+<span class="n">q_table</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;qtables/</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">-qtable.npy&quot;</span><span class="p">)</span>
+
+
+<span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">x_vals</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">q_table</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">y</span><span class="p">,</span> <span class="n">y_vals</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">x_vals</span><span class="p">):</span>
+        <span class="n">ax1</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">get_q_color</span><span class="p">(</span><span class="n">y_vals</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y_vals</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">get_q_color</span><span class="p">(</span><span class="n">y_vals</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y_vals</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">ax2</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">get_q_color</span><span class="p">(</span><span class="n">y_vals</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">y_vals</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">get_q_color</span><span class="p">(</span><span class="n">y_vals</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">y_vals</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">ax3</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">get_q_color</span><span class="p">(</span><span class="n">y_vals</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">y_vals</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">get_q_color</span><span class="p">(</span><span class="n">y_vals</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">y_vals</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
+
+        <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Action 0&quot;</span><span class="p">)</span>
+        <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Action 1&quot;</span><span class="p">)</span>
+        <span class="n">ax3</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Action 2&quot;</span><span class="p">)</span>
+
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="margin sidebar">
+<p class="sidebar-title">该图的意义</p>
+<p>如果当前action的Q值是Max Q，那么就是绿色。视频40的代表为本代码20的观测维度。只是数字不同。</p>
+</div>
+<p>结果：</p>
+<img alt="../../_images/episode-25K-q-table.png" id="id5" src="../../_images/episode-25K-q-table.png" />
+<div class="section" id="id6">
+<h3>可视化全周期Q-table<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">axes3d</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">style</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;ggplot&#39;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">get_q_color</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">vals</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">value</span> <span class="o">==</span> <span class="nb">max</span><span class="p">(</span><span class="n">vals</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="mf">1.0</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="mf">0.3</span>
+
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
+
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">25000</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">311</span><span class="p">)</span>
+    <span class="n">ax2</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">312</span><span class="p">)</span>
+    <span class="n">ax3</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">313</span><span class="p">)</span>
+
+    <span class="n">q_table</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;qtables/</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">-qtable.npy&quot;</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">x_vals</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">q_table</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">y</span><span class="p">,</span> <span class="n">y_vals</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">x_vals</span><span class="p">):</span>
+            <span class="n">ax1</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">get_q_color</span><span class="p">(</span><span class="n">y_vals</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y_vals</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">get_q_color</span><span class="p">(</span><span class="n">y_vals</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y_vals</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">ax2</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">get_q_color</span><span class="p">(</span><span class="n">y_vals</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">y_vals</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">get_q_color</span><span class="p">(</span><span class="n">y_vals</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">y_vals</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">ax3</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">get_q_color</span><span class="p">(</span><span class="n">y_vals</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">y_vals</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">get_q_color</span><span class="p">(</span><span class="n">y_vals</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">y_vals</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
+
+            <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Action 0&quot;</span><span class="p">)</span>
+            <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Action 1&quot;</span><span class="p">)</span>
+            <span class="n">ax3</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Action 2&quot;</span><span class="p">)</span>
+
+    <span class="c1">#plt.show()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;qtable_charts/</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">.png&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id7">
+<h3>并做成视频<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>这个<a class="reference external" href="https://www.youtube.com/watch?v=ObMsyrwVXTc&amp;t=2s">离谱的视频。。</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cv2</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="k">def</span> <span class="nf">make_video</span><span class="p">():</span>
+    <span class="c1"># windows:</span>
+    <span class="n">fourcc</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter_fourcc</span><span class="p">(</span><span class="o">*</span><span class="s1">&#39;XVID&#39;</span><span class="p">)</span>
+    <span class="c1"># Linux:</span>
+    <span class="c1">#fourcc = cv2.VideoWriter_fourcc(&#39;M&#39;,&#39;J&#39;,&#39;P&#39;,&#39;G&#39;)</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter</span><span class="p">(</span><span class="s1">&#39;qlearn.avi&#39;</span><span class="p">,</span> <span class="n">fourcc</span><span class="p">,</span> <span class="mf">60.0</span><span class="p">,</span> <span class="p">(</span><span class="mi">1200</span><span class="p">,</span> <span class="mi">900</span><span class="p">))</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">14000</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+        <span class="n">img_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;qtable_charts/</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">.png&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">img_path</span><span class="p">)</span>
+        <span class="n">frame</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">img_path</span><span class="p">)</span>
+        <span class="n">out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
+
+    <span class="n">out</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+
+<span class="n">make_video</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
