@@ -8,9 +8,17 @@ logo: logo.jpg
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
 execute:
-  execute_notebooks: "off"
+  execute_notebooks: off
   # timeout: 10
   # allow_errors: true
+  # exclude_patterns:
+  #   - 'programming_intro'
+  #   - '90041_1'
+  #   - '个贷违约预测'
+  #   - '银行欺诈检测比赛'
+  #   - '产品评论观点提取'
+  #   - 'mental_cal'
+  #   - 'Q_learning'
 
 # Define the name of the latex output file for PDF builds
 latex:

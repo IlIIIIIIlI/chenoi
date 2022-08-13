@@ -1,4 +1,5 @@
-# AI Competition
+(AI_competition)=
+# 打比赛，一些网站的项目
 
 以下是百度飞桨的三个比赛的baseline攻打策略。
 
