@@ -56,14 +56,14 @@ html:
       theme: "boxy-light"
 
 sphinx:
-    config:
-      language: en
+  config:
+    language: en
 # #         html_theme: quantecon_book_theme
 
 repository:
-  url                       : https://github.com/iliiiiiili/chenoi  # Online location of your book
-  branch                    : gh-pages/
+  url: https://github.com/iliiiiiili/chenoi # Online location of your book
+  branch: gh-pages/
   # path_to_book              : /AI/RF/test.ipynb  # Optional path to your book, relative to the repository root
 
 launch_buttons:
-  thebe                  : true
+  thebe: true
