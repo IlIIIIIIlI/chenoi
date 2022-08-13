@@ -3,4 +3,5 @@ matplotlib
 numpy
 pandas
 pymongo
-tqdm             # via cycler, python-dateutil
+tqdm
+pymongo[srv]
