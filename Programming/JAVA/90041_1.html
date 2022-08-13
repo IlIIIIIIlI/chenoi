@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Basic JAVA &#8212; Chenoi AI Lab</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,19 +19,16 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -38,6 +36,7 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -79,7 +78,6 @@ commentsRunWhenDOMLoaded(addUtterances);
 </script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/design-tabs.js"></script>
-    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -107,7 +105,21 @@ const thebe_selector_output = ".output, .cell_output"
                 </script>
 
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint">Welcome to chenoiAI Lab</div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -116,9 +128,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -136,14 +149,15 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../intro.html">
-   本书简介 - My Coding Book
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    本书简介 - ChenoiLab Coding Book
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   人工智障 - Artificial Intelligence
  </span>
@@ -208,6 +222,11 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
+    <a class="reference internal" href="../../AI/AI_competition/%E4%BA%91%E8%AE%A1%E7%AE%97.html">
+     GPU云计算平台
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../../AI/AI_competition/%E4%B8%AA%E8%B4%B7%E8%BF%9D%E7%BA%A6%E9%A2%84%E6%B5%8B.html">
      个贷违约
     </a>
@@ -244,9 +263,17 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
 </div>
 
 
@@ -254,61 +281,117 @@ const thebe_selector_output = ".output, .cell_output"
 
 
           
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
     
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
+    <div class="header-article row sticky-top noprint">
         
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/Programming/JAVA/90041_1.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/Programming/JAVA/90041_1.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
     </div>
 </div>
 
-            <!-- Source interaction buttons -->
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
    Basic JAVA
@@ -776,12 +859,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Basic JAVA</h1>
@@ -1265,11 +1347,12 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="basic-java">
-<span id="java1"></span><h1>Basic JAVA<a class="headerlink" href="#basic-java" title="Permalink to this headline">¶</a></h1>
+<span id="java1"></span><h1>Basic JAVA<a class="headerlink" href="#basic-java" title="Permalink to this headline">#</a></h1>
 <p><strong>In this module, you will learn:</strong></p>
 <ul class="simple">
 <li><p>Operations for primitive data types &amp; type conversions - 对原始数据类型和类型转换的操作</p></li>
@@ -1281,10 +1364,10 @@ const thebe_selector_output = ".output, .cell_output"
 <p>“A computer terminal is not some clunky old television with a typewriter in front of it. It is an <strong>interface</strong> where the mind and body can connect with the universe and move bits of it about.”  ~ Douglas Adams, <em>Mostly Harmless</em></p>
 <p>“计算机终端不是一些笨重的老电视，前面有一台打字机。它是一个**的界面，在这里，身心可以与宇宙连接，并将它的碎片移动。”  ~ 道格拉斯-亚当斯，<em>最无害的</em>。</p>
 <div class="section" id="primitive-data-types">
-<h2>基本的数据类型 - Primitive Data Types<a class="headerlink" href="#primitive-data-types" title="Permalink to this headline">¶</a></h2>
+<h2>基本的数据类型 - Primitive Data Types<a class="headerlink" href="#primitive-data-types" title="Permalink to this headline">#</a></h2>
 <p><img alt="img" src="https://static.au.edusercontent.com/files/PHLt2GzUiWLVjyoRPFvIS0iS" /></p>
 <div class="section" id="number-types">
-<h3>数字类型 - Number Types<a class="headerlink" href="#number-types" title="Permalink to this headline">¶</a></h3>
+<h3>数字类型 - Number Types<a class="headerlink" href="#number-types" title="Permalink to this headline">#</a></h3>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">number1</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
 <span class="kt">int</span> <span class="n">number2</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
 <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">number1</span> <span class="o">+</span> <span class="n">number2</span><span class="p">;</span>
@@ -1292,7 +1375,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="id1">
-<h3>基本位数加减乘除<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<h3>基本位数加减乘除<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">NumberPlay</span> <span class="p">{</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
         <span class="kt">int</span> <span class="n">number1</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
@@ -1321,7 +1404,7 @@ Modulo: 10 % 3 = 1
 </div>
 </div>
 <div class="section" id="id2">
-<h3>除法与符号的特性<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<h3>除法与符号的特性<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Division</span> <span class="p">{</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
         <span class="kt">float</span> <span class="n">number1</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
@@ -1338,7 +1421,7 @@ Modulo: 10 % 3 = 1
 </div>
 </div>
 <div class="section" id="id3">
-<h3>比较符号<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<h3>比较符号<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span>     <span class="p">:</span> <span class="n">less</span> <span class="n">than</span>
 <span class="o">&lt;=</span>    <span class="p">:</span> <span class="n">less</span> <span class="n">than</span> <span class="n">or</span> <span class="n">equal</span> <span class="n">to</span>
 <span class="o">&gt;</span>     <span class="p">:</span> <span class="n">greater</span> <span class="n">than</span>
@@ -1349,7 +1432,7 @@ Modulo: 10 % 3 = 1
 </div>
 </div>
 <div class="section" id="id4">
-<h3>布尔符号<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<h3>布尔符号<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h3>
 <p>Both of these are so-called ‘short-circuit’ operations, <em>i.e.</em>, the second operand is only evaluated if necessary.</p>
 <p>这两种操作都是所谓的 “短路 “操作，<em>即</em>，第二个操作数只有在必要时才被评估。</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">AND</span><span class="p">)</span>    <span class="p">:</span> <span class="n">is</span> <span class="kc">true</span> <span class="k">if</span> <span class="n">both</span> <span class="n">operands</span> <span class="n">are</span> <span class="kc">true</span>
@@ -1359,7 +1442,7 @@ Modulo: 10 % 3 = 1
 </div>
 </div>
 <div class="section" id="increments-and-decrements">
-<h3>增加增减 - Increments and Decrements<a class="headerlink" href="#increments-and-decrements" title="Permalink to this headline">¶</a></h3>
+<h3>增加增减 - Increments and Decrements<a class="headerlink" href="#increments-and-decrements" title="Permalink to this headline">#</a></h3>
 <p>There are two types of increments and decrements: pre and post. The <strong>pre-increment</strong> is a special expression that increments a number before returning the incremented value. 有两种类型的增量和减量：前和后。pre-increment<strong>是一个特殊的表达式，在返回增量值之前对一个数字进行增量。Pre-Decrement</strong>的工作原理与此类似，只是它在返回一个数字之前将其减去。</p>
 <div class="margin sidebar">
 <p class="sidebar-title">Example</p>
@@ -1398,7 +1481,7 @@ Modulo: 10 % 3 = 1
 </div>
 </div>
 <div class="section" id="type-conversions">
-<h2>数据结构的转换 - Type Conversions<a class="headerlink" href="#type-conversions" title="Permalink to this headline">¶</a></h2>
+<h2>数据结构的转换 - Type Conversions<a class="headerlink" href="#type-conversions" title="Permalink to this headline">#</a></h2>
 <p><strong>byte &gt; short &gt; int &gt; long &gt; float &gt; double</strong></p>
 <p>Primitive operations generally work on operands of the <strong>same</strong> type. Java can, however, convert types automatically if the operands have different types. A <strong>widening conversion</strong> converts a number to a wider type so the value can always be converted successfully:</p>
 <p>原始操作通常对<strong>相同类型的操作数起作用。然而，如果操作数的类型不同，Java可以自动转换类型。一个加宽</strong>的转换将一个数字转换为一个更宽的类型，因此该值总是可以被成功转换。</p>
@@ -1417,7 +1500,7 @@ Modulo: 10 % 3 = 1
 </pre></div>
 </div>
 <div class="section" id="char">
-<h3>奇怪的char<a class="headerlink" href="#char" title="Permalink to this headline">¶</a></h3>
+<h3>奇怪的char<a class="headerlink" href="#char" title="Permalink to this headline">#</a></h3>
 <p>The <em>char</em> type is a special case. While it technically is not an <em>int</em> it is an integral type, <em>i.e.,</em> it is considered to be a whole number that can be converted to and from other integral types:</p>
 <p>char类型是一个特殊的情况。虽然它在技术上不是一个int，但它是一个积分类型，也就是说，它被认为是一个整数，可以与其他积分类型进行转换。</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Conversion</span> <span class="p">{</span>
@@ -1433,14 +1516,14 @@ Modulo: 10 % 3 = 1
 <p>output: 84</p>
 </div>
 <div class="section" id="precedence-and-associativity">
-<h3>优先级和关联性 - Precedence and Associativity<a class="headerlink" href="#precedence-and-associativity" title="Permalink to this headline">¶</a></h3>
+<h3>优先级和关联性 - Precedence and Associativity<a class="headerlink" href="#precedence-and-associativity" title="Permalink to this headline">#</a></h3>
 <p>先运算的和后运算的&amp;运算顺序</p>
 <p><img alt="image-20210824164830897" src="../../_images/image-20210824164830897.png" /></p>
 <p><img alt="img" src="https://static.au.edusercontent.com/files/UaA1Ns040srk3KjGRz78bVWe" /></p>
 <p>方法调用和单项否定</p>
 </div>
 <div class="section" id="the-string-type">
-<h3>字符串形式 - The String Type<a class="headerlink" href="#the-string-type" title="Permalink to this headline">¶</a></h3>
+<h3>字符串形式 - The String Type<a class="headerlink" href="#the-string-type" title="Permalink to this headline">#</a></h3>
 <p><em>String</em> is a class type, not a primitive type, so strings are objects. A <em>string</em> constant is specified by enclosing it in double-quotes(“”)</p>
 <p><em>String</em>是一个类类型，而不是一个原始类型，所以字符串是对象。用双引号(“”)来指定一个<em>字符串</em>的常量。</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">s</span> <span class="o">=</span> <span class="s">&quot;Hello World!&quot;</span><span class="p">;</span>
@@ -1460,7 +1543,7 @@ Modulo: 10 % 3 = 1
 </div>
 </div>
 <div class="section" id="id5">
-<h3>\的其他妙用<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<h3>\的其他妙用<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h3>
 <div class="margin sidebar">
 <p class="sidebar-title">Output:</p>
 <div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>I
@@ -1483,7 +1566,7 @@ lines!
 </div>
 </div>
 <div class="section" id="id6">
-<h3>字符串的运算<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<h3>字符串的运算<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h3>
 <p>Two strings can be appended using +, an operation also called concatenation. If either operand is a string, the + operation will convert the other operand into a string:</p>
 <p>两个字符串可以用 “+”来相加，这种操作也叫连接。如果任何一个操作数是一个字符串，那么+操作将把另一个操作数转换成一个字符串。</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">StringPlay</span> <span class="p">{</span>
@@ -1545,7 +1628,7 @@ Index of &#39;string&#39;: 11
 </div>
 </div>
 <div class="section" id="id7">
-<h3>字符串的方法<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<h3>字符串的方法<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h3>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">string</span><span class="p">.</span><span class="na">length</span><span class="p">()</span> <span class="c1">// 获得字符串的长度</span>
 <span class="n">string</span><span class="p">.</span><span class="na">toUpperCase</span><span class="p">()</span> <span class="c1">// 把字符串里的字母字符都变成大写</span>
 <span class="n">string</span><span class="p">.</span><span class="na">substring</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span> <span class="c1">// 从字符串中截取片段，i索引刀j-1索引处</span>
@@ -1554,7 +1637,7 @@ Index of &#39;string&#39;: 11
 </div>
 </div>
 <div class="section" id="formatted-output">
-<h3>输出格式 - formatted output<a class="headerlink" href="#formatted-output" title="Permalink to this headline">¶</a></h3>
+<h3>输出格式 - formatted output<a class="headerlink" href="#formatted-output" title="Permalink to this headline">#</a></h3>
 <p>You can exert more control over string formatting using:</p>
 <p>你可以用以下方法对字符串格式化进行更多控制。</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">();</span>
@@ -1607,7 +1690,7 @@ $9.99
 </div>
 </div>
 <div class="section" id="command-line-input">
-<h3>命令行输入 - Command Line Input<a class="headerlink" href="#command-line-input" title="Permalink to this headline">¶</a></h3>
+<h3>命令行输入 - Command Line Input<a class="headerlink" href="#command-line-input" title="Permalink to this headline">#</a></h3>
 <p>When your program is run, you can pass it arguments through the command line. When you run the following in your console, <em>Hello.java</em> is an argument for the <em>javac</em> command:</p>
 <p>当你的程序运行时，你可以通过命令行向它传递参数。当你在控制台中运行以下程序时，Hello.java是javac命令的一个参数。</p>
 <div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>$ javac Hello.java
@@ -1623,14 +1706,14 @@ $9.99
 </div>
 </div>
 <div class="section" id="console">
-<h3>用console来赋值<a class="headerlink" href="#console" title="Permalink to this headline">¶</a></h3>
+<h3>用console来赋值<a class="headerlink" href="#console" title="Permalink to this headline">#</a></h3>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">$</span> <span class="n">java</span> <span class="n">HelloStranger</span> <span class="n">Java</span> <span class="c1">// 最后这个Java是赋值</span>
 <span class="n">Hello</span> <span class="n">Java</span><span class="o">!</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="console-int">
-<h3>console 的 赋值变为 int？<a class="headerlink" href="#console-int" title="Permalink to this headline">¶</a></h3>
+<h3>console 的 赋值变为 int？<a class="headerlink" href="#console-int" title="Permalink to this headline">#</a></h3>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">argument</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="n">args</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -1651,7 +1734,7 @@ $9.99
 </div>
 </div>
 <div class="section" id="id8">
-<h3>交互性质的console输入<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<h3>交互性质的console输入<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h3>
 <p>Interactive programs allow users to provide input while they are running. To read in user input from the console, Java provides the <em>Scanner</em> class. To use it, you will need to import the class by adding the following line to the top of your program code.</p>
 <p>交互式程序允许用户在程序运行时提供输入。为了从控制台读入用户输入，Java提供了<em>Scanner</em>类。要使用它，你需要在程序代码的顶部添加以下一行来导入该类。</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="p">;</span>
@@ -1686,7 +1769,7 @@ $9.99
 </div>
 </div>
 <div class="section" id="scanner">
-<h2>读取用户输入 - Scanner<a class="headerlink" href="#scanner" title="Permalink to this headline">¶</a></h2>
+<h2>读取用户输入 - Scanner<a class="headerlink" href="#scanner" title="Permalink to this headline">#</a></h2>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span>1. import java.util.Scanner; // 导入java library 包
 2. Scanner keyboard = new Scanner（System.in); // 创建Scanner object 赋值给变量keybaord
 3. String inputContent = keyboard.nextLine(); // newLine获取键盘输入
@@ -1740,7 +1823,7 @@ The above methods skip over any whitespace (spaces, tabs, and newlines) and read
 </div>
 </div>
 <div class="section" id="sout">
-<h2>输出 - Sout<a class="headerlink" href="#sout" title="Permalink to this headline">¶</a></h2>
+<h2>输出 - Sout<a class="headerlink" href="#sout" title="Permalink to this headline">#</a></h2>
 <p>Printing to the terminal is rather simple - all we have to do is to call the <strong>println()</strong> method on the <strong>System.out object</strong> that the Java framework provides to us, to do so.</p>
 <p>向终端打印是相当简单的–我们所要做的就是调用Java框架提供给我们的System.out对象上的println()方法，来实现这一目的。</p>
 <p><strong>Methods</strong> are “actions” you can call on objects, to ask the objects to perform certain actions.</p>
@@ -1768,7 +1851,7 @@ The above methods skip over any whitespace (spaces, tabs, and newlines) and read
 </pre></div>
 </div>
 <div class="section" id="java">
-<h3>Java的计算<a class="headerlink" href="#java" title="Permalink to this headline">¶</a></h3>
+<h3>Java的计算<a class="headerlink" href="#java" title="Permalink to this headline">#</a></h3>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyProgram</span> <span class="p">{</span>
 
 	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
@@ -1790,7 +1873,7 @@ The above methods skip over any whitespace (spaces, tabs, and newlines) and read
 <p>Java中的操作数有一个优先顺序。例如，乘法和除法比加法和减法有优先权。括号也可以用来将表达式组合在一起，以明确定义哪些操作数应属于哪些运算符。</p>
 </div>
 <div class="section" id="id9">
-<h3>使用变量<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<h3>使用变量<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h3>
 <div class="margin sidebar">
 <p class="sidebar-title">Output:</p>
 <p>//output:
@@ -1827,7 +1910,7 @@ The above methods skip over any whitespace (spaces, tabs, and newlines) and read
 <p>整数（int）表示整数，而双数（double）和浮点数（float）表示小数。字符串（String）存放文本。</p>
 </div>
 <div class="section" id="id10">
-<h3>整数除法<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<h3>整数除法<a class="headerlink" href="#id10" title="Permalink to this headline">#</a></h3>
 <p>One thing worth noting about division in Java (and some other programming languages), is that when dividing integers, Java will also try to return an integer.</p>
 <p>关于Java（和其他一些编程语言）中的除法，有一点值得注意的是，当除以整数时，Java也会尝试返回一个整数。</p>
 <p>This means that if a division of two numbers should result in a decimal part, it will simply drop the decimal part.</p>
@@ -1901,7 +1984,7 @@ The above methods skip over any whitespace (spaces, tabs, and newlines) and read
 </div>
 </div>
 <div class="section" id="flow-control">
-<h2>Flow control<a class="headerlink" href="#flow-control" title="Permalink to this headline">¶</a></h2>
+<h2>Flow control<a class="headerlink" href="#flow-control" title="Permalink to this headline">#</a></h2>
 <p>Flow control is one of the most essential elements in programming. It provides you with tools to dynamically respond to the data and inputs your program operates on. Flow control in Java includes concepts, such as branching and looping statements. Because most branching and looping statements are controlled by Boolean expressions, we will also discuss the Java type <em>boolean</em> in more detail.</p>
 <p>流程控制是编程中最重要的元素之一。它为你提供了动态响应你的程序所操作的数据和输入的工具。Java中的流程控制包括一些概念，如分支和循环语句。因为大多数分支和循环语句是由布尔表达式控制的，所以我们还将更详细地讨论Java的布尔类型。</p>
 <p>In this unit, you will learn about:</p>
@@ -1918,7 +2001,7 @@ The above methods skip over any whitespace (spaces, tabs, and newlines) and read
 </li>
 </ol>
 <div class="section" id="branching">
-<h3>Branching<a class="headerlink" href="#branching" title="Permalink to this headline">¶</a></h3>
+<h3>Branching<a class="headerlink" href="#branching" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>if-else,</p></li>
 <li><p>if,</p></li>
@@ -1927,7 +2010,7 @@ The above methods skip over any whitespace (spaces, tabs, and newlines) and read
 <p>Most branching statements are controlled by Boolean expressions. A Boolean expression evaluates to either <em>true</em> or <em>false</em>. The primitive type <em>boolean</em> only takes the values <em>true</em> or <em>false</em>.</p>
 <p>大多数分支语句是由布尔表达式控制的。布尔表达式评估为真或假。原始类型布尔只取值为真或假。</p>
 <div class="section" id="if-else">
-<h4>if-else<a class="headerlink" href="#if-else" title="Permalink to this headline">¶</a></h4>
+<h4>if-else<a class="headerlink" href="#if-else" title="Permalink to this headline">#</a></h4>
 <p>An if-else statement chooses between two alternative statements based on the value of a Boolean expression.</p>
 <p>一个if-else语句根据一个布尔表达式的值在两个备选语句之间进行选择。</p>
 <p><img alt="img" src="https://static.au.edusercontent.com/files/lz7YotZxmsixbdJoEQ16NaRC" /></p>
@@ -1960,7 +2043,7 @@ The above methods skip over any whitespace (spaces, tabs, and newlines) and read
 </div>
 </div>
 <div class="section" id="else">
-<h4>Else 部分也可以不要<a class="headerlink" href="#else" title="Permalink to this headline">¶</a></h4>
+<h4>Else 部分也可以不要<a class="headerlink" href="#else" title="Permalink to this headline">#</a></h4>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span>// The else part of an if-else statement may be omitted to obtain what is often only called an if statement. If the Boolean_Expression is true, then the Action_Statement is executed. Otherwise, the Action_Statement is not executed and the program moves on to the next statement.
 一个if-else语句的else部分可以省略，以获得通常只被称为if语句的东西。如果Boolean_Expression为真，那么Action_Statement被执行。否则，Action_Statement不被执行，程序将进入下一个语句。
 
@@ -1988,7 +2071,7 @@ public class Salary {
 </div>
 </div>
 <div class="section" id="nested-statements">
-<h4>嵌套语句 - Nested Statements<a class="headerlink" href="#nested-statements" title="Permalink to this headline">¶</a></h4>
+<h4>嵌套语句 - Nested Statements<a class="headerlink" href="#nested-statements" title="Permalink to this headline">#</a></h4>
 <p><em>if-else</em> and <em>if</em> statements can contain single or compound statements, including other <em>if-else</em> and <em>if</em> statements. In this case, we speak of <strong>nested statements</strong>. Each level of a nested <em>if-else</em> or <em>if</em> should be indented further than the previous level to make your code readable:</p>
 <p>if-else和if语句可以包含单个或复合语句，包括其他if-else和if语句。在这种情况下，我们说的是嵌套语句。嵌套的if-else或if的每一层都应该比上一层缩进，以使你的代码可读。</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Tax</span> <span class="p">{</span>
@@ -2017,7 +2100,7 @@ public class Salary {
 </div>
 </div>
 <div class="section" id="if-else-multiway-if-else">
-<h4>更复杂的if-else - Multiway if-else<a class="headerlink" href="#if-else-multiway-if-else" title="Permalink to this headline">¶</a></h4>
+<h4>更复杂的if-else - Multiway if-else<a class="headerlink" href="#if-else-multiway-if-else" title="Permalink to this headline">#</a></h4>
 <p>The multiway if-else statement is simply a normal <em>if-else</em> statement that nests another <em>if-else</em> statement at every <em>else</em> branch. The Boolean_Expressions are evaluated in the order they are written until one evaluates to <em>true</em>. The final <em>else</em> is optional.</p>
 <p>多路if-else语句只是一个普通的<em>if-else</em>语句，在每个<em>else</em>分支处嵌套另一个<em>if-else</em>语句。Boolean_Expressions按照它们的书写顺序被评估，直到其中一个评估为<em>true</em>。最后的<em>else</em>是可选的。</p>
 <p><img alt="img" src="https://static.au.edusercontent.com/files/8bj8OfeOOdNJlqMKSJdKBkmE" /></p>
@@ -2050,7 +2133,7 @@ public class Salary {
 </div>
 <hr class="docutils" />
 <div class="section" id="switch">
-<h3>Switch<a class="headerlink" href="#switch" title="Permalink to this headline">¶</a></h3>
+<h3>Switch<a class="headerlink" href="#switch" title="Permalink to this headline">#</a></h3>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">//The switch statement is the only other kind of Java statement that implements multiway branching. When a switch statement is evaluated, one of a number of different branches is executed. The choice of which branch to execute is determined by a controlling expression enclosed in parentheses after the keyword switch.</span>
 
 <span class="c1">//switch语句是唯一一种实现多路分支的Java语句。当switch语句被评估时，一些不同的分支被执行。选择执行哪个分支是由关键字switch后面括号中的控制表达式决定的。</span>
@@ -2116,7 +2199,7 @@ public class Salary {
 </div>
 <hr class="docutils" />
 <div class="section" id="the-conditional-operator">
-<h2>条件操作符 - The Conditional Operator<a class="headerlink" href="#the-conditional-operator" title="Permalink to this headline">¶</a></h2>
+<h2>条件操作符 - The Conditional Operator<a class="headerlink" href="#the-conditional-operator" title="Permalink to this headline">#</a></h2>
 <p>The <strong>conditional operator</strong> is a notational variant on certain forms of the <em>if-else</em> statement. It is also referred to as the <strong>ternary operator</strong> or <strong>arithmetic if</strong>:</p>
 <p>条件运算符是某些形式的if-else语句的符号化变体。它也被称为三元运算符或算术if。</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="p">(</span><span class="n">n1</span><span class="o">&gt;</span><span class="n">n2</span><span class="p">)</span> 
@@ -2138,7 +2221,7 @@ public class Salary {
 </div>
 <hr class="docutils" />
 <div class="section" id="loops">
-<h2>循环 - Loops<a class="headerlink" href="#loops" title="Permalink to this headline">¶</a></h2>
+<h2>循环 - Loops<a class="headerlink" href="#loops" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>while</p></li>
 <li><p>do-while,</p></li>
@@ -2147,13 +2230,13 @@ public class Salary {
 <p>The code that is repeated in a loop is called the <strong>body</strong> of the loop. Each repetition of the loop body is called an <strong>iteration</strong> of the loop.</p>
 <p>循环中重复的代码被称为循环的主体。循环主体的每一次重复都被称为循环的一次迭代。</p>
 <div class="section" id="while">
-<h3>while<a class="headerlink" href="#while" title="Permalink to this headline">¶</a></h3>
+<h3>while<a class="headerlink" href="#while" title="Permalink to this headline">#</a></h3>
 <p>A <em>while</em> statement is used to repeat a portion of code (<em>i.e.</em>, the loop body) based on the evaluation of a Boolean expression. This Boolean expression is checked <em>before</em> the loop body is executed. If the expression evaluates to <em>false</em>, the loop body is not executed at all. Before the execution of each following iteration of the loop body, the Boolean expression is checked again. If it still evaluates to <em>true</em>, the loop is executed again. If it evaluates to <em>false</em>, the loop statement ends.</p>
 <p>while语句用于根据布尔表达式的评估来重复一部分代码（即循环体）。在执行循环体之前，这个布尔表达式被检查。如果该表达式的值为false，则循环体根本不被执行。在执行循环体的每个后续迭代之前，布尔表达式被再次检查。如果它的评估值仍然为真，那么循环将再次被执行。如果它的值为false，则循环语句结束。</p>
 <p><img alt="img" src="https://static.au.edusercontent.com/files/EyJFF3ZINIgrCENO8AhJ9UyX" /></p>
 </div>
 <div class="section" id="id11">
-<h3>while 的错误类型<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<h3>while 的错误类型<a class="headerlink" href="#id11" title="Permalink to this headline">#</a></h3>
 <p>Beware the dreaded <strong>infinite</strong> or <strong>dead</strong> <strong>loop</strong>, <em>i.e.,</em> a loop that is executed indefinitely as the Boolean expression never evaluates to <em>false</em>. A loop should be designed so that the value tested in the Boolean expression is changed in a way that eventually makes it false, and terminates the loop.</p>
 <p>小心可怕的<strong>无限</strong>或<strong>死</strong>的<em>循环，<em>即</em>个无限期执行的循环，因为布尔表达式永远不会被评估为</em>false*。循环应该被设计成在布尔表达式中测试的值被改变，最终使其变成假的，并终止循环。</p>
 <p>Another common loop error is the <em>off-by-one</em> error, <em>i.e.,</em> when a loop repeats the loop body one too many or one too few times.</p>
@@ -2185,7 +2268,7 @@ public class Salary {
 </div>
 </div>
 <div class="section" id="do-while">
-<h3>Do-while<a class="headerlink" href="#do-while" title="Permalink to this headline">¶</a></h3>
+<h3>Do-while<a class="headerlink" href="#do-while" title="Permalink to this headline">#</a></h3>
 <p>A <em>do-while</em> statement is used to execute a portion of code (<em>i.e.</em>, the loop body), and then repeat it based on the evaluation of a Boolean expression. Hence, the loop body is executed at least once.</p>
 <p>Do-while语句用于执行一部分代码（即循环体），然后根据布尔表达式的评估来重复执行。因此，循环体至少被执行一次。</p>
 <p>The Boolean expression is checked after each iteration of the loop body. The loop terminates as soon as the expression evaluates to <em>false.</em></p>
@@ -2210,7 +2293,7 @@ public class Salary {
 </div>
 <hr class="docutils" />
 <div class="section" id="for">
-<h2>For 循环<a class="headerlink" href="#for" title="Permalink to this headline">¶</a></h2>
+<h2>For 循环<a class="headerlink" href="#for" title="Permalink to this headline">#</a></h2>
 <p>The <em>for</em> statement is most commonly used to step through an integer variable in equal increments.</p>
 <p>for语句最常用于以等量递增的方式遍历一个整数变量。</p>
 <p>It begins with the keyword <em>for</em> followed by three expressions in parentheses that describe what to do with one or more controlling variables:</p>
@@ -2258,7 +2341,7 @@ public class Salary {
 <p>However, a for loop can contain only one Boolean expression to test for ending the loop.</p>
 <p>然而，一个for循环只能包含一个布尔表达式来测试结束循环。</p>
 <div class="section" id="nested-for">
-<h3>Nested for 循环<a class="headerlink" href="#nested-for" title="Permalink to this headline">¶</a></h3>
+<h3>Nested for 循环<a class="headerlink" href="#nested-for" title="Permalink to this headline">#</a></h3>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Matrix</span> <span class="p">{</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="n">row</span><span class="o">&lt;</span><span class="mi">4</span><span class="p">;</span> <span class="n">row</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
@@ -2279,7 +2362,7 @@ public class Salary {
 </div>
 </div>
 <div class="section" id="break-continue">
-<h3>Break &amp; Continue<a class="headerlink" href="#break-continue" title="Permalink to this headline">¶</a></h3>
+<h3>Break &amp; Continue<a class="headerlink" href="#break-continue" title="Permalink to this headline">#</a></h3>
 <p>The <strong>break statement</strong> consists of the keyword <em>break</em> followed by a semicolon. It ends the nearest enclosing <em>switch</em> or <em>loop</em> statement.</p>
 <p>break语句由关键字break和分号组成。它结束最近的开关或循环语句。</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.Random</span><span class="p">;</span>
@@ -2352,7 +2435,7 @@ public class Salary {
 
         <span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">7</span><span class="p">;</span>
 
-        <span class="nl">outerLoop</span><span class="p">:</span>
+<span class="nl">        outerLoop:</span>
         <span class="k">while</span><span class="p">(</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">20</span><span class="p">)</span> <span class="p">{</span>	
             <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="n">j</span><span class="o">&lt;</span><span class="n">i</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
                 <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;*&quot;</span><span class="p">);</span>
@@ -2373,7 +2456,7 @@ public class Salary {
 </div>
 </div>
 <div class="section" id="exit">
-<h2>Exit - 程序退出<a class="headerlink" href="#exit" title="Permalink to this headline">¶</a></h2>
+<h2>Exit - 程序退出<a class="headerlink" href="#exit" title="Permalink to this headline">#</a></h2>
 <p>A <em>break</em> statement will end a loop or <em>switch</em> statement, but will not end the program. The <em>exit</em> statement will immediately end the program as soon as it is invoked:</p>
 <p>break语句将结束一个循环或开关语句，但不会结束程序。exit语句一经调用就会立即结束程序。</p>
 <div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>System.exit(0);
@@ -2384,11 +2467,11 @@ public class Salary {
 </div>
 <hr class="docutils" />
 <div class="section" id="debugging">
-<h2>Debugging<a class="headerlink" href="#debugging" title="Permalink to this headline">¶</a></h2>
+<h2>Debugging<a class="headerlink" href="#debugging" title="Permalink to this headline">#</a></h2>
 <p>A  <em>bug</em> is an error or flaw in a program that leads to incorrect or unexpected program execution. The process of finding and fixing bugs is termed <strong>debugging</strong>. Regardless of whether you are hunting down bugs or are trying to understand how exactly your program is executed, the following techniques will help you look under your code’s hood.</p>
 <p>BUG是程序中的一个错误或缺陷，导致不正确或意外的程序执行。寻找和修复错误的过程被称为<strong>调试</strong>。无论你是在寻找错误，还是试图了解你的程序到底是如何执行的，以下技术将帮助你查看你的代码的罩子。</p>
 <div class="section" id="tracing-variables">
-<h3>跟踪变量 - Tracing Variables<a class="headerlink" href="#tracing-variables" title="Permalink to this headline">¶</a></h3>
+<h3>跟踪变量 - Tracing Variables<a class="headerlink" href="#tracing-variables" title="Permalink to this headline">#</a></h3>
 <p><strong>Tracing variables</strong> involves watching one or more variables change value while a program is running. This can make it easier to discover errors in a program and debug them. Many Integrated Development Environments (IDEs) have a built-in utility that allows variables to be traced without making any changes to the program.</p>
 <p>追踪变量包括在程序运行时观察一个或多个变量的数值变化。这可以使我们更容易发现程序中的错误并对其进行调试。许多集成开发环境（IDE）有一个内置的工具，可以在不对程序进行任何修改的情况下追踪变量。</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">//手动跟踪</span>
@@ -2398,7 +2481,7 @@ public class Salary {
 </div>
 </div>
 <div class="section" id="using-assertions">
-<h3>使用断言 - Using Assertions<a class="headerlink" href="#using-assertions" title="Permalink to this headline">¶</a></h3>
+<h3>使用断言 - Using Assertions<a class="headerlink" href="#using-assertions" title="Permalink to this headline">#</a></h3>
 <p>An <strong>assertion</strong> is a sentence that says (asserts) something about the state of a program. An assertion must be either <em>true</em> or <em>false</em>, and should be <em>true</em> if a program is working properly. Assertions can be placed in a program as comments:</p>
 <p>一个<strong>断言</strong>是一个说（断言）关于程序状态的句子。一个断言必须是<em>真</em>或<em>假</em>，如果程序工作正常，它应该是<em>真</em>。断言可以作为注释放在程序中。</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// 打开断言</span>
@@ -2581,7 +2664,7 @@ Good bye, stranger.
 </div>
 <hr class="docutils" />
 <div class="section" id="worksheet-for-flow-control">
-<h2>Worksheet for Flow Control<a class="headerlink" href="#worksheet-for-flow-control" title="Permalink to this headline">¶</a></h2>
+<h2>Worksheet for Flow Control<a class="headerlink" href="#worksheet-for-flow-control" title="Permalink to this headline">#</a></h2>
 <p>IF - ELSE - IF</p>
 <div class="highlight-JAVA notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyProgram</span> <span class="p">{</span>
 
@@ -3074,7 +3157,7 @@ Good bye, stranger.
 </div>
 </div>
 <div class="section" id="class-definitions">
-<h2>类定义 Class definitions<a class="headerlink" href="#class-definitions" title="Permalink to this headline">¶</a></h2>
+<h2>类定义 Class definitions<a class="headerlink" href="#class-definitions" title="Permalink to this headline">#</a></h2>
 <p>A class is a <strong>type</strong> and you can declare variables of your own <strong>class type</strong> (<em>e.g.</em>, Car myCar). A value of a class type is called an <strong>object</strong> or an <strong>instance</strong> of the class. The process of creating an object of a class is called <strong>instantiation.</strong></p>
 <p>一个类是一个<strong>类型</strong>，你可以声明你自己的<strong>类类型</strong>的变量（<em>e.g.</em>，Car myCar）。一个类类型的值被称为该类的<strong>对象</strong>或<strong>实例</strong>。创建一个类的对象的过程被称为实例化。</p>
 <p>Classes are often defined in their own file. So, if you want to create a new class called <em>Car</em> you may want to write the class definition into a file called <em>Car.java</em> (for now, make sure that your program and all the classes it uses are in the same directory or folder). A class definition specifies the data items (instance variables) and methods (actions) that all of its objects will have. Instance variable declarations and method definitions can be placed in any order within the class definition.</p>
@@ -3120,9 +3203,9 @@ Good bye, stranger.
 </div>
 </div>
 <div class="section" id="class-structure">
-<h2>类结构 Class structure<a class="headerlink" href="#class-structure" title="Permalink to this headline">¶</a></h2>
+<h2>类结构 Class structure<a class="headerlink" href="#class-structure" title="Permalink to this headline">#</a></h2>
 <div class="section" id="variables">
-<h3>变量 Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h3>
+<h3>变量 Variables<a class="headerlink" href="#variables" title="Permalink to this headline">#</a></h3>
 <ul class="contains-task-list simple">
 <li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox">  creates a variable called <em>classVariable</em> of the class <em>ClassName.</em></p></li>
 </ul>
@@ -3140,7 +3223,7 @@ Good bye, stranger.
 </div>
 </div>
 <div class="section" id="variable">
-<h3>Variable<a class="headerlink" href="#variable" title="Permalink to this headline">¶</a></h3>
+<h3>Variable<a class="headerlink" href="#variable" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>Java 没有全局变量</p></li>
 <li><p>local variable：A variable declared <strong>within</strong> a method definition/ <em>args</em> variable, which is also called a <strong>method parameter</strong>. <strong><u>All method parameters are local variables.</u></strong></p></li>
@@ -3148,7 +3231,7 @@ Good bye, stranger.
 </ul>
 </div>
 <div class="section" id="parameters">
-<h3>Parameters<a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h3>
+<h3>Parameters<a class="headerlink" href="#parameters" title="Permalink to this headline">#</a></h3>
 <ul>
 <li><p>It indicates the number and types of data pieces needed, the order in which they must be given, and the local name for these pieces as used in the method:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">double</span> <span class="nf">myMethod</span><span class="p">(</span><span class="kt">int</span> <span class="n">param1</span><span class="p">,</span> <span class="kt">int</span> <span class="n">param2</span><span class="p">,</span> <span class="kt">double</span> <span class="n">param3</span><span class="p">)</span> <span class="p">{}</span>
@@ -3228,9 +3311,9 @@ Good bye, stranger.
 <span class="p">}</span>
 
 <span class="c1">// output</span>
-<span class="nl">date1</span><span class="p">:</span>
+<span class="nl">date1:</span>
 <span class="mi">13</span><span class="o">/</span><span class="mi">8</span><span class="o">/</span><span class="mi">2021</span>
-<span class="nl">Year</span><span class="p">:</span> <span class="mi">2021</span><span class="p">,</span> <span class="n">Month</span><span class="p">:</span> <span class="n">August</span>
+<span class="nl">Year:</span> <span class="mi">2021</span><span class="p">,</span> <span class="n">Month</span><span class="p">:</span> <span class="n">August</span>
 </pre></div>
 </div>
 </li>
@@ -3316,7 +3399,7 @@ Good bye, stranger.
 </div>
 </div>
 <div class="section" id="methods">
-<h2>方法 Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<h2>方法 Methods<a class="headerlink" href="#methods" title="Permalink to this headline">#</a></h2>
 <p>Method definitions are divided into two parts: a <strong>heading</strong> and a <strong>method body.</strong></p>
 <p>方法定义分为两部分：一个标题和一个方法主体。</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">myMethod</span><span class="p">()</span> <span class="p">{</span> <span class="c1">//heading</span>
@@ -3390,9 +3473,9 @@ Good bye, stranger.
 <span class="p">}</span>
 
 <span class="c1">//output </span>
-<span class="nl">date1</span><span class="p">:</span>
+<span class="nl">date1:</span>
 <span class="mi">13</span><span class="o">/</span><span class="mi">8</span><span class="o">/</span><span class="mi">2021</span>
-<span class="nl">Year</span><span class="p">:</span> <span class="mi">2021</span>
+<span class="nl">Year:</span> <span class="mi">2021</span>
  
 </pre></div>
 </div>
@@ -3469,7 +3552,7 @@ Good bye, stranger.
 </div>
 </div>
 <div class="section" id="equals">
-<h3>Equals() - 等于符号<a class="headerlink" href="#equals" title="Permalink to this headline">¶</a></h3>
+<h3>Equals() - 等于符号<a class="headerlink" href="#equals" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>a boolean-valued method, is to compare two objects of the class to see if they satisfy the notion of “being equal”.</p></li>
 <li><p>You can’t just use == to compare objects as it often refers to references in memory!</p></li>
@@ -3518,7 +3601,7 @@ Good bye, stranger.
 </div>
 </div>
 <div class="section" id="tostring">
-<h3>toString()<a class="headerlink" href="#tostring" title="Permalink to this headline">¶</a></h3>
+<h3>toString()<a class="headerlink" href="#tostring" title="Permalink to this headline">#</a></h3>
 <ul>
 <li><p>The purpose of the <em>toString()</em> method is to return a String value that represents the data in the object.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Date</span> <span class="p">{</span>
@@ -3552,7 +3635,7 @@ Good bye, stranger.
 </div>
 <hr class="docutils" />
 <div class="section" id="encapsulation">
-<h2>封装 Encapsulation<a class="headerlink" href="#encapsulation" title="Permalink to this headline">¶</a></h2>
+<h2>封装 Encapsulation<a class="headerlink" href="#encapsulation" title="Permalink to this headline">#</a></h2>
 <p><strong>Encapsulation</strong> means that the data and methods of a class are combined into a single unit (<em>i.e.</em>, a class object), which hides the implementation details. Knowing the details is unnecessary because interaction with the object occurs via a well-defined and simple interface. Encapsulation effectively hides the values or state of a structured data object. By doing so it restricts direct access to some of an object’s components.</p>
 <p><strong>封装</strong>意味着一个类的数据和方法被合并成一个单元（即一个类对象），这就隐藏了实现的细节。了解这些细节是不必要的，因为与对象的交互是通过一个明确定义的简单接口进行的。封装有效地隐藏了结构化数据对象的值或状态。通过这样做，它限制了对一个对象的某些组件的直接访问。</p>
 <p>The <strong>application programming interface (API)</strong> for a class is a description of how to use the class. Optimally, a programmer need only read the API in order to use a well-designed class.</p>
@@ -3562,7 +3645,7 @@ Good bye, stranger.
 <p><img alt="image-20210824233841680" src="../../_images/image-20210824233841680.png" /></p>
 </div>
 <div class="section" id="access-modifiers-e-g-public-vs-private">
-<h2>访问控制修饰符 - Access modifiers (e.g., public vs private)<a class="headerlink" href="#access-modifiers-e-g-public-vs-private" title="Permalink to this headline">¶</a></h2>
+<h2>访问控制修饰符 - Access modifiers (e.g., public vs private)<a class="headerlink" href="#access-modifiers-e-g-public-vs-private" title="Permalink to this headline">#</a></h2>
 <p>Java uses <strong>modifiers</strong> to restrict access to certain variables. They contribute to the language’s ability to hide information and is a crucial component of encapsulation.</p>
 <p>Java使用<strong>修改器</strong>来限制对某些变量的访问。它们有助于提高语言隐藏信息的能力，是封装的一个重要组成部分。</p>
 <p>The modifier <strong>public</strong> means that there are no restrictions on where an instance variable or method can be used. The modifier <strong>private</strong>, on the other hand, means that an instance variable or method cannot be accessed by name from outside of the class.</p>
@@ -3570,7 +3653,7 @@ Good bye, stranger.
 <p>It is considered good programming practise to make all instance variables <em>private</em> by default. Most methods are <em>public</em> and thus provide controlled access to the object. Usually, methods are private only if used as <strong>helper methods</strong> for other methods in the class.</p>
 <p>把所有的实例变量默认为<em>private</em>，这被认为是良好的编程实践。大多数方法是<em>公共的</em>，因此提供了对对象的控制性访问。通常情况下，方法只有在作为类中其他方法的**帮助方法时才是私有的。</p>
 <div class="section" id="accessor-and-mutator-methods">
-<h3>读取获取方法 - Accessor and mutator methods<a class="headerlink" href="#accessor-and-mutator-methods" title="Permalink to this headline">¶</a></h3>
+<h3>读取获取方法 - Accessor and mutator methods<a class="headerlink" href="#accessor-and-mutator-methods" title="Permalink to this headline">#</a></h3>
 <p><strong><u>对于private的访问</u></strong></p>
 <p><strong>Accessor</strong> methods allow the programmer to obtain the value of an object’s instance variables. The data can be accessed but not changed. The name of an accessor method typically starts with the word <em>get.</em></p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Car</span> <span class="p">{</span>
@@ -3658,7 +3741,7 @@ Good bye, stranger.
 </div>
 </div>
 <div class="section" id="getter-setter">
-<h2>Getter &amp; Setter<a class="headerlink" href="#getter-setter" title="Permalink to this headline">¶</a></h2>
+<h2>Getter &amp; Setter<a class="headerlink" href="#getter-setter" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">setter</span></code>和<code class="docutils literal notranslate"><span class="pre">getter</span></code>方法可保护变量的值免受外界（调用方代码）的意外更改</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">getter</span></code>方法是外界读取变量值的<strong>唯一方法</strong></p></li>
@@ -3667,7 +3750,7 @@ Good bye, stranger.
 <p><img alt="image-20210825141330821" src="../../_images/image-20210825141330821.png" /></p>
 </div>
 <div class="section" id="overloading">
-<h2>重载 - Overloading<a class="headerlink" href="#overloading" title="Permalink to this headline">¶</a></h2>
+<h2>重载 - Overloading<a class="headerlink" href="#overloading" title="Permalink to this headline">#</a></h2>
 <p>Overloading is when two or more methods in the same class have the same method name. To be valid, any two definitions of the method name must have different signatures.</p>
 <p>A signature consists of the name of a method together with its parameter list</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// method takes one parameter of type Date</span>
@@ -3684,7 +3767,7 @@ Good bye, stranger.
 <p>The signature of a method only includes the method name and its parameter types. The signature does not include the type returned. Java does not permit methods with the same name and different return types <strong><u>in the same class.</u></strong></p>
 </div>
 <div class="section" id="constructors">
-<h2>构造器 - Constructors<a class="headerlink" href="#constructors" title="Permalink to this headline">¶</a></h2>
+<h2>构造器 - Constructors<a class="headerlink" href="#constructors" title="Permalink to this headline">#</a></h2>
 <p>designed to initialize the instance variables for an object.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Date</span> <span class="p">{</span>
     <span class="kd">private</span> <span class="kt">int</span> <span class="n">day</span><span class="p">;</span>
@@ -4032,7 +4115,7 @@ Good bye, stranger.
 <div class="admonition-quiz11-traffic-infringements admonition">
 <p class="admonition-title">Quiz11 - Traffic Infringements</p>
 <p>The traffic section of a Police Department wishes to automate the writing of warnings, fines etc. to motorists who exceed the 60km/hr speed limit and whether doing it under influence of liquor or not. Your task is to implement the following warning and fines in the program based on the corresponding conditions:</p>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nl">Condition</span><span class="p">:</span>                 <span class="n">Message</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nl">Condition:</span>                 <span class="n">Message</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
 
 <span class="o">&gt;</span> <span class="mi">60</span> <span class="n">and</span> <span class="o">&lt;</span> <span class="mi">65</span>              <span class="n">Warning</span>
 
@@ -4178,9 +4261,9 @@ Good bye, stranger.
 </div>
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="object-oriented-programming-objects-classes">
-<h1>面对对象一件套 - Object Oriented Programming, Objects, Classes<a class="headerlink" href="#object-oriented-programming-objects-classes" title="Permalink to this headline">¶</a></h1>
+<h1>面对对象一件套 - Object Oriented Programming, Objects, Classes<a class="headerlink" href="#object-oriented-programming-objects-classes" title="Permalink to this headline">#</a></h1>
 <div class="section" id="creating-class">
-<h2>创建类 - Creating Class<a class="headerlink" href="#creating-class" title="Permalink to this headline">¶</a></h2>
+<h2>创建类 - Creating Class<a class="headerlink" href="#creating-class" title="Permalink to this headline">#</a></h2>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Dog</span> <span class="p">{</span>
 
     <span class="c1">// Some instance variables.</span>
@@ -4203,7 +4286,7 @@ Good bye, stranger.
 <p>// The Dog class has the <strong>instance variables</strong>, <strong>name</strong> and <strong>age</strong>, which hold specific information about the dog.</p>
 </div>
 <div class="section" id="creating-methods">
-<h2>创建方法 - Creating Methods<a class="headerlink" href="#creating-methods" title="Permalink to this headline">¶</a></h2>
+<h2>创建方法 - Creating Methods<a class="headerlink" href="#creating-methods" title="Permalink to this headline">#</a></h2>
 <ul>
 <li><p>Methods can be thought of actions that can be run on classes and objects. Methods can take zero or more arguments as input, and can return either a single result, or no result at all.</p>
 <p>方法可以被认为是可以在类和对象上运行的动作。方法可以接受零个或多个参数作为输入，并且可以返回一个单一的结果，或者根本就没有结果。</p>
@@ -4233,7 +4316,7 @@ Good bye, stranger.
 </ul>
 </div>
 <div class="section" id="caution">
-<h2>注意事项 - Caution<a class="headerlink" href="#caution" title="Permalink to this headline">¶</a></h2>
+<h2>注意事项 - Caution<a class="headerlink" href="#caution" title="Permalink to this headline">#</a></h2>
 <p><strong>Syntax</strong></p>
 <ul class="simple">
 <li><p>Class names should match the name of the file they are defined in. The means if you have a class called Dog, the file name that it is in should be named Dog.java.</p></li>
@@ -4378,10 +4461,10 @@ Reason: Cleaning complete.
 <p><img alt="image-20210825193610298" src="../../_images/image-20210825193610298.png" /></p>
 </div>
 <div class="section" id="id12">
-<h3><a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<h3><a class="headerlink" href="#id12" title="Permalink to this headline">#</a></h3>
 </div>
 <div class="section" id="static-methods">
-<h3>静态方法 - Static Methods<a class="headerlink" href="#static-methods" title="Permalink to this headline">¶</a></h3>
+<h3>静态方法 - Static Methods<a class="headerlink" href="#static-methods" title="Permalink to this headline">#</a></h3>
 <ul>
 <li><p>A <em>static method</em> is one that can be used without a calling object</p>
 <p>一个<em>静态方法</em>是一个可以在没有调用对象的情况下使用的方法。</p>
@@ -4412,7 +4495,7 @@ Reason: Cleaning complete.
 </ul>
 </div>
 <div class="section" id="static-variables">
-<h3>静态变量 - Static Variables<a class="headerlink" href="#static-variables" title="Permalink to this headline">¶</a></h3>
+<h3>静态变量 - Static Variables<a class="headerlink" href="#static-variables" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>There is only one copy of a static variable per class.</p></li>
 <li><p>There is a separate copy of an instance variable for each object of the class</p></li>
@@ -4538,7 +4621,7 @@ Reason: Cleaning complete.
 </div>
 <hr class="docutils" />
 <div class="tex2jax_ignore mathjax_ignore section" id="id13">
-<h1>本章小结<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h1>
+<h1>本章小结<a class="headerlink" href="#id13" title="Permalink to this headline">#</a></h1>
 <ul>
 <li><p>Static methods:  Can be called without an object.</p></li>
 <li><p>Static variables:  Shared by all objects of this class.</p></li>
@@ -4562,7 +4645,7 @@ Reason: Cleaning complete.
 <li><p><img alt="image-20210825205917601" src="../../_images/image-20210825205917601.png" /></p></li>
 </ul>
 <div class="section" id="wrapper-class">
-<h2>封装类 - Wrapper Class<a class="headerlink" href="#wrapper-class" title="Permalink to this headline">¶</a></h2>
+<h2>封装类 - Wrapper Class<a class="headerlink" href="#wrapper-class" title="Permalink to this headline">#</a></h2>
 <p>Variables of primitive types are not Java objects.  That is, they are not of a class derived from class Object.</p>
 <p>That means we cannot have, for example, a java List of integers, because the List class can only have lists of Object elements.</p>
 <p>However, java provides classes that behave like the primitive types:</p>
@@ -4580,7 +4663,7 @@ int  -&gt; Integer
 </div>
 </div>
 <div class="section" id="boxing">
-<h2>Boxing<a class="headerlink" href="#boxing" title="Permalink to this headline">¶</a></h2>
+<h2>Boxing<a class="headerlink" href="#boxing" title="Permalink to this headline">#</a></h2>
 <p>The process of going from a value of a primitive type to an object of its wrapper class</p>
 <ul>
 <li><p>To convert a primitive value to an “equivalent” class type value, create an object of the corresponding wrapper class using the primitive value as an argument</p>
@@ -4596,7 +4679,7 @@ int  -&gt; Integer
 </ul>
 </div>
 <div class="section" id="unboxing">
-<h2>Unboxing<a class="headerlink" href="#unboxing" title="Permalink to this headline">¶</a></h2>
+<h2>Unboxing<a class="headerlink" href="#unboxing" title="Permalink to this headline">#</a></h2>
 <p>The process of going from an object of a wrapper class to the corresponding value of a
 primitive type.  <code class="docutils literal notranslate"><span class="pre">None</span> <span class="pre">of</span> <span class="pre">these</span> <span class="pre">methods</span> <span class="pre">take</span> <span class="pre">an</span> <span class="pre">argument</span></code></p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span>  <span class="n">Boolean</span><span class="p">.</span><span class="na">booleanValue</span><span class="p">()</span>
@@ -4610,14 +4693,14 @@ primitive type.  <code class="docutils literal notranslate"><span class="pre">No
 </div>
 </div>
 <div class="section" id="automatic-boxing-and-unboxing">
-<h2>Automatic boxing and unboxing<a class="headerlink" href="#automatic-boxing-and-unboxing" title="Permalink to this headline">¶</a></h2>
+<h2>Automatic boxing and unboxing<a class="headerlink" href="#automatic-boxing-and-unboxing" title="Permalink to this headline">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Integer</span> <span class="n">integerObject</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
 <span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">integerObject</span><span class="p">;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="static-method-string">
-<h2>Static Method - String 转换<a class="headerlink" href="#static-method-string" title="Permalink to this headline">¶</a></h2>
+<h2>Static Method - String 转换<a class="headerlink" href="#static-method-string" title="Permalink to this headline">#</a></h2>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Integer</span><span class="p">.</span><span class="na">parseInt</span> <span class="p">()</span>
 <span class="n">Long</span><span class="p">.</span><span class="na">parseLong</span> <span class="p">()</span>
 <span class="n">Float</span><span class="p">.</span><span class="na">parseFloat</span> <span class="p">()</span>
@@ -4627,7 +4710,7 @@ primitive type.  <code class="docutils literal notranslate"><span class="pre">No
 <p><code class="docutils literal notranslate"><span class="pre">Double.toString(123.99);</span></code>    returns the string value “123.99”</p>
 </div>
 <div class="section" id="case-sensitive">
-<h2>Case sensitive<a class="headerlink" href="#case-sensitive" title="Permalink to this headline">¶</a></h2>
+<h2>Case sensitive<a class="headerlink" href="#case-sensitive" title="Permalink to this headline">#</a></h2>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">static</span> <span class="kt">char</span> <span class="nf">toUpperCase</span><span class="p">(</span><span class="kt">char</span> <span class="n">argument</span><span class="p">)</span>
 <span class="kd">public</span> <span class="kd">static</span> <span class="kt">char</span> <span class="nf">toLowerCase</span><span class="p">(</span><span class="kt">char</span> <span class="n">argument</span><span class="p">)</span>
 </pre></div>
@@ -4681,7 +4764,7 @@ primitive type.  <code class="docutils literal notranslate"><span class="pre">No
 </div>
 </div>
 <div class="section" id="reference-and-class-parameters">
-<h2>引用 - Reference and class parameters<a class="headerlink" href="#reference-and-class-parameters" title="Permalink to this headline">¶</a></h2>
+<h2>引用 - Reference and class parameters<a class="headerlink" href="#reference-and-class-parameters" title="Permalink to this headline">#</a></h2>
 <p>计算机的两种内存</p>
 <ul class="simple">
 <li><p>Secondary memory (typically a hard disk, or flash drive like SSD) is used to hold files for “permanent” storage</p></li>
@@ -4693,7 +4776,7 @@ primitive type.  <code class="docutils literal notranslate"><span class="pre">No
 <li><p>“Virtual memory” allows the operating system allows some data from “main memory” to be stored on the hard drive instead of in RAM.  That is the reason we talk about main and secondary memory, instead of hard drive and RAM.  Main memory includes RAM plus virtual memory “swap space”.</p></li>
 </ul>
 <div class="section" id="main-memory">
-<h3>Main Memory<a class="headerlink" href="#main-memory" title="Permalink to this headline">¶</a></h3>
+<h3>Main Memory<a class="headerlink" href="#main-memory" title="Permalink to this headline">#</a></h3>
 <p>Main memory consists of a long list of numbered locations, each of which stores a <em>byte</em> (an integer from 0 to 255)</p>
 <p>主存储器由一长串编号的位置组成，每个位置存储一个*字节（从0到255的整数）。</p>
 <p>A byte contains eight <strong><em>b*<strong>inary dig</strong></em>its*</strong>, called <em>bits</em>, that can each be either 0 or 1.</p>
@@ -4707,7 +4790,7 @@ primitive type.  <code class="docutils literal notranslate"><span class="pre">No
 <p><img alt="img" src="../../_images/OsBOV8lHEFmOP6DtDgfEF9Um.png" /></p>
 </div>
 <div class="section" id="conversion">
-<h3>Conversion<a class="headerlink" href="#conversion" title="Permalink to this headline">¶</a></h3>
+<h3>Conversion<a class="headerlink" href="#conversion" title="Permalink to this headline">#</a></h3>
 <p>1 Byte = 8 bits</p>
 <p>1 kiB = 2^10 = 1024 bytes.  1 kB = 10^3 bytes</p>
 <p>1 MiB = 2^20 bytes.  1 MB = 10^6 bytes</p>
@@ -4716,7 +4799,7 @@ primitive type.  <code class="docutils literal notranslate"><span class="pre">No
 <p>2^64B = 16 x 2^60 ~ 16,000,000,000 GiB.  To paraphrase Bill Gates, that should be enough for anyone.</p>
 </div>
 <div class="section" id="reference">
-<h3>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h3>
+<h3>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">#</a></h3>
 <p>Every variable is stored in a <em>location</em> in computer memory.</p>
 <p>每个变量都存储在计算机内存的某个位置。</p>
 <ul>
@@ -4822,7 +4905,7 @@ primitive type.  <code class="docutils literal notranslate"><span class="pre">No
 </div>
 </div>
 <div class="section" id="and">
-<h2>= and ==<a class="headerlink" href="#and" title="Permalink to this headline">¶</a></h2>
+<h2>= and ==<a class="headerlink" href="#and" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>Assignment (=) causes two variables to be names for the same object; it does not create a copy.
 Changing the instance variables of the object referred to by one variable will cause cause changes in the object referred to by the other  variable, because it is the <em>same object</em>.</p></li>
@@ -4832,7 +4915,7 @@ To test for equality, use the member method <code class="docutils literal notran
 </ul>
 </div>
 <div class="section" id="null">
-<h2>空值 - Null<a class="headerlink" href="#null" title="Permalink to this headline">¶</a></h2>
+<h2>空值 - Null<a class="headerlink" href="#null" title="Permalink to this headline">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">null</span></code> is a special constant that may be assigned to a variable of any class</p>
 <ul class="simple">
 <li><p>e.g., <code class="docutils literal notranslate"><span class="pre">YourClass</span>&#160; <span class="pre">yourObject</span> <span class="pre">=</span> <span class="pre">null;</span></code></p></li>
@@ -4859,7 +4942,7 @@ To test for equality, use the member method <code class="docutils literal notran
 </pre></div>
 </div>
 <div class="section" id="using-and-misusing-references">
-<h3>Using and misusing references<a class="headerlink" href="#using-and-misusing-references" title="Permalink to this headline">¶</a></h3>
+<h3>Using and misusing references<a class="headerlink" href="#using-and-misusing-references" title="Permalink to this headline">#</a></h3>
 <p>When writing a program, it is very important to ensure that private instance variables remain truly private</p>
 <p>For a <code class="docutils literal notranslate"><span class="pre">primitive</span> <span class="pre">type</span> <span class="pre">instance</span> <span class="pre">variable</span></code>, just adding the <code class="docutils literal notranslate"><span class="pre">private</span></code> modifier to its declaration should insure that there will be no privacy leaks</p>
 <p>For a <code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">type</span> <span class="pre">instance</span> <span class="pre">variable</span></code>, however, adding the <code class="docutils literal notranslate"><span class="pre">private</span></code> modifier alone is not sufficient</p>
@@ -4868,7 +4951,7 @@ To test for equality, use the member method <code class="docutils literal notran
 </div>
 <hr class="docutils" />
 <div class="tex2jax_ignore mathjax_ignore section" id="id14">
-<h1>本章小结<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h1>
+<h1>本章小结<a class="headerlink" href="#id14" title="Permalink to this headline">#</a></h1>
 <p>In order to exist, a person must have (at least) a name and a birth date.  Therefore, makes sense not to have a no-argument Person class constructor.</p>
 <p>两个规则</p>
 <ul>
@@ -4924,7 +5007,7 @@ To test for equality, use the member method <code class="docutils literal notran
 </pre></div>
 </div>
 <div class="section" id="methods-equals-and-datesmatch">
-<h2>Methods equals and datesMatch<a class="headerlink" href="#methods-equals-and-datesmatch" title="Permalink to this headline">¶</a></h2>
+<h2>Methods equals and datesMatch<a class="headerlink" href="#methods-equals-and-datesmatch" title="Permalink to this headline">#</a></h2>
 <p>The definition of <code class="docutils literal notranslate"><span class="pre">equals</span></code> for the class <code class="docutils literal notranslate"><span class="pre">Person</span></code> includes an invocation of <code class="docutils literal notranslate"><span class="pre">equals</span></code> for the class <code class="docutils literal notranslate"><span class="pre">String</span></code>, and an invocation of the method <code class="docutils literal notranslate"><span class="pre">equals</span></code> for the class <code class="docutils literal notranslate"><span class="pre">Date</span></code></p>
 <p>Person类的equals定义包括对String类的equals的调用，以及对Date类的equals方法的调用</p>
 <p>Java determines which <code class="docutils literal notranslate"><span class="pre">equals</span></code> method is being invoked from the type of its calling object</p>
@@ -4961,7 +5044,7 @@ To test for equality, use the member method <code class="docutils literal notran
 </div>
 </div>
 <div class="section" id="copy-constructors">
-<h2>复制构造函数 - Copy constructors<a class="headerlink" href="#copy-constructors" title="Permalink to this headline">¶</a></h2>
+<h2>复制构造函数 - Copy constructors<a class="headerlink" href="#copy-constructors" title="Permalink to this headline">#</a></h2>
 <p>A <em>copy constructor</em> is a constructor with a single argument of the same type as the class.</p>
 <p>The copy constructor should create an object that is a separate, independent object, but with the instance variables set so that it is an exact copy of the argument object.</p>
 <p>复制构造函数应该创建一个单独的、独立的对象，但其实例变量的设置使其成为参数对象的精确拷贝。</p>
@@ -4989,7 +5072,7 @@ To test for equality, use the member method <code class="docutils literal notran
 <p><img alt="image-20210826000949833" src="../../_images/image-20210826000949833.png" /></p>
 </div>
 <div class="section" id="privacy-leaks">
-<h2>Privacy leaks - 隐私泄露<a class="headerlink" href="#privacy-leaks" title="Permalink to this headline">¶</a></h2>
+<h2>Privacy leaks - 隐私泄露<a class="headerlink" href="#privacy-leaks" title="Permalink to this headline">#</a></h2>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="n">Date</span> <span class="nf">getBirthDate</span><span class="p">()</span>
 <span class="p">{</span>
     <span class="k">return</span> <span class="n">born</span><span class="p">;</span> <span class="c1">//dangerous</span>
@@ -5003,7 +5086,7 @@ To test for equality, use the member method <code class="docutils literal notran
 </div>
 </div>
 <div class="section" id="mutable-and-immutable-classes">
-<h2>可变与不可变类 - Mutable and immutable classes<a class="headerlink" href="#mutable-and-immutable-classes" title="Permalink to this headline">¶</a></h2>
+<h2>可变与不可变类 - Mutable and immutable classes<a class="headerlink" href="#mutable-and-immutable-classes" title="Permalink to this headline">#</a></h2>
 <p>但是</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="n">String</span> <span class="nf">getName</span><span class="p">()</span>
 <span class="p">{</span>
@@ -5027,7 +5110,7 @@ To test for equality, use the member method <code class="docutils literal notran
 <p>永远不要写一个返回可变实例变量的方法。 相反，使用一个拷贝构造函数来返回一个完全独立的可变型对象的拷贝的引用</p>
 </div>
 <div class="section" id="deep-copy-vs-shallow-copy">
-<h2>深度复制与浅度复制 - Deep copy vs Shallow copy<a class="headerlink" href="#deep-copy-vs-shallow-copy" title="Permalink to this headline">¶</a></h2>
+<h2>深度复制与浅度复制 - Deep copy vs Shallow copy<a class="headerlink" href="#deep-copy-vs-shallow-copy" title="Permalink to this headline">#</a></h2>
 <p>A <em>deep copy</em> of an object is a copy that, with one exception, has <em>no references</em> in common with the original.  The exception is that references to immutable objects are allowed to be shared.</p>
 <p>一个对象的深度拷贝是一个副本，除了一个例外，它与原对象没有共同的引用。 这个例外是，对不可变对象的引用允许被共享。</p>
 <p>Any copy that is not a deep copy is called a <em>shallow copy</em>. This type of copy can cause dangerous privacy leaks in a program.</p>
@@ -5050,7 +5133,7 @@ To test for equality, use the member method <code class="docutils literal notran
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./Programming\JAVA"
+            path: "./Programming/JAVA"
         },
         predefinedOutput: true
     }
@@ -5059,9 +5142,11 @@ To test for equality, use the member method <code class="docutils literal notran
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="../programming_intro.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -5077,24 +5162,28 @@ To test for equality, use the member method <code class="docutils literal notran
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Quechen YANG, with thank to my GF Becky Yu<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Quechen YANG, with thank to my GF Becky Yu<br/>
-    
-        &copy; Copyright 2022.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>
