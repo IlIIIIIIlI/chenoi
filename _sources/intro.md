@@ -10,7 +10,7 @@ This book is for AI lover, not for exploitation!
 
 内容还在持续更新中，敬请关注。本文尽量使用中文攥写，在一些我认为英文更能体现原意的地方使用原文。以下是内容分布。
 
-最新更新时间：2022/Aug/13
+最新更新时间：2022/Aug/26
 
 ```{admonition} Content
 * Artificial Intelligence

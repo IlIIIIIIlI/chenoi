@@ -1,740 +1,702 @@
+
 <!DOCTYPE html>
 
 <html lang="en">
-
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GPU云计算平台 &#8212; Chenoi AI Lab</title>
-
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GPU云计算平台 &#8212; Chenoi AI Lab</title>
+    
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-  <link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
-
-  <link rel="stylesheet" href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-  <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-  <link rel="stylesheet"
-    href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
-  <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-  <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-  <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
-  <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-  <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
-  <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-  <script src="../../_static/jquery.js"></script>
-  <script src="../../_static/underscore.js"></script>
-  <script src="../../_static/doctools.js"></script>
-  <script src="../../_static/clipboard.min.js"></script>
-  <script src="../../_static/copybutton.js"></script>
-  <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
-  <script>let toggleHintShow = 'Click to show';</script>
-  <script>let toggleHintHide = 'Click to hide';</script>
-  <script>let toggleOpenOnPrint = 'true';</script>
-  <script src="../../_static/togglebutton.js"></script>
-  <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
-  <script kind="utterances">
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script kind="utterances">
 
     var commentsRunWhenDOMLoaded = cb => {
-      if (document.readyState != 'loading') {
+    if (document.readyState != 'loading') {
         cb()
-      } else if (document.addEventListener) {
+    } else if (document.addEventListener) {
         document.addEventListener('DOMContentLoaded', cb)
-      } else {
-        document.attachEvent('onreadystatechange', function () {
-          if (document.readyState == 'complete') cb()
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
         })
-      }
     }
+}
 
-    var addUtterances = () => {
-      var script = document.createElement("script");
-      script.type = "text/javascript";
-      script.src = "https://utteranc.es/client.js";
-      script.async = "async";
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
 
-      script.setAttribute("repo", "iliiiiiili/chenoi");
-      script.setAttribute("issue-term", "title");
-      script.setAttribute("theme", "boxy-light");
-      script.setAttribute("label", "✨💬✨");
-      script.setAttribute("crossorigin", "anonymous");
+    script.setAttribute("repo", "iliiiiiili/chenoi");
+    script.setAttribute("issue-term", "title");
+    script.setAttribute("theme", "boxy-light");
+    script.setAttribute("label", "✨💬✨");
+    script.setAttribute("crossorigin", "anonymous");
 
-      sections = document.querySelectorAll("div.section");
-      if (sections !== null) {
-        section = sections[sections.length - 1];
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
         section.appendChild(script);
-      }
     }
-    commentsRunWhenDOMLoaded(addUtterances);
-  </script>
-  <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-  <script src="../../_static/design-tabs.js"></script>
-  <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-    const thebe_selector = ".thebe,.cell"
-    const thebe_selector_input = "pre"
-    const thebe_selector_output = ".output, .cell_output"
-  </script>
-  <script async="async" src="../../_static/sphinx-thebe.js"></script>
-  <link rel="index" title="Index" href="../../genindex.html" />
-  <link rel="search" title="Search" href="../../search.html" />
-  <link rel="next" title="AMEX" href="AMEXnote.html" />
-  <link rel="prev" title="打比赛，一些网站的项目" href="AI_competition_intro.html" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="docsearch:language" content="en">
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="AMEX" href="AMEXnote.html" />
+    <link rel="prev" title="打比赛，一些网站的项目" href="AI_competition_intro.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en">
+    
 
+    <!-- Google Analytics -->
+    
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-X7Q6P8J04K"></script>
+<script>
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){ dataLayer.push(arguments); }
+                    gtag('js', new Date());
+                    gtag('config', 'G-X7Q6P8J04K');
+                </script>
 
-  <!-- Google Analytics -->
-
-  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-X7Q6P8J04K"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-X7Q6P8J04K');
-  </script>
-
-</head>
-
-<body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-  <!-- Checkboxes to toggle the left sidebar -->
-  <input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation"
-    aria-label="Toggle navigation sidebar">
-  <label class="overlay overlay-navbar" for="__navigation">
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
     <div class="visually-hidden">Toggle navigation sidebar</div>
-  </label>
-  <!-- Checkboxes to toggle the in-page toc -->
-  <input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc"
-    aria-label="Toggle in-page Table of Contents">
-  <label class="overlay overlay-pagetoc" for="__page-toc">
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
     <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint">Welcome to chenoiAI Lab</div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Chenoi AI Lab</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    本书简介 - ChenoiLab Coding Book
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  人工智障 - Artificial Intelligence
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../RF/RF_intro.html">
+   强化学习 - REINFORCEMENT LEARNING
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
   </label>
-  <!-- Headers at the top -->
-  <div class="announcement header-item noprint">Welcome to chenoiAI Lab</div>
-  <div class="header header-item noprint"></div>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../RF/Q_learning.html">
+     Q-learning
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  语言 - Programming Language
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../Programming/programming_intro.html">
+   学编程语言，就要学JAVA和C++
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Programming/JAVA/90041_1.html">
+     Basic JAVA
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  趣库 - Interesting staffs
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="AI_competition_intro.html">
+   打比赛，一些网站的项目
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     GPU云计算平台
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="AMEXnote.html">
+     AMEX
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="%E4%B8%AA%E8%B4%B7%E8%BF%9D%E7%BA%A6%E9%A2%84%E6%B5%8B.html">
+     个贷违约
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="%E9%93%B6%E8%A1%8C%E6%AC%BA%E8%AF%88%E6%A3%80%E6%B5%8B%E6%AF%94%E8%B5%9B.html">
+     银行欺诈检测比赛
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="%E4%BA%A7%E5%93%81%E8%AF%84%E8%AE%BA%E8%A7%82%E7%82%B9%E6%8F%90%E5%8F%96.html">
+     产品观点提取
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../i/i_intro.html">
+   每日都要锻炼君的
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../i/mental_cal.html">
+     practice mental calculation
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
 
-
-  <div class="container-fluid" id="banner"></div>
-
-
-
-  <div class="container-xl">
-    <div class="row">
-
-      <!-- Sidebar -->
-      <div class="bd-sidebar noprint" id="site-navigation">
-        <div class="bd-sidebar__content">
-          <div class="bd-sidebar__top">
-            <div class="navbar-brand-box">
-              <a class="navbar-brand text-wrap" href="../../index.html">
-
-                <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
-
-
-
-                <img src="../../_static/logo.jpg" class="logo" alt="logo">
-
-
-                <h1 class="site-logo" id="site-title">Chenoi AI Lab</h1>
-
-              </a>
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
-              <i class="icon fas fa-search"></i>
-              <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..."
-                aria-label="Search this book..." autocomplete="off">
-            </form>
-            <nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-              <div class="bd-toc-item active">
-
-                <ul class="nav bd-sidenav bd-sidenav__home-link">
-                  <li class="toctree-l1">
-                    <a class="reference internal" href="../../intro.html">
-                      本书简介 - ChenoiLab Coding Book
-                    </a>
-                  </li>
-                </ul>
-                <p aria-level="2" class="caption" role="heading">
-                  <span class="caption-text">
-                    人工智障 - Artificial Intelligence
-                  </span>
-                </p>
-                <ul class="nav bd-sidenav">
-                  <li class="toctree-l1 has-children">
-                    <a class="reference internal" href="../RF/RF_intro.html">
-                      强化学习 - REINFORCEMENT LEARNING
-                    </a>
-                    <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox" />
-                    <label for="toctree-checkbox-1">
-                      <i class="fas fa-chevron-down">
-                      </i>
-                    </label>
-                    <ul>
-                      <li class="toctree-l2">
-                        <a class="reference internal" href="../RF/Q_learning.html">
-                          Q-learning
-                        </a>
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
-                <p aria-level="2" class="caption" role="heading">
-                  <span class="caption-text">
-                    语言 - Programming Language
-                  </span>
-                </p>
-                <ul class="nav bd-sidenav">
-                  <li class="toctree-l1 has-children">
-                    <a class="reference internal" href="../../Programming/programming_intro.html">
-                      学编程语言，就要学JAVA和C++
-                    </a>
-                    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox" />
-                    <label for="toctree-checkbox-2">
-                      <i class="fas fa-chevron-down">
-                      </i>
-                    </label>
-                    <ul>
-                      <li class="toctree-l2">
-                        <a class="reference internal" href="../../Programming/JAVA/90041_1.html">
-                          Basic JAVA
-                        </a>
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
-                <p aria-level="2" class="caption" role="heading">
-                  <span class="caption-text">
-                    趣库 - Interesting staffs
-                  </span>
-                </p>
-                <ul class="current nav bd-sidenav">
-                  <li class="toctree-l1 current active has-children">
-                    <a class="reference internal" href="AI_competition_intro.html">
-                      打比赛，一些网站的项目
-                    </a>
-                    <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3"
-                      type="checkbox" />
-                    <label for="toctree-checkbox-3">
-                      <i class="fas fa-chevron-down">
-                      </i>
-                    </label>
-                    <ul class="current">
-                      <li class="toctree-l2 current active">
-                        <a class="current reference internal" href="#">
-                          GPU云计算平台
-                        </a>
-                      </li>
-                      <li class="toctree-l2">
-                        <a class="reference internal" href="AMEXnote.html">
-                          AMEX
-                        </a>
-                      </li>
-                      <li class="toctree-l2">
-                        <a class="reference internal"
-                          href="%E4%B8%AA%E8%B4%B7%E8%BF%9D%E7%BA%A6%E9%A2%84%E6%B5%8B.html">
-                          个贷违约
-                        </a>
-                      </li>
-                      <li class="toctree-l2">
-                        <a class="reference internal"
-                          href="%E9%93%B6%E8%A1%8C%E6%AC%BA%E8%AF%88%E6%A3%80%E6%B5%8B%E6%AF%94%E8%B5%9B.html">
-                          银行欺诈检测比赛
-                        </a>
-                      </li>
-                      <li class="toctree-l2">
-                        <a class="reference internal"
-                          href="%E4%BA%A7%E5%93%81%E8%AF%84%E8%AE%BA%E8%A7%82%E7%82%B9%E6%8F%90%E5%8F%96.html">
-                          产品观点提取
-                        </a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="toctree-l1 has-children">
-                    <a class="reference internal" href="../i/i_intro.html">
-                      每日都要锻炼君的
-                    </a>
-                    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox" />
-                    <label for="toctree-checkbox-4">
-                      <i class="fas fa-chevron-down">
-                      </i>
-                    </label>
-                    <ul>
-                      <li class="toctree-l2">
-                        <a class="reference internal" href="../i/mental_cal.html">
-                          practice mental calculation
-                        </a>
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
-
-              </div>
-            </nav>
-          </div>
-          <div class="bd-sidebar__bottom">
-            <!-- To handle the deprecated key -->
-
-
-
-          </div>
+            
         </div>
-        <div id="rtd-footer-container"></div>
-      </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
 
 
 
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
 
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
 
+</label>
 
-      <!-- A tiny helper pixel to detect if we've scrolled -->
-      <div class="sbt-scroll-pixel-helper"></div>
-      <!-- Main content -->
-      <div class="col py-0 content-container">
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/iliiiiiili/chenoi/gh-pages/?urlpath=tree/AI/AI_competition/云计算.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
 
-        <div class="header-article row sticky-top noprint">
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
 
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
 
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
 
+      </li>
+      
+    </ul>
+  </div>
+</div>
 
-          <div class="col py-1 d-flex header-article-main">
-            <div class="header-article__left">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
 
-              <label for="__navigation" class="headerbtn" data-toggle="tooltip" data-placement="right"
-                title="Toggle navigation">
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
 
+</button>
 
-                <span class="headerbtn__icon-container">
-                  <i class="fas fa-bars"></i>
-                </span>
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/AI/AI_competition/云计算.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
 
-              </label>
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
 
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
 
-            </div>
-            <div class="header-article__right">
-              <div class="menu-dropdown menu-dropdown-launch-buttons">
-                <button class="headerbtn menu-dropdown__trigger" aria-label="Launch interactive content">
-                  <i class="fas fa-rocket"></i>
-                </button>
-                <div class="menu-dropdown__content">
-                  <ul>
-                    <li>
-                      <a href="https://mybinder.org/v2/gh/iliiiiiili/chenoi/gh-pages/?urlpath=tree/AI/AI_competition/云计算.ipynb"
-                        class="headerbtn" data-toggle="tooltip" data-placement="left" title="Launch on Binder">
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
 
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
 
-                        <span class="headerbtn__icon-container">
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
 
-                          <img src="../../_static/images/logo_binder.svg">
-                        </span>
-                        <span class="headerbtn__text-container">Binder</span>
-                      </a>
+</label>
 
-                    </li>
+    </div>
+</div>
 
-                    <li>
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   GPU云计算平台
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cloud-computation-provider">
+   Cloud Computation Provider
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sagemaker">
+     sagemaker
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#azure-ml">
+     azure ML
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     恒源云
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     矩池云
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#autodl">
+     autoDL
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#trick">
+   云上trick
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     邮件提醒
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id9">
+       选择合适
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id10">
+       发布流程
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id15">
+       代码
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
 
-                      <button onclick="initThebeSBT()" class="headerbtn headerbtn-launch-thebe" data-toggle="tooltip"
-                        data-placement="left" title="Launch Thebe">
-
-
-                        <span class="headerbtn__icon-container">
-                          <i class="fas fa-play"></i>
-                        </span>
-                        <span class="headerbtn__text-container">Live Code</span>
-                      </button>
-
-                    </li>
-
-                  </ul>
-                </div>
-              </div>
-
-              <button onclick="toggleFullScreen()" class="headerbtn" data-toggle="tooltip" data-placement="bottom"
-                title="Fullscreen mode">
-
-
-                <span class="headerbtn__icon-container">
-                  <i class="fas fa-expand"></i>
-                </span>
-
-              </button>
-
-              <div class="menu-dropdown menu-dropdown-download-buttons">
-                <button class="headerbtn menu-dropdown__trigger" aria-label="Download this page">
-                  <i class="fas fa-download"></i>
-                </button>
-                <div class="menu-dropdown__content">
-                  <ul>
-                    <li>
-                      <a href="../../_sources/AI/AI_competition/云计算.ipynb" class="headerbtn" data-toggle="tooltip"
-                        data-placement="left" title="Download source file">
-
-
-                        <span class="headerbtn__icon-container">
-                          <i class="fas fa-file"></i>
-                        </span>
-                        <span class="headerbtn__text-container">.ipynb</span>
-                      </a>
-
-                    </li>
-
-                    <li>
-
-                      <button onclick="printPdf(this)" class="headerbtn" data-toggle="tooltip" data-placement="left"
-                        title="Print to PDF">
-
-
-                        <span class="headerbtn__icon-container">
-                          <i class="fas fa-file-pdf"></i>
-                        </span>
-                        <span class="headerbtn__text-container">.pdf</span>
-                      </button>
-
-                    </li>
-
-                  </ul>
-                </div>
-              </div>
-              <label for="__page-toc" class="headerbtn headerbtn-page-toc">
-
-
-                <span class="headerbtn__icon-container">
-                  <i class="fas fa-list"></i>
-                </span>
-
-              </label>
-
-            </div>
-          </div>
-
-          <!-- Table of contents -->
-          <div class="col-md-3 bd-toc show noprint">
-            <div class="tocsection onthispage pt-5 pb-3">
-              <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-              <ul class="visible nav section-nav flex-column">
-                <li class="toc-h1 nav-item toc-entry">
-                  <a class="reference internal nav-link" href="#">
-                    GPU云计算平台
-                  </a>
-                </li>
-                <li class="toc-h1 nav-item toc-entry">
-                  <a class="reference internal nav-link" href="#cloud-computation-provider">
-                    Cloud Computation Provider
-                  </a>
-                  <ul class="visible nav section-nav flex-column">
-                    <li class="toc-h2 nav-item toc-entry">
-                      <a class="reference internal nav-link" href="#sagemaker">
-                        sagemaker
-                      </a>
-                    </li>
-                    <li class="toc-h2 nav-item toc-entry">
-                      <a class="reference internal nav-link" href="#azure-ml">
-                        azure ML
-                      </a>
-                    </li>
-                    <li class="toc-h2 nav-item toc-entry">
-                      <a class="reference internal nav-link" href="#id3">
-                        恒源云
-                      </a>
-                    </li>
-                    <li class="toc-h2 nav-item toc-entry">
-                      <a class="reference internal nav-link" href="#id5">
-                        矩池云
-                      </a>
-                    </li>
-                    <li class="toc-h2 nav-item toc-entry">
-                      <a class="reference internal nav-link" href="#autodl">
-                        autoDL
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li class="toc-h1 nav-item toc-entry">
-                  <a class="reference internal nav-link" href="#trick">
-                    云上trick
-                  </a>
-                  <ul class="visible nav section-nav flex-column">
-                    <li class="toc-h2 nav-item toc-entry">
-                      <a class="reference internal nav-link" href="#id8">
-                        邮件提醒
-                      </a>
-                      <ul class="nav section-nav flex-column">
-                        <li class="toc-h3 nav-item toc-entry">
-                          <a class="reference internal nav-link" href="#id9">
-                            选择合适
-                          </a>
-                        </li>
-                        <li class="toc-h3 nav-item toc-entry">
-                          <a class="reference internal nav-link" href="#id10">
-                            发布流程
-                          </a>
-                        </li>
-                        <li class="toc-h3 nav-item toc-entry">
-                          <a class="reference internal nav-link" href="#id15">
-                            代码
-                          </a>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-
-            </nav>
-          </div>
-        </div>
-        <div class="article row">
-          <div class="col pl-md-3 pl-lg-5 content-container">
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-              <h1>GPU云计算平台</h1>
-              <!-- Table of contents -->
-              <div id="print-main-content">
-                <div id="jb-print-toc">
+                <h1>GPU云计算平台</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   GPU云计算平台
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cloud-computation-provider">
+   Cloud Computation Provider
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sagemaker">
+     sagemaker
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#azure-ml">
+     azure ML
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     恒源云
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     矩池云
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#autodl">
+     autoDL
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#trick">
+   云上trick
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     邮件提醒
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id9">
+       选择合适
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id10">
+       发布流程
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id15">
+       代码
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
 
-                  <div>
-                    <h2> Contents </h2>
-                  </div>
-                  <nav aria-label="Page">
-                    <ul class="visible nav section-nav flex-column">
-                      <li class="toc-h1 nav-item toc-entry">
-                        <a class="reference internal nav-link" href="#">
-                          GPU云计算平台
-                        </a>
-                      </li>
-                      <li class="toc-h1 nav-item toc-entry">
-                        <a class="reference internal nav-link" href="#cloud-computation-provider">
-                          Cloud Computation Provider
-                        </a>
-                        <ul class="visible nav section-nav flex-column">
-                          <li class="toc-h2 nav-item toc-entry">
-                            <a class="reference internal nav-link" href="#sagemaker">
-                              sagemaker
-                            </a>
-                          </li>
-                          <li class="toc-h2 nav-item toc-entry">
-                            <a class="reference internal nav-link" href="#azure-ml">
-                              azure ML
-                            </a>
-                          </li>
-                          <li class="toc-h2 nav-item toc-entry">
-                            <a class="reference internal nav-link" href="#id3">
-                              恒源云
-                            </a>
-                          </li>
-                          <li class="toc-h2 nav-item toc-entry">
-                            <a class="reference internal nav-link" href="#id5">
-                              矩池云
-                            </a>
-                          </li>
-                          <li class="toc-h2 nav-item toc-entry">
-                            <a class="reference internal nav-link" href="#autodl">
-                              autoDL
-                            </a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li class="toc-h1 nav-item toc-entry">
-                        <a class="reference internal nav-link" href="#trick">
-                          云上trick
-                        </a>
-                        <ul class="visible nav section-nav flex-column">
-                          <li class="toc-h2 nav-item toc-entry">
-                            <a class="reference internal nav-link" href="#id8">
-                              邮件提醒
-                            </a>
-                            <ul class="nav section-nav flex-column">
-                              <li class="toc-h3 nav-item toc-entry">
-                                <a class="reference internal nav-link" href="#id9">
-                                  选择合适
-                                </a>
-                              </li>
-                              <li class="toc-h3 nav-item toc-entry">
-                                <a class="reference internal nav-link" href="#id10">
-                                  发布流程
-                                </a>
-                              </li>
-                              <li class="toc-h3 nav-item toc-entry">
-                                <a class="reference internal nav-link" href="#id15">
-                                  代码
-                                </a>
-                              </li>
-                            </ul>
-                          </li>
-                        </ul>
-                      </li>
-                    </ul>
-
-                  </nav>
+                        </nav>
+                    </div>
                 </div>
-              </div>
             </div>
             <main id="main-content" role="main">
-
+                
               <div>
-
-                <div class="tex2jax_ignore mathjax_ignore section" id="gpu">
-                  <span id="id1"></span>
-                  <h1>GPU云计算平台<a class="headerlink" href="#gpu" title="Permalink to this headline">#</a></h1>
-                  <p>
-                    笔者相信在看的朋友在入门深度学习之后都会开始接触到GPU，那么GPU能做什么，能做多深，这点互联网上的篇幅数不胜数，大家可以自行了解，笔者在这里不过多阐述。在这篇文章中我主要分享下我踩过的坑，以及我踩坑之后对比出的优胜选项，供大家参考。因此这篇很有实用性，在大赛之前看上一看有助于大家省去大量时间。
-                  </p>
-                </div>
-                <div class="tex2jax_ignore mathjax_ignore section" id="cloud-computation-provider">
-                  <h1>Cloud Computation Provider<a class="headerlink" href="#cloud-computation-provider"
-                      title="Permalink to this headline">#</a></h1>
-                  <p>笔者用过的云计算平台（不讨论使用深度）有：</p>
-                  <ol class="simple">
-                    <li>
-                      <p><a class="reference external" href="https://console.aws.amazon.com/sagemaker/home">amazon
-                          sagemaker</a></p>
-                    </li>
-                    <li>
-                      <p><a class="reference external" href="https://portal.azure.com/?quickstart=true#home">azure
-                          ML</a></p>
-                    </li>
-                    <li>
-                      <p><a class="reference external"
-                          href="https://openbayes.com/console/chenoi/containers">OpenBayes</a></p>
-                    </li>
-                    <li>
-                      <p><a class="reference external" href="https://mistgpu.com/create_simple/">MistGPU</a></p>
-                    </li>
-                    <li>
-                      <p><a class="reference external" href="https://gpushare.com/">恒源云</a></p>
-                    </li>
-                    <li>
-                      <p><a class="reference external" href="https://matpool.com/host-market/gpu">矩池云</a></p>
-                    </li>
-                    <li>
-                      <p><a class="reference external"
-                          href="https://www.autodl.com/console/homepage/personal">autoDL</a></p>
-                    </li>
-                  </ol>
-                  <p>笔者将对上面1,2,5,6,7做个人体验评价。</p>
-                  <div class="section" id="sagemaker">
-                    <h2>sagemaker<a class="headerlink" href="#sagemaker" title="Permalink to this headline">#</a></h2>
-                    <p>如果看官非se或者dev，那么笔者是极度不推荐AWS这个平台的。用户体验而言笔者觉得还不如ali
-                      cloud。很多时候明明按照了文档或者油管视频进行操作，到最后发现有错误，且由于不是代码，能获得的只有一个错误的结果，而非解释该错误的过程。且在google上搜索，也不会像stack
-                      overflow一样有论坛，而是直接跳转到更多的aws文档中。</p>
-                    <div class="admonition warning">
-                      <p class="admonition-title">Warning</p>
-                      <p>AWS文档 -&gt; 出错 -&gt; google -&gt; AWS文档</p>
-                    </div>
-                    <p>由于笔者曾经误打误撞进了sagemaker，又因为其不像EC2一样有dashboard，或者提示计费情况，笔者在关闭网页后曾被该网站上过一课。</p>
-                    <img alt="../../_images/sagemaker.png" id="label" src="../../_images/sagemaker.png" />
-                  </div>
-                  <div class="section" id="azure-ml">
-                    <h2>azure ML<a class="headerlink" href="#azure-ml" title="Permalink to this headline">#</a></h2>
-                    <p>微软azure笔者认为是个不错的平台，其最大的特色是automated
-                      ML。代码变成拖动的模块，减少了码字的需求，减少了枯燥乏味的数据处理。但是运行费用不明朗。而且笔者个人认为不适合新手小白。这绝对不是一个捷径。</p>
-                    <img alt="../../_images/azure.png" id="id2" src="../../_images/azure.png" />
-                  </div>
-                  <div class="section" id="id3">
-                    <h2><a class="reference external"
-                        href="https://gpushare.com/auth/register?user=13*****5074&amp;fromId=3c810081f8a2&amp;source=link">恒源云</a><a
-                        class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
-                    <p>
-                      根据其官网的描述，笔者认为很多大佬应该都会用这个平台做学术论文。各方面都很不错，无论是性价比，技术文档，网盘空间还是优惠券，都深得我心。唯一的不足是在VScode上使用，由于IP影响，海外用户会有明显卡顿，如果后期改好了，我肯定还是会用这个平台的。
-                    </p>
-                    <img alt="../../_images/gpushare.png" id="id4" src="../../_images/gpushare.png" />
-                  </div>
-                  <div class="section" id="id5">
-                    <h2>矩池云<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h2>
-                    <p>这个各方面也不错，只不过价格是上面的两倍。</p>
-                    <img alt="../../_images/juzhen.png" id="id6" src="../../_images/juzhen.png" />
-                  </div>
-                  <div class="section" id="autodl">
-                    <h2><a class="reference external"
-                        href="https://www.autodl.com/register?code=5df374a0-a665-41e2-addf-fa6f463a2477">autoDL</a><a
-                        class="headerlink" href="#autodl" title="Permalink to this headline">#</a></h2>
-                    <p>这个是我目前在使用的，我认为各方面都和恒源云特别相似，不得不让人觉得是c-o-p-y的。出现时间比恒源云晚，操作手册基本一样。。但是！海外用户无延迟，且价格，，我认为是全网最低。<a
-                        class="reference external"
-                        href="https://www.autodl.com/register?code=5df374a0-a665-41e2-addf-fa6f463a2477">温馨提示：新用户送10元优惠券。</a>
-                    </p>
-                    <img alt="../../_images/autodl.png" id="id7" src="../../_images/autodl.png" />
-                    <p>感觉再过一段时间显卡就会被抢爆了。。。</p>
-                  </div>
-                </div>
-                <div class="tex2jax_ignore mathjax_ignore section" id="trick">
-                  <h1>云上trick<a class="headerlink" href="#trick" title="Permalink to this headline">#</a></h1>
-                  <div class="section" id="id8">
-                    <h2>邮件提醒<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h2>
-                    <p>笔者认为大家对于GPU平台的价格应该会是考虑的重中之重，毕竟显卡配置几家也都差不多。在以上这些provider中，恒源云有提供<a class="reference external"
-                        href="https://gpushare.com/docs/best_practices/train/#upload%60">执行训练并自动上传结果后关机</a>的教程。这是因为他们有配套的oss系统，能把运行结果上传到个人网盘，那么对于其他没有这种自动关机的GPU平台来说，要想知道运行进度，好像唯有打印log方法。但是log保存在云上，想实时监控也得登上去看，时刻挂念着运行进度，这真的是“磨人的小妖精”。那么，有什么办法能够使我们定时或者及时知道程序运行完了呢？笔者在实际体验后认为，估算运行时间是一种方法，但是用代码直接发送进度给邮件，感觉这应该会不错，那么实际操作难度如何呢？了解以下几点可使你减少大量时间。
-                    </p>
-                    <div class="section" id="id9">
-                      <h3>选择合适<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h3>
-                      <p>
-                        要想使用代码发送邮件，首先得了解一个概念，谁来发送？如果我们将邮件发送的代码放在云上，运行的时候，云端执行。因此我们发送邮件（或者访问登录发件人邮件）的位置在于服务器所在地点。根据以上云服务商，中文字的都在国内，因此如果你使用中文的提供商，邮箱最好使用QQ或者网易。如果不是的话，那么google、yahoo或者GXM都是可以的。
-                      </p>
-                    </div>
-                    <div class="section" id="id10">
-                      <h3>发布流程<a class="headerlink" href="#id10" title="Permalink to this headline">#</a></h3>
-                      <div class="admonition note">
-                        <p class="admonition-title">Note</p>
-                        <p>获得SMTP服务器 -&gt; 代码登录 -&gt; 获得SMTP协议 -&gt; 发送邮件</p>
-                      </div>
-                      <p>看官可以发现流程中我提到的SMTP，全称是“Simple Mail Transfer
-                        Protocol”，即简单邮件传输协议。简单地说就是要求必须在提供了账户名和密码之后才可以登录SMTP服务器。一旦我们登录了SMTP服务器，输入App
-                        password，然后我们就可以发送邮件了，是不是很简单。因此我们至少需要确定两点。</p>
-                      <ul class="simple">
-                        <li>
-                          <p>确定该邮件提供商有SMTP server，以及最好有非SSL端口</p>
-                        </li>
-                        <li>
-                          <p>确定该邮件有客户端授权密码（app password），这种密码和一般的密码不一样，是用于server登录的。</p>
-                        </li>
-                      </ul>
-                      <p>用Yahoo邮箱举例：
-                        <a class="reference external" href="https://login.yahoo.com/myaccount/security/">设定完app
-                          password后</a>，直接将生成的key放入代码就可以使用
-                      </p>
-                      <img alt="../../_images/yahoo2.png" id="id11" src="../../_images/yahoo2.png" />
-                      <div class="admonition warning">
-                        <p class="admonition-title">Warning</p>
-                        <p>但是不知什么原因这段时间用不了了，google也是一样，<a class="reference external"
-                            href="https://www.reddit.com/r/yahoo/comments/v5hkc6/yahoo_mail_app_password_not_working/">reddit论坛</a>可以搜索到相关信息。
-                        </p>
-                        <img alt="../../_images/yahoo.png" id="id12" src="../../_images/yahoo.png" />
-                      </div>
-                      <p>但是没关系，对于我们国内的小伙伴来说，就算他可以使用，服务器也因为一些原因无法访问到这些服务商。我们还是相信伟大的网易。</p>
-                      <ul class="simple">
-                        <li>
-                          <p>首先我们先登录<a class="reference external" href="https://email.163.com/">网易云邮箱</a>, 并在设置中进入SMTP选项
-                          </p>
-                        </li>
-                      </ul>
-                      <img alt="../../_images/netease2.png" id="id13" src="../../_images/netease2.png" />
-                      <ul class="simple">
-                        <li>
-                          <p>开启服务</p>
-                        </li>
-                      </ul>
-                      <img alt="../../_images/netease3.png" id="id14" src="../../_images/netease3.png" />
-                      <p>这时我们已经接近完成了！</p>
-                    </div>
-                    <div class="section" id="id15">
-                      <h3>代码<a class="headerlink" href="#id15" title="Permalink to this headline">#</a></h3>
-                      <p>在开码之前，我们把最后一个参数处理了，即服务器端口。由于咱们大部分的GPU云都是本地服务，没有SSL证书，因此我们需要走<a class="reference external"
-                          href="https://help.mail.163.com/faqDetail.do?code=d7a5dc8471cd0c0e8b4b8f4f8e49998b374173cfe9171305fa1ce630d7f67ac21b87735d7227c217">25通道</a>，由于笔者之前玩过EC2和SSL证书，所以这一步踩坑比较快。
-                      </p>
-                      <div class="cell docutils container">
-                        <div class="cell_input docutils container">
-                          <div class="highlight-ipython3 notranslate">
-                            <div class="highlight">
-                              <pre><span></span><span class="kn">from</span> <span class="nn">email.mime.text</span> <span class="kn">import</span> <span class="n">MIMEText</span>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="gpu">
+<span id="id1"></span><h1>GPU云计算平台<a class="headerlink" href="#gpu" title="Permalink to this headline">#</a></h1>
+<p>笔者相信在看的朋友在入门深度学习之后都会开始接触到GPU，那么GPU能做什么，能做多深，这点互联网上的篇幅数不胜数，大家可以自行了解，笔者在这里不过多阐述。在这篇文章中我主要分享下我踩过的坑，以及我踩坑之后对比出的优胜选项，供大家参考。因此这篇很有实用性，在大赛之前看上一看有助于大家省去大量时间。</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="cloud-computation-provider">
+<h1>Cloud Computation Provider<a class="headerlink" href="#cloud-computation-provider" title="Permalink to this headline">#</a></h1>
+<p>笔者用过的云计算平台（不讨论使用深度）有：</p>
+<ol class="simple">
+<li><p><a class="reference external" href="https://console.aws.amazon.com/sagemaker/home">amazon sagemaker</a></p></li>
+<li><p><a class="reference external" href="https://portal.azure.com/?quickstart=true#home">azure ML</a></p></li>
+<li><p><a class="reference external" href="https://openbayes.com/console/chenoi/containers">OpenBayes</a></p></li>
+<li><p><a class="reference external" href="https://mistgpu.com/create_simple/">MistGPU</a></p></li>
+<li><p><a class="reference external" href="https://gpushare.com/">恒源云</a></p></li>
+<li><p><a class="reference external" href="https://matpool.com/host-market/gpu">矩池云</a></p></li>
+<li><p><a class="reference external" href="https://www.autodl.com/console/homepage/personal">autoDL</a></p></li>
+</ol>
+<p>笔者将对上面1,2,5,6,7做个人体验评价。</p>
+<div class="section" id="sagemaker">
+<h2>sagemaker<a class="headerlink" href="#sagemaker" title="Permalink to this headline">#</a></h2>
+<p>如果看官非se或者dev，那么笔者是极度不推荐AWS这个平台的。用户体验而言笔者觉得还不如ali cloud。很多时候明明按照了文档或者油管视频进行操作，到最后发现有错误，且由于不是代码，能获得的只有一个错误的结果，而非解释该错误的过程。且在google上搜索，也不会像stack overflow一样有论坛，而是直接跳转到更多的aws文档中。</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>AWS文档 -&gt; 出错 -&gt; google -&gt; AWS文档</p>
+</div>
+<p>由于笔者曾经误打误撞进了sagemaker，又因为其不像EC2一样有dashboard，或者提示计费情况，笔者在关闭网页后曾被该网站上过一课。</p>
+<img alt="../../_images/sagemaker.png" id="label" src="../../_images/sagemaker.png" />
+</div>
+<div class="section" id="azure-ml">
+<h2>azure ML<a class="headerlink" href="#azure-ml" title="Permalink to this headline">#</a></h2>
+<p>微软azure笔者认为是个不错的平台，其最大的特色是automated ML。代码变成拖动的模块，减少了码字的需求，减少了枯燥乏味的数据处理。但是运行费用不明朗。而且笔者个人认为不适合新手小白。这绝对不是一个捷径。</p>
+<img alt="../../_images/azure.png" id="id2" src="../../_images/azure.png" />
+</div>
+<div class="section" id="id3">
+<h2><a class="reference external" href="https://gpushare.com/auth/register?user=13*****5074&amp;fromId=3c810081f8a2&amp;source=link">恒源云</a><a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
+<p>根据其官网的描述，笔者认为很多大佬应该都会用这个平台做学术论文。各方面都很不错，无论是性价比，技术文档，网盘空间还是优惠券，都深得我心。唯一的不足是在VScode上使用，由于IP影响，海外用户会有明显卡顿，如果后期改好了，我肯定还是会用这个平台的。</p>
+<img alt="../../_images/gpushare.png" id="id4" src="../../_images/gpushare.png" />
+</div>
+<div class="section" id="id5">
+<h2>矩池云<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h2>
+<p>这个各方面也不错，只不过价格是上面的两倍。</p>
+<img alt="../../_images/juzhen.png" id="id6" src="../../_images/juzhen.png" />
+</div>
+<div class="section" id="autodl">
+<h2><a class="reference external" href="https://www.autodl.com/register?code=5df374a0-a665-41e2-addf-fa6f463a2477">autoDL</a><a class="headerlink" href="#autodl" title="Permalink to this headline">#</a></h2>
+<p>这个是我目前在使用的，我认为各方面都和恒源云特别相似，不得不让人觉得是c-o-p-y的。出现时间比恒源云晚，操作手册基本一样。。但是！海外用户无延迟，且价格，，我认为是全网最低。<a class="reference external" href="https://www.autodl.com/register?code=5df374a0-a665-41e2-addf-fa6f463a2477">温馨提示：新用户送10元优惠券。</a></p>
+<img alt="../../_images/autodl.png" id="id7" src="../../_images/autodl.png" />
+<p>感觉再过一段时间显卡就会被抢爆了。。。</p>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="trick">
+<h1>云上trick<a class="headerlink" href="#trick" title="Permalink to this headline">#</a></h1>
+<div class="section" id="id8">
+<h2>邮件提醒<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h2>
+<p>笔者认为大家对于GPU平台的价格应该会是考虑的重中之重，毕竟显卡配置几家也都差不多。在以上这些provider中，恒源云有提供<a class="reference external" href="https://gpushare.com/docs/best_practices/train/#upload%60">执行训练并自动上传结果后关机</a>的教程。这是因为他们有配套的oss系统，能把运行结果上传到个人网盘，那么对于其他没有这种自动关机的GPU平台来说，要想知道运行进度，好像唯有打印log方法。但是log保存在云上，想实时监控也得登上去看，时刻挂念着运行进度，这真的是“磨人的小妖精”。那么，有什么办法能够使我们定时或者及时知道程序运行完了呢？笔者在实际体验后认为，估算运行时间是一种方法，但是用代码直接发送进度给邮件，感觉这应该会不错，那么实际操作难度如何呢？了解以下几点可使你减少大量时间。</p>
+<div class="section" id="id9">
+<h3>选择合适<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h3>
+<p>要想使用代码发送邮件，首先得了解一个概念，谁来发送？如果我们将邮件发送的代码放在云上，运行的时候，云端执行。因此我们发送邮件（或者访问登录发件人邮件）的位置在于服务器所在地点。根据以上云服务商，中文字的都在国内，因此如果你使用中文的提供商，邮箱最好使用QQ或者网易。如果不是的话，那么google、yahoo或者GXM都是可以的。</p>
+</div>
+<div class="section" id="id10">
+<h3>发布流程<a class="headerlink" href="#id10" title="Permalink to this headline">#</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>获得SMTP服务器 -&gt; 代码登录 -&gt; 获得SMTP协议 -&gt; 发送邮件</p>
+</div>
+<p>看官可以发现流程中我提到的SMTP，全称是“Simple Mail Transfer Protocol”，即简单邮件传输协议。简单地说就是要求必须在提供了账户名和密码之后才可以登录SMTP服务器。一旦我们登录了SMTP服务器，输入App password，然后我们就可以发送邮件了，是不是很简单。因此我们至少需要确定两点。</p>
+<ul class="simple">
+<li><p>确定该邮件提供商有SMTP server，以及最好有非SSL端口</p></li>
+<li><p>确定该邮件有客户端授权密码（app password），这种密码和一般的密码不一样，是用于server登录的。</p></li>
+</ul>
+<p>用Yahoo邮箱举例：
+<a class="reference external" href="https://login.yahoo.com/myaccount/security/">设定完app password后</a>，直接将生成的key放入代码就可以使用</p>
+<img alt="../../_images/yahoo2.png" id="id11" src="../../_images/yahoo2.png" />
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>但是不知什么原因这段时间用不了了，google也是一样，<a class="reference external" href="https://www.reddit.com/r/yahoo/comments/v5hkc6/yahoo_mail_app_password_not_working/">reddit论坛</a>可以搜索到相关信息。</p>
+<img alt="../../_images/yahoo.png" id="id12" src="../../_images/yahoo.png" />
+</div>
+<p>但是没关系，对于我们国内的小伙伴来说，就算他可以使用，服务器也因为一些原因无法访问到这些服务商。我们还是相信伟大的网易。</p>
+<ul class="simple">
+<li><p>首先我们先登录<a class="reference external" href="https://email.163.com/">网易云邮箱</a>, 并在设置中进入SMTP选项</p></li>
+</ul>
+<img alt="../../_images/netease2.png" id="id13" src="../../_images/netease2.png" />
+<ul class="simple">
+<li><p>开启服务</p></li>
+</ul>
+<img alt="../../_images/netease3.png" id="id14" src="../../_images/netease3.png" />
+<p>这时我们已经接近完成了！</p>
+</div>
+<div class="section" id="id15">
+<h3>代码<a class="headerlink" href="#id15" title="Permalink to this headline">#</a></h3>
+<p>在开码之前，我们把最后一个参数处理了，即服务器端口。由于咱们大部分的GPU云都是本地服务，没有SSL证书，因此我们需要走<a class="reference external" href="https://help.mail.163.com/faqDetail.do?code=d7a5dc8471cd0c0e8b4b8f4f8e49998b374173cfe9171305fa1ce630d7f67ac21b87735d7227c217">25通道</a>，由于笔者之前玩过EC2和SSL证书，所以这一步踩坑比较快。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">email.mime.text</span> <span class="kn">import</span> <span class="n">MIMEText</span>
 <span class="kn">import</span> <span class="nn">smtplib</span><span class="o">,</span> <span class="nn">ssl</span> <span class="c1">#import ssl module</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">from</span> <span class="nn">email.header</span> <span class="kn">import</span> <span class="n">Header</span>
@@ -748,17 +710,16 @@
     <span class="n">msg</span><span class="p">[</span><span class="s1">&#39;Subject&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Header</span><span class="p">(</span><span class="s2">&quot;email_header_example&quot;</span><span class="p">,</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
     <span class="n">server</span><span class="o">.</span><span class="n">sendmail</span><span class="p">(</span><span class="s1">&#39;example@163.com&#39;</span><span class="p">,</span> <span class="s1">&#39;receiver_example@gmail.com&#39;</span><span class="p">,</span> <span class="n">msg</span><span class="o">.</span><span class="n">as_string</span><span class="p">())</span>
     <span class="n">server</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
-</pre>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <p>怎么样，是不是很简单。笔者为实现该功能花了五小时。。。这主要还是受到了google 5月30日 新政策的影响。罢了罢了。。。</p>
-                    </div>
-                  </div>
-                </div>
+</pre></div>
+</div>
+</div>
+</div>
+<p>怎么样，是不是很简单。笔者为实现该功能花了五小时。。。这主要还是受到了google 5月30日 新政策的影响。罢了罢了。。。</p>
+</div>
+</div>
+</div>
 
-                <script type="text/x-thebe-config">
+    <script type="text/x-thebe-config">
     {
         requestKernel: true,
         binderOptions: {
@@ -776,54 +737,52 @@
         predefinedOutput: true
     }
     </script>
-                <script>kernelName = 'python3'</script>
+    <script>kernelName = 'python3'</script>
 
               </div>
-
+              
             </main>
             <footer class="footer-article noprint">
-
-              <!-- Previous / next buttons -->
-              <div class='prev-next-area'>
-                <a class='left-prev' id="prev-link" href="AI_competition_intro.html" title="previous page">
-                  <i class="fas fa-angle-left"></i>
-                  <div class="prev-next-info">
-                    <p class="prev-next-subtitle">previous</p>
-                    <p class="prev-next-title">打比赛，一些网站的项目</p>
-                  </div>
-                </a>
-                <a class='right-next' id="next-link" href="AMEXnote.html" title="next page">
-                  <div class="prev-next-info">
-                    <p class="prev-next-subtitle">next</p>
-                    <p class="prev-next-title">AMEX</p>
-                  </div>
-                  <i class="fas fa-angle-right"></i>
-                </a>
-              </div>
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="AI_competition_intro.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">打比赛，一些网站的项目</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="AMEXnote.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">AMEX</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
             </footer>
-          </div>
         </div>
-        <div class="footer-content row">
-          <footer class="col footer">
-            <p>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Quechen YANG, with thank to my GF Becky Yu<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
 
-              By Quechen YANG, with thank to my GF Becky Yu<br />
-
-              &copy; Copyright 2022.<br />
-            </p>
-          </footer>
-        </div>
 
       </div>
-
-
     </div>
-  </div>
-
+  
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
   <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
 
 
-</body>
-
+  </body>
 </html>
