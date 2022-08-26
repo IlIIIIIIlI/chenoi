@@ -107,6 +107,10 @@
 # In[4]:
 
 
+from email.mime.text import MIMEText
+import smtplib, ssl #import ssl module
+import os
+from email.header import Header
 def email(contents):        
     # a f**k non-ssl port, you have to use it
     server = smtplib.SMTP('smtp.163.com', 25)

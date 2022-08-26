@@ -46,7 +46,7 @@ html:
   # use_repository_button: true
   google_analytics_id: G-X7Q6P8J04K
   announcement: "Welcome to chenoiAI Lab"
-  use_multitoc_numbering: false
+  use_multitoc_numbering: true
   comments:
     hypothesis: true
     utterances:

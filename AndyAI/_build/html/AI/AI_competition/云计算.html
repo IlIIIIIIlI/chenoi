@@ -86,7 +86,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="个贷违约" href="%E4%B8%AA%E8%B4%B7%E8%BF%9D%E7%BA%A6%E9%A2%84%E6%B5%8B.html" />
+    <link rel="next" title="AMEX" href="AMEXnote.html" />
     <link rel="prev" title="打比赛，一些网站的项目" href="AI_competition_intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
@@ -222,6 +222,11 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      GPU云计算平台
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="AMEXnote.html">
+     AMEX
     </a>
    </li>
    <li class="toctree-l2">
@@ -691,7 +696,11 @@ title="Print to PDF"
 <p>在开码之前，我们把最后一个参数处理了，即服务器端口。由于咱们大部分的GPU云都是本地服务，没有SSL证书，因此我们需要走<a class="reference external" href="https://help.mail.163.com/faqDetail.do?code=d7a5dc8471cd0c0e8b4b8f4f8e49998b374173cfe9171305fa1ce630d7f67ac21b87735d7227c217">25通道</a>，由于笔者之前玩过EC2和SSL证书，所以这一步踩坑比较快。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">email</span><span class="p">(</span><span class="n">contents</span><span class="p">):</span>        
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">email.mime.text</span> <span class="kn">import</span> <span class="n">MIMEText</span>
+<span class="kn">import</span> <span class="nn">smtplib</span><span class="o">,</span> <span class="nn">ssl</span> <span class="c1">#import ssl module</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">email.header</span> <span class="kn">import</span> <span class="n">Header</span>
+<span class="k">def</span> <span class="nf">email</span><span class="p">(</span><span class="n">contents</span><span class="p">):</span>        
     <span class="c1"># a f**k non-ssl port, you have to use it</span>
     <span class="n">server</span> <span class="o">=</span> <span class="n">smtplib</span><span class="o">.</span><span class="n">SMTP</span><span class="p">(</span><span class="s1">&#39;smtp.163.com&#39;</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
     <span class="c1"># server.starttls()</span>
@@ -744,10 +753,10 @@ title="Print to PDF"
             <p class="prev-next-title">打比赛，一些网站的项目</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="%E4%B8%AA%E8%B4%B7%E8%BF%9D%E7%BA%A6%E9%A2%84%E6%B5%8B.html" title="next page">
+    <a class='right-next' id="next-link" href="AMEXnote.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">个贷违约</p>
+        <p class="prev-next-title">AMEX</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
