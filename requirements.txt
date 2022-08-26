@@ -2,6 +2,6 @@ jupyter-book
 matplotlib
 numpy
 pandas
+pymongo[srv]
 pymongo
 tqdm
-pymongo[srv]

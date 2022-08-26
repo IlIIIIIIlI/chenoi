@@ -26,6 +26,7 @@ parts:
       - file: AI/AI_competition/AI_competition_intro
         sections:
           - file: AI/AI_competition/云计算
+          - file: AI/AI_competition/AMEXnote
           - file: AI/AI_competition/个贷违约预测
           - file: AI/AI_competition/银行欺诈检测比赛
           - file: AI/AI_competition/产品评论观点提取

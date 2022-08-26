@@ -4,7 +4,7 @@
 # (mentalCal)=
 # # practice mental calculation
 
-# In[22]:
+# In[3]:
 
 
 import random 
@@ -28,7 +28,7 @@ def insert(test, collection):
 
 pd.set_option("display.max_rows", None)
 client = MongoClient(
-    "mongodb+srv://Andyyang:Beckyismygirl@chenoilab.wfhpnl3.mongodb.net/?retryWrites=true&w=majority"
+    "mongodb+srv://Andyyang:dRk5ZcCl0AzjiWAr@chenoilab.wfhpnl3.mongodb.net/?connect=direct"
 )
 db = client["Calculation"]
 collection = db["Calculation"]
