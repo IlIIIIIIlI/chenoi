@@ -46,7 +46,7 @@ html:
   # use_repository_button: true
   google_analytics_id: G-X7Q6P8J04K
   announcement: "Welcome to chenoiAI Lab"
-  use_multitoc_numbering: true
+  use_multitoc_numbering: false
   comments:
     hypothesis: true
     utterances:
@@ -56,9 +56,35 @@ html:
       theme: "boxy-light"
 
 sphinx:
+  extra_extensions:
+    # - ["sphinx_rtd_dark_mode"]
+    # - sphinx_immaterial
+
   config:
     language: en
-# #         html_theme: quantecon_book_theme
+    # html_theme: sphinx_immaterial
+    # html_theme_options:
+    #   palette:
+    #     - media: "(prefers-color-scheme: light)"
+    #       scheme: default
+    #       toggle:
+    #         icon: material/toggle-switch-off-outline
+    #         name: Switch to dark mode
+    #     - media: "(prefers-color-scheme: dark)"
+    #       scheme: slate
+    #       toggle:
+    #         icon: material/toggle-switch
+    #         name: Switch to light mode
+    #   features:
+    #     - navigation.expand
+    #   extra:
+    #     alternate:
+    #       - name: English
+    #         link: /en/
+    #         lang: en
+    #       - name: Chinese (Traditional)
+    #         link: /zh-Hant/
+    #         lang: zh-Hant
 
 repository:
   url: https://github.com/iliiiiiili/chenoi # Online location of your book

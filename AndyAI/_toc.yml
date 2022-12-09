@@ -13,6 +13,7 @@ parts:
       - file: AI/RF/RF_intro
         sections:
           - file: AI/RF/Q_learning
+          - file: AI/RF/MinMax
   # 编程语言章节
   - caption: 语言 - Programming Language
     chapters:
@@ -21,6 +22,7 @@ parts:
           - file: Programming/JAVA/90041_1
   # 有趣的章节
   - caption: 趣库 - Interesting staffs
+    numbered: True
     chapters:
       # AI_competition
       - file: AI/AI_competition/AI_competition_intro
